@@ -11,9 +11,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QuanLyThietBiDienGiaDung
 {
-    public partial class KhoHang : Form
+    public partial class frmKhoHang : Form
     {
-        public KhoHang()
+        public frmKhoHang()
         {
             InitializeComponent();
 

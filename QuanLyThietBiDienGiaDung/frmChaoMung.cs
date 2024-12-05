@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyThietBiDienGiaDung
 {
-    public partial class ChaoMung : Form
+    public partial class frmChaoMung : Form
     {
-        public ChaoMung()
+        public frmChaoMung()
         {
             InitializeComponent();
         }

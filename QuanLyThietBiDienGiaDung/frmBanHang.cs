@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyThietBiDienGiaDung
 {
-    public partial class BanHang : Form
+    public partial class frmBanHang : Form
     {
-        public BanHang()
+        public frmBanHang()
         {
             InitializeComponent();
         }

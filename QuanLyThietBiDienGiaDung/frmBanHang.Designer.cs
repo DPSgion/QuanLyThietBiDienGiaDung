@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThietBiDienGiaDung
 {
-    partial class BanHang
+    partial class frmBanHang
     {
         /// <summary>
         /// Required designer variable.

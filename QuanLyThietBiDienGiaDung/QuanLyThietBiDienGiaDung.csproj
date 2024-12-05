@@ -46,31 +46,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BanHang.cs">
+    <Compile Include="frmBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BanHang.Designer.cs">
-      <DependentUpon>BanHang.cs</DependentUpon>
+    <Compile Include="frmBanHang.Designer.cs">
+      <DependentUpon>frmBanHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChaoMung.cs">
+    <Compile Include="frmChaoMung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChaoMung.Designer.cs">
-      <DependentUpon>ChaoMung.cs</DependentUpon>
+    <Compile Include="frmChaoMung.Designer.cs">
+      <DependentUpon>frmChaoMung.cs</DependentUpon>
     </Compile>
-    <Compile Include="KhoHang.cs">
+    <Compile Include="frmSuaSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KhoHang.Designer.cs">
-      <DependentUpon>KhoHang.cs</DependentUpon>
+    <Compile Include="frmSuaSanPham.Designer.cs">
+      <DependentUpon>frmSuaSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKhoHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKhoHang.Designer.cs">
+      <DependentUpon>frmKhoHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ChaoMung.resx">
-      <DependentUpon>ChaoMung.cs</DependentUpon>
+    <EmbeddedResource Include="frmChaoMung.resx">
+      <DependentUpon>frmChaoMung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KhoHang.resx">
-      <DependentUpon>KhoHang.cs</DependentUpon>
+    <EmbeddedResource Include="frmSuaSanPham.resx">
+      <DependentUpon>frmSuaSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKhoHang.resx">
+      <DependentUpon>frmKhoHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -80,6 +89,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -93,6 +103,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recycle-bin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
