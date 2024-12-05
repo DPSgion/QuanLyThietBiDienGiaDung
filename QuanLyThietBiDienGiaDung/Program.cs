@@ -16,7 +16,7 @@ namespace QuanLyThietBiDienGiaDung
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ChaoMung());
+            Application.Run(new KhoHang());
         }
     }
 }
