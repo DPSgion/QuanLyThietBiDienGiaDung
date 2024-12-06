@@ -7,20 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QuanLyThietBiDienGiaDung
 {
-    public partial class frmKhoHang : Form
+    public partial class frmMain : Form
     {
-        public frmKhoHang()
+        public frmMain()
         {
             InitializeComponent();
+
             runTest();
-
-
         }
-
         private void runTest()
         {
             dgvHang.Rows[0].Cells[0].Value = "ML001";
@@ -33,6 +30,7 @@ namespace QuanLyThietBiDienGiaDung
             dgvHang.Rows[0].Cells[6].Value = "235";
             dgvHang.Rows[0].Cells[7].Value = "17.000.000";
         }
+
 
         private void cboTimMaSP_Enter(object sender, EventArgs e)
         {
@@ -70,6 +68,7 @@ namespace QuanLyThietBiDienGiaDung
             }
         }
 
+
         private void rdoTimTenSP_CheckedChanged(object sender, EventArgs e)
         {
             if (rdoTimTenSP.Checked == true)
@@ -95,6 +94,7 @@ namespace QuanLyThietBiDienGiaDung
                 cboTimGiaSP.Enabled = false;
             }
         }
+
 
         private void btnXoaSP_MouseEnter(object sender, EventArgs e)
         {
@@ -129,7 +129,9 @@ namespace QuanLyThietBiDienGiaDung
             btnSuaSP.Enabled = true;
             btnCapNhat.Enabled = true;
             btnXoaSP.Enabled = true;
-            
+
         }
+
+        
     }
 }

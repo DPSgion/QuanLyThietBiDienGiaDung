@@ -16,5 +16,15 @@ namespace QuanLyThietBiDienGiaDung
         {
             InitializeComponent();
         }
+        public frmSuaSanPham(string ma)
+        {
+            InitializeComponent();
+            txtMaSP.Text = ma;
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
