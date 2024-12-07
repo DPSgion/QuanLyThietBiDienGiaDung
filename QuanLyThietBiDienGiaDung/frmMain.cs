@@ -132,6 +132,16 @@ namespace QuanLyThietBiDienGiaDung
 
         }
 
-        
+        private void tbtnThongTinNhanh_CheckedChanged(object sender, EventArgs e)
+        {
+            if (tbtnThongTinNhanh.Checked == true)
+            {
+                groThongTinNhanh.Visible = true;
+            }
+            else
+            {
+                groThongTinNhanh.Visible = false;
+            }
+        }
     }
 }

@@ -78,6 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RJControl\RJToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="frmChaoMung.resx">
       <DependentUpon>frmChaoMung.cs</DependentUpon>
     </EmbeddedResource>
