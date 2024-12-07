@@ -144,5 +144,10 @@ namespace QuanLyThietBiDienGiaDung
             }
         }
 
+        private void btnTraGop_Click(object sender, EventArgs e)
+        {
+            frmTraGop traGop = new frmTraGop();
+            traGop.ShowDialog();
+        }
     }
 }

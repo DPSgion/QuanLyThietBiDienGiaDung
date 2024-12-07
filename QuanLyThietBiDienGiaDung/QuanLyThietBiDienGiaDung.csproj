@@ -76,6 +76,12 @@
     <Compile Include="frmKhoHang.Designer.cs">
       <DependentUpon>frmKhoHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTraGop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTraGop.Designer.cs">
+      <DependentUpon>frmTraGop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RJControl\RJToggleButton.cs">
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmKhoHang.resx">
       <DependentUpon>frmKhoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTraGop.resx">
+      <DependentUpon>frmTraGop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -151,6 +160,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\handshake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\percentage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bill24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cash24px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

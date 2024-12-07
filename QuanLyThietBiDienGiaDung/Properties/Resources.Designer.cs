@@ -63,6 +63,26 @@ namespace QuanLyThietBiDienGiaDung.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bill24px {
+            get {
+                object obj = ResourceManager.GetObject("bill24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cash24px {
+            get {
+                object obj = ResourceManager.GetObject("cash24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap check_mark {
             get {
                 object obj = ResourceManager.GetObject("check-mark", resourceCulture);
@@ -126,6 +146,16 @@ namespace QuanLyThietBiDienGiaDung.Properties {
         internal static System.Drawing.Bitmap line_v2 {
             get {
                 object obj = ResourceManager.GetObject("line_v2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap percentage {
+            get {
+                object obj = ResourceManager.GetObject("percentage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
