@@ -58,6 +58,12 @@
     <Compile Include="frmChaoMung.Designer.cs">
       <DependentUpon>frmChaoMung.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKhachHang.Designer.cs">
+      <DependentUpon>frmKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,12 @@
     </Compile>
     <Compile Include="frmKhoHang.Designer.cs">
       <DependentUpon>frmKhoHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSuaTTKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSuaTTKH.Designer.cs">
+      <DependentUpon>frmSuaTTKH.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTraGop.cs">
       <SubType>Form</SubType>
@@ -98,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmKhoHang.resx">
       <DependentUpon>frmKhoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSuaTTKH.resx">
+      <DependentUpon>frmSuaTTKH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTraGop.resx">
       <DependentUpon>frmTraGop.cs</DependentUpon>
@@ -169,6 +184,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cash24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package-receipt32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buyer64px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

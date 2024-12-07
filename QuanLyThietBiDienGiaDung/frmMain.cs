@@ -32,39 +32,39 @@ namespace QuanLyThietBiDienGiaDung
         }
 
 
-        private void cboTimMaSP_Enter(object sender, EventArgs e)
+        private void txtTimMaSP_Enter(object sender, EventArgs e)
         {
-            if (cboTimMaSP.Text == "Nhập tên sản phẩm")
+            if (txtTimMaSP.Text == "Nhập tên sản phẩm")
             {
-                cboTimMaSP.Text = "";
-                cboTimMaSP.ForeColor = Color.Black;
+                txtTimMaSP.Text = "";
+                txtTimMaSP.ForeColor = Color.Black;
             }
         }
 
-        private void cboTimMaSP_Leave(object sender, EventArgs e)
+        private void txtTimMaSP_Leave(object sender, EventArgs e)
         {
-            if (cboTimMaSP.Text == "")
+            if (txtTimMaSP.Text == "")
             {
-                cboTimMaSP.Text = "Nhập tên sản phẩm";
-                cboTimMaSP.ForeColor = Color.Silver;
+                txtTimMaSP.Text = "Nhập tên sản phẩm";
+                txtTimMaSP.ForeColor = Color.Silver;
             }
         }
 
-        private void cboSuaGiaSP_Enter(object sender, EventArgs e)
+        private void txtGiaTenSP_Enter(object sender, EventArgs e)
         {
-            if (cboSuaGiaSP.Text == "Nhập tên sản phẩm")
+            if (txtGiaTenSP.Text == "Nhập tên sản phẩm")
             {
-                cboSuaGiaSP.Text = "";
-                cboSuaGiaSP.ForeColor = Color.Black;
+                txtGiaTenSP.Text = "";
+                txtGiaTenSP.ForeColor = Color.Black;
             }
         }
 
-        private void cboSuaGiaSP_Leave(object sender, EventArgs e)
+        private void txtGiaTenSP_Leave(object sender, EventArgs e)
         {
-            if (cboSuaGiaSP.Text == "")
+            if (txtGiaTenSP.Text == "")
             {
-                cboSuaGiaSP.Text = "Nhập tên sản phẩm";
-                cboSuaGiaSP.ForeColor = Color.Silver;
+                txtGiaTenSP.Text = "Nhập tên sản phẩm";
+                txtGiaTenSP.ForeColor = Color.Silver;
             }
         }
 
@@ -73,12 +73,12 @@ namespace QuanLyThietBiDienGiaDung
         {
             if (rdoTimTenSP.Checked == true)
             {
-                cboTimMaSP.Enabled = true;
+                txtTimMaSP.Enabled = true;
                 cboTimGiaSP.ResetText();
             }
             else
             {
-                cboTimMaSP.Enabled = false;
+                txtTimMaSP.Enabled = false;
             }
         }
 
@@ -87,7 +87,7 @@ namespace QuanLyThietBiDienGiaDung
             if (rdoTimGia.Checked == true)
             {
                 cboTimGiaSP.Enabled = true;
-                cboTimMaSP.Text = "Nhập tên sản phẩm";
+                txtTimMaSP.Text = "Nhập tên sản phẩm";
             }
             else
             {
@@ -149,5 +149,56 @@ namespace QuanLyThietBiDienGiaDung
             frmTraGop traGop = new frmTraGop();
             traGop.ShowDialog();
         }
+
+        private void SetControlsEnabled(RadioButton selectedRadioButton)
+        {
+            txtTenKH_KH.Enabled = false;
+            txtSDT_KH.Enabled = false;
+            txtMaKH_KH.Enabled = false;
+            txtDiaChi_KH.Enabled = false;
+
+            if (selectedRadioButton == rdoTenKH_KH)
+                txtTenKH_KH.Enabled = true;
+            else if (selectedRadioButton == rdoSDT_KH)
+                txtSDT_KH.Enabled = true;
+            else if (selectedRadioButton == rdoMaKH_KH)
+                txtMaKH_KH.Enabled = true;
+            else if (selectedRadioButton == rdoDiaChi_KH)
+                txtDiaChi_KH.Enabled = true;
+        }
+
+        private void rdoTenKH_KH_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoTenKH_KH.Checked)
+            {
+                SetControlsEnabled(rdoTenKH_KH);
+            }
+                
+        }
+        private void rdoSDT_KH_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoSDT_KH.Checked)
+            {
+                SetControlsEnabled(rdoSDT_KH);
+            }
+                
+        }
+        private void rdoMaKH_KH_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoMaKH_KH.Checked)
+            {
+                SetControlsEnabled(rdoMaKH_KH);
+            }
+                
+        }
+        private void rdoDiaChi_KH_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoDiaChi_KH.Checked)
+            {
+                SetControlsEnabled(rdoDiaChi_KH);
+            }
+                
+        }
+
     }
 }
