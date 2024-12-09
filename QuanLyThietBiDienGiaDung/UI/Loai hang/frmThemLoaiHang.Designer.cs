@@ -87,6 +87,7 @@
             this.btnThemLH.TabIndex = 5;
             this.btnThemLH.Text = "Thêm";
             this.btnThemLH.UseVisualStyleBackColor = true;
+            this.btnThemLH.Click += new System.EventHandler(this.btnThemLH_Click);
             // 
             // btnHuy
             // 

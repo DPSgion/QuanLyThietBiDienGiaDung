@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Script\LoaiHang.cs" />
+    <Compile Include="Script\QuanLyLoaiHang.cs" />
+    <Compile Include="Script\TruyCapDuLieu.cs" />
     <Compile Include="UI\frmChaoMung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,8 +242,6 @@
   <ItemGroup>
     <None Include="Resources\shipped64px.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Script\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

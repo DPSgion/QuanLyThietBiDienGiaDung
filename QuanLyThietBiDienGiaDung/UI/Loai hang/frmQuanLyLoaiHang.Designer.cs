@@ -47,8 +47,11 @@
             // 
             // dgvLH
             // 
+            this.dgvLH.AllowUserToAddRows = false;
+            this.dgvLH.AllowUserToDeleteRows = false;
             this.dgvLH.AllowUserToResizeColumns = false;
             this.dgvLH.AllowUserToResizeRows = false;
+            this.dgvLH.AutoGenerateColumns = false;
             this.dgvLH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -62,12 +65,14 @@
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "MaLoaiHang";
             this.Column1.HeaderText = "Mã LH";
             this.Column1.Name = "Column1";
             this.Column1.Width = 70;
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "TenLoaiHang";
             this.Column2.HeaderText = "Tên loại hàng";
             this.Column2.Name = "Column2";
             this.Column2.Width = 150;
@@ -182,6 +187,7 @@
             this.Name = "frmQuanLyLoaiHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý loại hàng";
+            this.Load += new System.EventHandler(this.frmQuanLyLoaiHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLH)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -193,9 +199,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvLH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btnThemLH;
         private System.Windows.Forms.Button btnXoaLH;
         private System.Windows.Forms.Label lblTenLH;
@@ -205,5 +208,8 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnSuaLH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }
