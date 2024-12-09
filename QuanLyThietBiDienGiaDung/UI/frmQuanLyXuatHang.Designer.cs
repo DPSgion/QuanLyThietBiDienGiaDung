@@ -31,24 +31,26 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSDTNguoiMua = new System.Windows.Forms.TextBox();
+            this.lblSDTNguoiMua = new System.Windows.Forms.Label();
+            this.txtTenNguoiMua = new System.Windows.Forms.TextBox();
+            this.lblNguoiMua = new System.Windows.Forms.Label();
             this.txtMaNhapHang = new System.Windows.Forms.TextBox();
             this.lblMaNhapHang = new System.Windows.Forms.Label();
             this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
             this.lblNgayNhap = new System.Windows.Forms.Label();
             this.dgvNhapHang = new System.Windows.Forms.DataGridView();
             this.dgvSPNhapHang = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtTenNguoiMua = new System.Windows.Forms.TextBox();
-            this.lblNguoiMua = new System.Windows.Forms.Label();
-            this.txtSDTNguoiMua = new System.Windows.Forms.TextBox();
-            this.lblSDTNguoiMua = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSPNhapHang)).BeginInit();
@@ -57,7 +59,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(741, 377);
+            this.btnThoat.Location = new System.Drawing.Point(888, 332);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(100, 39);
             this.btnThoat.TabIndex = 17;
@@ -91,6 +93,38 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm kiếm xuất hàng";
+            // 
+            // txtSDTNguoiMua
+            // 
+            this.txtSDTNguoiMua.Location = new System.Drawing.Point(100, 104);
+            this.txtSDTNguoiMua.Name = "txtSDTNguoiMua";
+            this.txtSDTNguoiMua.Size = new System.Drawing.Size(146, 20);
+            this.txtSDTNguoiMua.TabIndex = 9;
+            // 
+            // lblSDTNguoiMua
+            // 
+            this.lblSDTNguoiMua.AutoSize = true;
+            this.lblSDTNguoiMua.Location = new System.Drawing.Point(15, 107);
+            this.lblSDTNguoiMua.Name = "lblSDTNguoiMua";
+            this.lblSDTNguoiMua.Size = new System.Drawing.Size(70, 13);
+            this.lblSDTNguoiMua.TabIndex = 8;
+            this.lblSDTNguoiMua.Text = "Số điện thoại";
+            // 
+            // txtTenNguoiMua
+            // 
+            this.txtTenNguoiMua.Location = new System.Drawing.Point(100, 78);
+            this.txtTenNguoiMua.Name = "txtTenNguoiMua";
+            this.txtTenNguoiMua.Size = new System.Drawing.Size(146, 20);
+            this.txtTenNguoiMua.TabIndex = 7;
+            // 
+            // lblNguoiMua
+            // 
+            this.lblNguoiMua.AutoSize = true;
+            this.lblNguoiMua.Location = new System.Drawing.Point(15, 81);
+            this.lblNguoiMua.Name = "lblNguoiMua";
+            this.lblNguoiMua.Size = new System.Drawing.Size(78, 13);
+            this.lblNguoiMua.TabIndex = 6;
+            this.lblNguoiMua.Text = "Tên người mua";
             // 
             // txtMaNhapHang
             // 
@@ -132,12 +166,14 @@
             this.dgvNhapHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhapHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
+            this.Column8,
+            this.Column9,
             this.Column5,
             this.Column6});
             this.dgvNhapHang.Location = new System.Drawing.Point(39, 216);
             this.dgvNhapHang.Name = "dgvNhapHang";
             this.dgvNhapHang.RowHeadersVisible = false;
-            this.dgvNhapHang.Size = new System.Drawing.Size(319, 155);
+            this.dgvNhapHang.Size = new System.Drawing.Size(464, 155);
             this.dgvNhapHang.TabIndex = 12;
             // 
             // dgvSPNhapHang
@@ -150,37 +186,11 @@
             this.Column2,
             this.Column3,
             this.Column7});
-            this.dgvSPNhapHang.Location = new System.Drawing.Point(442, 105);
+            this.dgvSPNhapHang.Location = new System.Drawing.Point(589, 67);
             this.dgvSPNhapHang.Name = "dgvSPNhapHang";
             this.dgvSPNhapHang.RowHeadersVisible = false;
-            this.dgvSPNhapHang.Size = new System.Drawing.Size(399, 266);
+            this.dgvSPNhapHang.Size = new System.Drawing.Size(399, 251);
             this.dgvSPNhapHang.TabIndex = 11;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.right_arrow64px;
-            this.pictureBox1.Location = new System.Drawing.Point(364, 268);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Mã bán hàng";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Ngày bán";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Thành tiền";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 115;
             // 
             // Column1
             // 
@@ -205,43 +215,48 @@
             this.Column7.HeaderText = "Tổng tiền SP";
             this.Column7.Name = "Column7";
             // 
-            // txtTenNguoiMua
+            // pictureBox1
             // 
-            this.txtTenNguoiMua.Location = new System.Drawing.Point(100, 78);
-            this.txtTenNguoiMua.Name = "txtTenNguoiMua";
-            this.txtTenNguoiMua.Size = new System.Drawing.Size(146, 20);
-            this.txtTenNguoiMua.TabIndex = 7;
+            this.pictureBox1.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.right_arrow64px;
+            this.pictureBox1.Location = new System.Drawing.Point(519, 231);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
             // 
-            // lblNguoiMua
+            // Column4
             // 
-            this.lblNguoiMua.AutoSize = true;
-            this.lblNguoiMua.Location = new System.Drawing.Point(15, 81);
-            this.lblNguoiMua.Name = "lblNguoiMua";
-            this.lblNguoiMua.Size = new System.Drawing.Size(78, 13);
-            this.lblNguoiMua.TabIndex = 6;
-            this.lblNguoiMua.Text = "Tên người mua";
+            this.Column4.HeaderText = "Mã bán hàng";
+            this.Column4.Name = "Column4";
             // 
-            // txtSDTNguoiMua
+            // Column8
             // 
-            this.txtSDTNguoiMua.Location = new System.Drawing.Point(100, 104);
-            this.txtSDTNguoiMua.Name = "txtSDTNguoiMua";
-            this.txtSDTNguoiMua.Size = new System.Drawing.Size(146, 20);
-            this.txtSDTNguoiMua.TabIndex = 9;
+            this.Column8.HeaderText = "Người mua";
+            this.Column8.Name = "Column8";
             // 
-            // lblSDTNguoiMua
+            // Column9
             // 
-            this.lblSDTNguoiMua.AutoSize = true;
-            this.lblSDTNguoiMua.Location = new System.Drawing.Point(15, 107);
-            this.lblSDTNguoiMua.Name = "lblSDTNguoiMua";
-            this.lblSDTNguoiMua.Size = new System.Drawing.Size(70, 13);
-            this.lblSDTNguoiMua.TabIndex = 8;
-            this.lblSDTNguoiMua.Text = "Số điện thoại";
+            this.Column9.HeaderText = "SĐT";
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 80;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Ngày bán";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 80;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Thành tiền";
+            this.Column6.Name = "Column6";
             // 
             // frmQuanLyXuatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(857, 431);
+            this.ClientSize = new System.Drawing.Size(1030, 401);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.groupBox1);
@@ -273,9 +288,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dgvNhapHang;
         private System.Windows.Forms.DataGridView dgvSPNhapHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -284,5 +296,10 @@
         private System.Windows.Forms.Label lblSDTNguoiMua;
         private System.Windows.Forms.TextBox txtTenNguoiMua;
         private System.Windows.Forms.Label lblNguoiMua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

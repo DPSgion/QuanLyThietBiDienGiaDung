@@ -46,76 +46,76 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmChaoMung.cs">
+    <Compile Include="UI\frmChaoMung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChaoMung.Designer.cs">
+    <Compile Include="UI\frmChaoMung.Designer.cs">
       <DependentUpon>frmChaoMung.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="UI\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="UI\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNhapHang.cs">
+    <Compile Include="UI\frmNhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNhapHang.Designer.cs">
+    <Compile Include="UI\frmNhapHang.Designer.cs">
       <DependentUpon>frmNhapHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmQuanLyLoaiHang.cs">
+    <Compile Include="UI\frmQuanLyLoaiHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmQuanLyLoaiHang.Designer.cs">
+    <Compile Include="UI\frmQuanLyLoaiHang.Designer.cs">
       <DependentUpon>frmQuanLyLoaiHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmQuanLyNhapHang.cs">
+    <Compile Include="UI\frmQuanLyNhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmQuanLyNhapHang.Designer.cs">
+    <Compile Include="UI\frmQuanLyNhapHang.Designer.cs">
       <DependentUpon>frmQuanLyNhapHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmQuanLyXuatHang.cs">
+    <Compile Include="UI\frmQuanLyXuatHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmQuanLyXuatHang.Designer.cs">
+    <Compile Include="UI\frmQuanLyXuatHang.Designer.cs">
       <DependentUpon>frmQuanLyXuatHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSuaLoaiHang.cs">
+    <Compile Include="UI\frmSuaLoaiHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSuaLoaiHang.Designer.cs">
+    <Compile Include="UI\frmSuaLoaiHang.Designer.cs">
       <DependentUpon>frmSuaLoaiHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSuaSanPham.cs">
+    <Compile Include="UI\frmSuaSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSuaSanPham.Designer.cs">
+    <Compile Include="UI\frmSuaSanPham.Designer.cs">
       <DependentUpon>frmSuaSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSuaTTKH.cs">
+    <Compile Include="UI\frmSuaTTKH.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSuaTTKH.Designer.cs">
+    <Compile Include="UI\frmSuaTTKH.Designer.cs">
       <DependentUpon>frmSuaTTKH.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmThemLoaiHang.cs">
+    <Compile Include="UI\frmThemLoaiHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmThemLoaiHang.Designer.cs">
+    <Compile Include="UI\frmThemLoaiHang.Designer.cs">
       <DependentUpon>frmThemLoaiHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmThemMatHangMoi.cs">
+    <Compile Include="UI\frmThemMatHangMoi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmThemMatHangMoi.Designer.cs">
+    <Compile Include="UI\frmThemMatHangMoi.Designer.cs">
       <DependentUpon>frmThemMatHangMoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTraGop.cs">
+    <Compile Include="UI\frmTraGop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTraGop.Designer.cs">
+    <Compile Include="UI\frmTraGop.Designer.cs">
       <DependentUpon>frmTraGop.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -123,40 +123,40 @@
     <Compile Include="RJControl\RJToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="frmChaoMung.resx">
+    <EmbeddedResource Include="UI\frmChaoMung.resx">
       <DependentUpon>frmChaoMung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
+    <EmbeddedResource Include="UI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNhapHang.resx">
+    <EmbeddedResource Include="UI\frmNhapHang.resx">
       <DependentUpon>frmNhapHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmQuanLyLoaiHang.resx">
+    <EmbeddedResource Include="UI\frmQuanLyLoaiHang.resx">
       <DependentUpon>frmQuanLyLoaiHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmQuanLyNhapHang.resx">
+    <EmbeddedResource Include="UI\frmQuanLyNhapHang.resx">
       <DependentUpon>frmQuanLyNhapHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmQuanLyXuatHang.resx">
+    <EmbeddedResource Include="UI\frmQuanLyXuatHang.resx">
       <DependentUpon>frmQuanLyXuatHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSuaLoaiHang.resx">
+    <EmbeddedResource Include="UI\frmSuaLoaiHang.resx">
       <DependentUpon>frmSuaLoaiHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSuaSanPham.resx">
+    <EmbeddedResource Include="UI\frmSuaSanPham.resx">
       <DependentUpon>frmSuaSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSuaTTKH.resx">
+    <EmbeddedResource Include="UI\frmSuaTTKH.resx">
       <DependentUpon>frmSuaTTKH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmThemLoaiHang.resx">
+    <EmbeddedResource Include="UI\frmThemLoaiHang.resx">
       <DependentUpon>frmThemLoaiHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmThemMatHangMoi.resx">
+    <EmbeddedResource Include="UI\frmThemMatHangMoi.resx">
       <DependentUpon>frmThemMatHangMoi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTraGop.resx">
+    <EmbeddedResource Include="UI\frmTraGop.resx">
       <DependentUpon>frmTraGop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
