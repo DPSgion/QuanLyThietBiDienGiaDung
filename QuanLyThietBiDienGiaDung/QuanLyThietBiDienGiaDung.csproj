@@ -58,22 +58,22 @@
     <Compile Include="UI\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmNhapHang.cs">
+    <Compile Include="UI\Nhap hang\frmNhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmNhapHang.Designer.cs">
+    <Compile Include="UI\Nhap hang\frmNhapHang.Designer.cs">
       <DependentUpon>frmNhapHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmQuanLyLoaiHang.cs">
+    <Compile Include="UI\Loai hang\frmQuanLyLoaiHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmQuanLyLoaiHang.Designer.cs">
+    <Compile Include="UI\Loai hang\frmQuanLyLoaiHang.Designer.cs">
       <DependentUpon>frmQuanLyLoaiHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmQuanLyNhapHang.cs">
+    <Compile Include="UI\Nhap hang\frmQuanLyNhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmQuanLyNhapHang.Designer.cs">
+    <Compile Include="UI\Nhap hang\frmQuanLyNhapHang.Designer.cs">
       <DependentUpon>frmQuanLyNhapHang.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmQuanLyXuatHang.cs">
@@ -82,10 +82,10 @@
     <Compile Include="UI\frmQuanLyXuatHang.Designer.cs">
       <DependentUpon>frmQuanLyXuatHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmSuaLoaiHang.cs">
+    <Compile Include="UI\Loai hang\frmSuaLoaiHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmSuaLoaiHang.Designer.cs">
+    <Compile Include="UI\Loai hang\frmSuaLoaiHang.Designer.cs">
       <DependentUpon>frmSuaLoaiHang.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmSuaSanPham.cs">
@@ -100,10 +100,10 @@
     <Compile Include="UI\frmSuaTTKH.Designer.cs">
       <DependentUpon>frmSuaTTKH.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmThemLoaiHang.cs">
+    <Compile Include="UI\Loai hang\frmThemLoaiHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmThemLoaiHang.Designer.cs">
+    <Compile Include="UI\Loai hang\frmThemLoaiHang.Designer.cs">
       <DependentUpon>frmThemLoaiHang.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmThemMatHangMoi.cs">
@@ -129,19 +129,19 @@
     <EmbeddedResource Include="UI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmNhapHang.resx">
+    <EmbeddedResource Include="UI\Nhap hang\frmNhapHang.resx">
       <DependentUpon>frmNhapHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmQuanLyLoaiHang.resx">
+    <EmbeddedResource Include="UI\Loai hang\frmQuanLyLoaiHang.resx">
       <DependentUpon>frmQuanLyLoaiHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmQuanLyNhapHang.resx">
+    <EmbeddedResource Include="UI\Nhap hang\frmQuanLyNhapHang.resx">
       <DependentUpon>frmQuanLyNhapHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmQuanLyXuatHang.resx">
       <DependentUpon>frmQuanLyXuatHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmSuaLoaiHang.resx">
+    <EmbeddedResource Include="UI\Loai hang\frmSuaLoaiHang.resx">
       <DependentUpon>frmSuaLoaiHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmSuaSanPham.resx">
@@ -150,7 +150,7 @@
     <EmbeddedResource Include="UI\frmSuaTTKH.resx">
       <DependentUpon>frmSuaTTKH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmThemLoaiHang.resx">
+    <EmbeddedResource Include="UI\Loai hang\frmThemLoaiHang.resx">
       <DependentUpon>frmThemLoaiHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmThemMatHangMoi.resx">
@@ -238,6 +238,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\shipped64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Script\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
