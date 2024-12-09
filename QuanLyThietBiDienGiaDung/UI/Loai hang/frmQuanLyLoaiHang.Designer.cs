@@ -29,18 +29,19 @@
         private void InitializeComponent()
         {
             this.dgvLH = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThemLH = new System.Windows.Forms.Button();
             this.btnXoaLH = new System.Windows.Forms.Button();
             this.lblTenLH = new System.Windows.Forms.Label();
             this.txtTenLH = new System.Windows.Forms.TextBox();
             this.btnTim = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnSuaLH = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLH)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -58,30 +59,13 @@
             this.Column2,
             this.Column3});
             this.dgvLH.Location = new System.Drawing.Point(27, 53);
+            this.dgvLH.MultiSelect = false;
             this.dgvLH.Name = "dgvLH";
+            this.dgvLH.ReadOnly = true;
             this.dgvLH.RowHeadersVisible = false;
             this.dgvLH.Size = new System.Drawing.Size(354, 202);
             this.dgvLH.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MaLoaiHang";
-            this.Column1.HeaderText = "Mã LH";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 70;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TenLoaiHang";
-            this.Column2.HeaderText = "Tên loại hàng";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Số lượng sản phẩm";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 130;
+            this.dgvLH.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLH_RowEnter);
             // 
             // btnThemLH
             // 
@@ -114,22 +98,24 @@
             // 
             // txtTenLH
             // 
-            this.txtTenLH.Location = new System.Drawing.Point(126, 27);
+            this.txtTenLH.Location = new System.Drawing.Point(117, 27);
             this.txtTenLH.Name = "txtTenLH";
-            this.txtTenLH.Size = new System.Drawing.Size(161, 20);
+            this.txtTenLH.Size = new System.Drawing.Size(146, 20);
             this.txtTenLH.TabIndex = 4;
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(306, 27);
+            this.btnTim.Location = new System.Drawing.Point(269, 27);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(75, 20);
+            this.btnTim.Size = new System.Drawing.Size(59, 20);
             this.btnTim.TabIndex = 5;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnReset);
             this.groupBox1.Controls.Add(this.btnSuaLH);
             this.groupBox1.Controls.Add(this.btnTim);
             this.groupBox1.Controls.Add(this.txtTenLH);
@@ -143,6 +129,16 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin các loại hàng";
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(322, 27);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(59, 20);
+            this.btnReset.TabIndex = 7;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnSuaLH
             // 
@@ -173,6 +169,31 @@
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaLoaiHang";
+            this.Column1.HeaderText = "Mã LH";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column1.Width = 70;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenLoaiHang";
+            this.Column2.HeaderText = "Tên loại hàng";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Số lượng sản phẩm";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 130;
             // 
             // frmQuanLyLoaiHang
             // 
@@ -208,6 +229,7 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnSuaLH;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

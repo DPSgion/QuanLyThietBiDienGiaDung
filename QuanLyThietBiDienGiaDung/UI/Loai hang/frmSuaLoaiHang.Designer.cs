@@ -55,6 +55,7 @@
             this.btnSuaLH.TabIndex = 12;
             this.btnSuaLH.Text = "Sửa";
             this.btnSuaLH.UseVisualStyleBackColor = true;
+            this.btnSuaLH.Click += new System.EventHandler(this.btnSuaLH_Click);
             // 
             // txtTenLH
             // 

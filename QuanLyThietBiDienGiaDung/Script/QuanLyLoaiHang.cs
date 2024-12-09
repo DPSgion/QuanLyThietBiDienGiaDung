@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyThietBiDienGiaDung.Script
 {
@@ -13,7 +14,7 @@ namespace QuanLyThietBiDienGiaDung.Script
         private List<LoaiHang> _dsLoaiHang;
 
         // Properties
-        public List<LoaiHang> get_dsLoaiHang()
+        public List<LoaiHang> getDSLoaiHang()
         {
             return _dsLoaiHang;
         }
@@ -23,16 +24,12 @@ namespace QuanLyThietBiDienGiaDung.Script
         {
             TruyCapDuLieu.docFile("tst.dat");
             TruyCapDuLieu duLieu = TruyCapDuLieu.khoiTao();
-            
             _dsLoaiHang = duLieu.getDSLoaiHang();
         }
 
         // Methods
 
-        public List<LoaiHang> getDSLoaiHang()
-        {
-            return _dsLoaiHang;
-        }
+        
 
         private bool tim(LoaiHang lh)
         {
@@ -68,6 +65,18 @@ namespace QuanLyThietBiDienGiaDung.Script
             return false;
         }
 
+        public bool suaLoaiHang(LoaiHang a, LoaiHang b)
+        {
+            LoaiHang temp = tim(a.MaLoaiHang);
+            if (temp != null)
+            {
+                temp.MaLoaiHang = b.MaLoaiHang;
+                temp.TenLoaiHang = b.TenLoaiHang;
+                return true;
+            }
+            return false;
+        }
+
         public bool xoaLoaiHang(string maLH)
         {
             LoaiHang temp = tim(maLH);
@@ -78,5 +87,6 @@ namespace QuanLyThietBiDienGiaDung.Script
             }
             return false;
         }
+
     }
 }
