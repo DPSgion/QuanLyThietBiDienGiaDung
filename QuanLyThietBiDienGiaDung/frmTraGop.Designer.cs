@@ -47,13 +47,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtMaKH_TG = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTenKH
             // 
             this.lblTenKH.AutoSize = true;
-            this.lblTenKH.Location = new System.Drawing.Point(52, 65);
+            this.lblTenKH.Location = new System.Drawing.Point(52, 82);
             this.lblTenKH.Name = "lblTenKH";
             this.lblTenKH.Size = new System.Drawing.Size(86, 13);
             this.lblTenKH.TabIndex = 0;
@@ -61,14 +62,14 @@
             // 
             // txtTenKH_TG
             // 
-            this.txtTenKH_TG.Location = new System.Drawing.Point(144, 62);
+            this.txtTenKH_TG.Location = new System.Drawing.Point(144, 79);
             this.txtTenKH_TG.Name = "txtTenKH_TG";
             this.txtTenKH_TG.Size = new System.Drawing.Size(143, 20);
             this.txtTenKH_TG.TabIndex = 1;
             // 
             // txtSDT_TG
             // 
-            this.txtSDT_TG.Location = new System.Drawing.Point(144, 88);
+            this.txtSDT_TG.Location = new System.Drawing.Point(144, 105);
             this.txtSDT_TG.Name = "txtSDT_TG";
             this.txtSDT_TG.Size = new System.Drawing.Size(143, 20);
             this.txtSDT_TG.TabIndex = 3;
@@ -76,7 +77,7 @@
             // lblSDT
             // 
             this.lblSDT.AutoSize = true;
-            this.lblSDT.Location = new System.Drawing.Point(52, 91);
+            this.lblSDT.Location = new System.Drawing.Point(52, 108);
             this.lblSDT.Name = "lblSDT";
             this.lblSDT.Size = new System.Drawing.Size(70, 13);
             this.lblSDT.TabIndex = 2;
@@ -85,7 +86,7 @@
             // txtTongTienMua_TG
             // 
             this.txtTongTienMua_TG.Enabled = false;
-            this.txtTongTienMua_TG.Location = new System.Drawing.Point(144, 114);
+            this.txtTongTienMua_TG.Location = new System.Drawing.Point(144, 131);
             this.txtTongTienMua_TG.Name = "txtTongTienMua_TG";
             this.txtTongTienMua_TG.ReadOnly = true;
             this.txtTongTienMua_TG.Size = new System.Drawing.Size(143, 20);
@@ -94,7 +95,7 @@
             // lblTongTienMua
             // 
             this.lblTongTienMua.AutoSize = true;
-            this.lblTongTienMua.Location = new System.Drawing.Point(52, 117);
+            this.lblTongTienMua.Location = new System.Drawing.Point(52, 134);
             this.lblTongTienMua.Name = "lblTongTienMua";
             this.lblTongTienMua.Size = new System.Drawing.Size(75, 13);
             this.lblTongTienMua.TabIndex = 4;
@@ -103,7 +104,7 @@
             // lblTraGopThang
             // 
             this.lblTraGopThang.AutoSize = true;
-            this.lblTraGopThang.Location = new System.Drawing.Point(52, 158);
+            this.lblTraGopThang.Location = new System.Drawing.Point(52, 175);
             this.lblTraGopThang.Name = "lblTraGopThang";
             this.lblTraGopThang.Size = new System.Drawing.Size(124, 13);
             this.lblTraGopThang.TabIndex = 6;
@@ -112,14 +113,14 @@
             // txtTraGopThang_TG
             // 
             this.txtTraGopThang_TG.FormattingEnabled = true;
-            this.txtTraGopThang_TG.Location = new System.Drawing.Point(182, 155);
+            this.txtTraGopThang_TG.Location = new System.Drawing.Point(182, 172);
             this.txtTraGopThang_TG.Name = "txtTraGopThang_TG";
             this.txtTraGopThang_TG.Size = new System.Drawing.Size(105, 21);
             this.txtTraGopThang_TG.TabIndex = 7;
             // 
             // txtLaiSuat_TG
             // 
-            this.txtLaiSuat_TG.Location = new System.Drawing.Point(182, 182);
+            this.txtLaiSuat_TG.Location = new System.Drawing.Point(182, 199);
             this.txtLaiSuat_TG.MaxLength = 4;
             this.txtLaiSuat_TG.Name = "txtLaiSuat_TG";
             this.txtLaiSuat_TG.Size = new System.Drawing.Size(35, 20);
@@ -129,7 +130,7 @@
             // lblLaiSuat
             // 
             this.lblLaiSuat.AutoSize = true;
-            this.lblLaiSuat.Location = new System.Drawing.Point(52, 185);
+            this.lblLaiSuat.Location = new System.Drawing.Point(52, 202);
             this.lblLaiSuat.Name = "lblLaiSuat";
             this.lblLaiSuat.Size = new System.Drawing.Size(104, 13);
             this.lblLaiSuat.TabIndex = 8;
@@ -138,7 +139,7 @@
             // txtTongSauTraGop_TG
             // 
             this.txtTongSauTraGop_TG.Enabled = false;
-            this.txtTongSauTraGop_TG.Location = new System.Drawing.Point(144, 208);
+            this.txtTongSauTraGop_TG.Location = new System.Drawing.Point(144, 225);
             this.txtTongSauTraGop_TG.Name = "txtTongSauTraGop_TG";
             this.txtTongSauTraGop_TG.ReadOnly = true;
             this.txtTongSauTraGop_TG.Size = new System.Drawing.Size(143, 20);
@@ -147,7 +148,7 @@
             // lblTongSauTraGop
             // 
             this.lblTongSauTraGop.AutoSize = true;
-            this.lblTongSauTraGop.Location = new System.Drawing.Point(52, 211);
+            this.lblTongSauTraGop.Location = new System.Drawing.Point(52, 228);
             this.lblTongSauTraGop.Name = "lblTongSauTraGop";
             this.lblTongSauTraGop.Size = new System.Drawing.Size(90, 13);
             this.lblTongSauTraGop.TabIndex = 11;
@@ -156,7 +157,7 @@
             // txtMoiThang_TG
             // 
             this.txtMoiThang_TG.Enabled = false;
-            this.txtMoiThang_TG.Location = new System.Drawing.Point(144, 234);
+            this.txtMoiThang_TG.Location = new System.Drawing.Point(144, 251);
             this.txtMoiThang_TG.Name = "txtMoiThang_TG";
             this.txtMoiThang_TG.ReadOnly = true;
             this.txtMoiThang_TG.Size = new System.Drawing.Size(143, 20);
@@ -165,7 +166,7 @@
             // lblMoiThang
             // 
             this.lblMoiThang.AutoSize = true;
-            this.lblMoiThang.Location = new System.Drawing.Point(52, 237);
+            this.lblMoiThang.Location = new System.Drawing.Point(52, 254);
             this.lblMoiThang.Name = "lblMoiThang";
             this.lblMoiThang.Size = new System.Drawing.Size(92, 13);
             this.lblMoiThang.TabIndex = 13;
@@ -173,7 +174,7 @@
             // 
             // btnXacNhan_TG
             // 
-            this.btnXacNhan_TG.Location = new System.Drawing.Point(71, 284);
+            this.btnXacNhan_TG.Location = new System.Drawing.Point(71, 301);
             this.btnXacNhan_TG.Name = "btnXacNhan_TG";
             this.btnXacNhan_TG.Size = new System.Drawing.Size(105, 39);
             this.btnXacNhan_TG.TabIndex = 15;
@@ -182,7 +183,7 @@
             // 
             // btnHuy_TG
             // 
-            this.btnHuy_TG.Location = new System.Drawing.Point(182, 284);
+            this.btnHuy_TG.Location = new System.Drawing.Point(182, 301);
             this.btnHuy_TG.Name = "btnHuy_TG";
             this.btnHuy_TG.Size = new System.Drawing.Size(105, 39);
             this.btnHuy_TG.TabIndex = 16;
@@ -193,7 +194,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.percentage;
-            this.pictureBox1.Location = new System.Drawing.Point(223, 185);
+            this.pictureBox1.Location = new System.Drawing.Point(223, 202);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(16, 16);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -203,7 +204,7 @@
             // txtMaKH_TG
             // 
             this.txtMaKH_TG.Enabled = false;
-            this.txtMaKH_TG.Location = new System.Drawing.Point(144, 36);
+            this.txtMaKH_TG.Location = new System.Drawing.Point(144, 53);
             this.txtMaKH_TG.Name = "txtMaKH_TG";
             this.txtMaKH_TG.ReadOnly = true;
             this.txtMaKH_TG.Size = new System.Drawing.Size(73, 20);
@@ -212,11 +213,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 39);
+            this.label1.Location = new System.Drawing.Point(52, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "Mã khách hàng";
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(103, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(114, 31);
+            this.lblTitle.TabIndex = 19;
+            this.lblTitle.Text = "Trả góp";
             // 
             // frmTraGop
             // 
@@ -224,6 +235,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(339, 378);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.txtMaKH_TG);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnHuy_TG);
@@ -273,5 +285,6 @@
         private System.Windows.Forms.Button btnHuy_TG;
         private System.Windows.Forms.TextBox txtMaKH_TG;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitle;
     }
 }
