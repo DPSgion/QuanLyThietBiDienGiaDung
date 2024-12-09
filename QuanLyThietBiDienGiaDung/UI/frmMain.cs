@@ -258,6 +258,10 @@ namespace QuanLyThietBiDienGiaDung
             txtDiaChi_KH.Enabled = true;
         }
 
-        
+        private void thêmSảnPhẩmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmThemMatHangMoi SPmoi = new frmThemMatHangMoi();
+            SPmoi.ShowDialog();
+        }
     }
 }

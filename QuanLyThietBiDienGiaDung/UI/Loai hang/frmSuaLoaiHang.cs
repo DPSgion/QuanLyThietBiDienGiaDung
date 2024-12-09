@@ -46,7 +46,5 @@ namespace QuanLyThietBiDienGiaDung
         {
             this.Close();
         }
-
-        
     }
 }

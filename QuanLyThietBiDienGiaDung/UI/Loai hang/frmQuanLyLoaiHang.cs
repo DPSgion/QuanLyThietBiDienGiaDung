@@ -40,6 +40,54 @@ namespace QuanLyThietBiDienGiaDung
             dts.ResetBindings(false);
         }
 
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            string tenTimKiem = txtTenLH.Text.Trim(); // Giả sử bạn có một TextBox tên txtTimKiem
+
+            if (string.IsNullOrEmpty(tenTimKiem))
+            {
+                MessageBox.Show("Vui lòng nhập tên cần tìm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Lọc danh sách theo tên
+            var ketQua = quanLyLH.getDSLoaiHang()
+                .Where(lh => lh.TenLoaiHang.ToLower().Contains(tenTimKiem.ToLower()))
+                .ToList();
+
+
+            if (ketQua.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy kết quả nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Hiển thị kết quả vào DataGridView
+            dts.DataSource = ketQua;
+            hienThi();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            dts.DataSource = quanLyLH.getDSLoaiHang(); // Gán danh sách ban đầu
+            hienThi();
+        }
+
+        private void CapNhatGoiY()
+        {
+            txtTenLH.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtTenLH.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+
+            foreach (LoaiHang n in quanLyLH.getDSLoaiHang())
+            {
+                col.Add(n.TenLoaiHang);
+            }
+
+            txtTenLH.AutoCompleteCustomSource = col;
+
+        }
+
         private void btnThemLH_Click(object sender, EventArgs e)
         {
             using (frmThemLoaiHang form = new frmThemLoaiHang())
@@ -128,54 +176,6 @@ namespace QuanLyThietBiDienGiaDung
             // Kiểm tra nếu giá trị không phải null trước khi gán
             ma = maCellValue != null ? maCellValue.ToString() : string.Empty;
             ten = tenCellValue != null ? tenCellValue.ToString() : string.Empty;
-        }
-
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-            string tenTimKiem = txtTenLH.Text.Trim(); // Giả sử bạn có một TextBox tên txtTimKiem
-
-            if (string.IsNullOrEmpty(tenTimKiem))
-            {
-                MessageBox.Show("Vui lòng nhập tên cần tìm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Lọc danh sách theo tên
-            var ketQua = quanLyLH.getDSLoaiHang()
-                .Where(lh => lh.TenLoaiHang.ToLower().Contains(tenTimKiem.ToLower()))
-                .ToList();
-
-
-            if (ketQua.Count == 0)
-            {
-                MessageBox.Show("Không tìm thấy kết quả nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            // Hiển thị kết quả vào DataGridView
-            dts.DataSource = ketQua;
-            hienThi();
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            dts.DataSource = quanLyLH.getDSLoaiHang(); // Gán danh sách ban đầu
-            hienThi();
-        }
-
-        private void CapNhatGoiY()
-        {
-            txtTenLH.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txtTenLH.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
-
-            foreach (LoaiHang n in quanLyLH.getDSLoaiHang())
-            {
-                col.Add(n.TenLoaiHang);
-            }
-
-            txtTenLH.AutoCompleteCustomSource = col;
-
         }
 
         private void frmQuanLyLoaiHang_FormClosing(object sender, FormClosingEventArgs e)
