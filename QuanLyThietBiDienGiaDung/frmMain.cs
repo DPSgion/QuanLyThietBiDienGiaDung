@@ -26,9 +26,9 @@ namespace QuanLyThietBiDienGiaDung
             dgvHang.Rows[0].Cells[3].Value = "Toshiba";
             dgvHang.Rows[0].Cells[4].Value = "- Test thử thôi\n" + "- Đang thành công\n" +
                 "- Làm lạnh với công suất 900W, có thể làm lạnh 1 cây kem với thời gian 10 phút";
-            dgvHang.Rows[0].Cells[5].Value = "5 năm";
-            dgvHang.Rows[0].Cells[6].Value = "235";
-            dgvHang.Rows[0].Cells[7].Value = "17.000.000";
+            dgvHang.Rows[0].Cells[5].Value = "235";
+            dgvHang.Rows[0].Cells[6].Value = "300.000.000";
+            dgvHang.Rows[0].Cells[7].Value = "340.000.000";
         }
 
 
@@ -229,8 +229,35 @@ namespace QuanLyThietBiDienGiaDung
 
         private void loạiHàngToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmQuanLyLoaiHang frmQLLH = new frmQuanLyLoaiHang();
-            frmQLLH.Show();
+            frmQuanLyLoaiHang QLLH = new frmQuanLyLoaiHang();
+            QLLH.Show();
         }
+
+        private void nhậpHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmQuanLyNhapHang QLNH = new frmQuanLyNhapHang();
+            QLNH.Show();
+        }
+
+        private void xuấtHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmQuanLyXuatHang QLXH = new frmQuanLyXuatHang();
+            QLXH.Show();
+        }
+
+        private void btnReset_KH_Click(object sender, EventArgs e)
+        {
+            rdoTenKH_KH.Checked = false;
+            rdoMaKH_KH.Checked = false;
+            rdoSDT_KH.Checked = false;
+            rdoDiaChi_KH.Checked = false;
+
+            txtTenKH_KH.Enabled = true;
+            txtMaKH_KH.Enabled = true;
+            txtSDT_KH.Enabled = true;
+            txtDiaChi_KH.Enabled = true;
+        }
+
+        
     }
 }

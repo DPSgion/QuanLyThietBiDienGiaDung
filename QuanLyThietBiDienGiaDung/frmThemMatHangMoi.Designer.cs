@@ -46,6 +46,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboLoaiHang = new System.Windows.Forms.ComboBox();
             this.lblLoaiHang = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -142,7 +144,7 @@
             // 
             // txtGiaBan
             // 
-            this.txtGiaBan.Location = new System.Drawing.Point(105, 236);
+            this.txtGiaBan.Location = new System.Drawing.Point(105, 262);
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.Size = new System.Drawing.Size(100, 20);
             this.txtGiaBan.TabIndex = 15;
@@ -150,7 +152,7 @@
             // lblGiaBan
             // 
             this.lblGiaBan.AutoSize = true;
-            this.lblGiaBan.Location = new System.Drawing.Point(24, 239);
+            this.lblGiaBan.Location = new System.Drawing.Point(24, 265);
             this.lblGiaBan.Name = "lblGiaBan";
             this.lblGiaBan.Size = new System.Drawing.Size(44, 13);
             this.lblGiaBan.TabIndex = 14;
@@ -158,7 +160,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(80, 371);
+            this.btnThem.Location = new System.Drawing.Point(80, 396);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(98, 42);
             this.btnThem.TabIndex = 16;
@@ -167,7 +169,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(209, 371);
+            this.btnHuy.Location = new System.Drawing.Point(209, 396);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(98, 42);
             this.btnHuy.TabIndex = 17;
@@ -177,6 +179,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cboLoaiHang);
             this.groupBox1.Controls.Add(this.lblLoaiHang);
             this.groupBox1.Controls.Add(this.txtGiaBan);
@@ -193,7 +197,7 @@
             this.groupBox1.Controls.Add(this.lblMaSP);
             this.groupBox1.Location = new System.Drawing.Point(37, 77);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(314, 288);
+            this.groupBox1.Size = new System.Drawing.Size(314, 302);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sản phẩm mới";
@@ -214,6 +218,22 @@
             this.lblLoaiHang.Size = new System.Drawing.Size(54, 13);
             this.lblLoaiHang.TabIndex = 16;
             this.lblLoaiHang.Text = "Loại hàng";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(105, 236);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 239);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Giá nhập";
             // 
             // frmThemMatHangMoi
             // 
@@ -256,5 +276,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cboLoaiHang;
         private System.Windows.Forms.Label lblLoaiHang;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

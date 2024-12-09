@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groCapNhatGia = new System.Windows.Forms.GroupBox();
@@ -51,25 +52,24 @@
             this.groTimKiem = new System.Windows.Forms.GroupBox();
             this.txtTimMaSP = new System.Windows.Forms.TextBox();
             this.lblLoaiHang = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTheoHang = new System.Windows.Forms.Label();
             this.cboLoaiHang = new System.Windows.Forms.ComboBox();
             this.cboTheoHang = new System.Windows.Forms.ComboBox();
             this.rdoTimTenSP = new System.Windows.Forms.RadioButton();
             this.cboTimGiaSP = new System.Windows.Forms.ComboBox();
             this.rdoTimGia = new System.Windows.Forms.RadioButton();
+            this.btnXoaSP = new System.Windows.Forms.Button();
+            this.btnSuaSP = new System.Windows.Forms.Button();
+            this.btnNhapHang = new System.Windows.Forms.Button();
             this.dgvHang = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTitle = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnTraGop = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lblTitleBanHang = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtThanhTien_BH = new System.Windows.Forms.TextBox();
             this.lblThanhTien_BH = new System.Windows.Forms.Label();
@@ -96,7 +96,9 @@
             this.lblSDT_BH = new System.Windows.Forms.Label();
             this.txtTenKH_BH = new System.Windows.Forms.TextBox();
             this.lblTenKH_BH = new System.Windows.Forms.Label();
+            this.btnThanhToan_BH = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblTitleKH = new System.Windows.Forms.Label();
             this.btnSuaKH_KH = new System.Windows.Forms.Button();
             this.dgvKH_KH = new System.Windows.Forms.DataGridView();
@@ -131,37 +133,47 @@
             this.thêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loạiHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loạiHàngToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.nhậpHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnXoaSP = new System.Windows.Forms.Button();
-            this.btnSuaSP = new System.Windows.Forms.Button();
-            this.btnNhapHang = new System.Windows.Forms.Button();
-            this.btnTraGop = new System.Windows.Forms.Button();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.btnThanhToan_BH = new System.Windows.Forms.Button();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblMaBanHang = new System.Windows.Forms.Label();
+            this.txtMaBanHang = new System.Windows.Forms.TextBox();
+            this.btnTaoMaBanHang = new System.Windows.Forms.Button();
+            this.xuấtHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbtnThongTinNhanh = new CustomControls.RJControls.RJToggleButton();
             this.rjToggleButton1 = new CustomControls.RJControls.RJToggleButton();
-            this.quảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loạiHàngToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.groCapNhatGia.SuspendLayout();
             this.groTimKiem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHang)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSPChon_BH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChonMuaSP_BH)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH_KH)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groThongTinNhanh.SuspendLayout();
@@ -169,11 +181,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongTinNhanh)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -216,6 +223,16 @@
             this.label3.Size = new System.Drawing.Size(64, 13);
             this.label3.TabIndex = 22;
             this.label3.Text = "Số lượng ít";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.truck256;
+            this.pictureBox2.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(81, 63);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
             // 
             // label1
             // 
@@ -372,6 +389,16 @@
             this.lblLoaiHang.TabIndex = 17;
             this.lblLoaiHang.Text = "Loại hàng";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.goods;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 97);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(53, 46);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // lblTheoHang
             // 
             this.lblTheoHang.AutoSize = true;
@@ -421,7 +448,7 @@
             this.cboTimGiaSP.FormattingEnabled = true;
             this.cboTimGiaSP.Location = new System.Drawing.Point(126, 57);
             this.cboTimGiaSP.Name = "cboTimGiaSP";
-            this.cboTimGiaSP.Size = new System.Drawing.Size(195, 24);
+            this.cboTimGiaSP.Size = new System.Drawing.Size(116, 24);
             this.cboTimGiaSP.TabIndex = 9;
             // 
             // rdoTimGia
@@ -437,6 +464,49 @@
             this.rdoTimGia.UseVisualStyleBackColor = true;
             this.rdoTimGia.CheckedChanged += new System.EventHandler(this.rdoTimGia_CheckedChanged);
             // 
+            // btnXoaSP
+            // 
+            this.btnXoaSP.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaSP.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.recycle_bin;
+            this.btnXoaSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoaSP.Location = new System.Drawing.Point(633, 118);
+            this.btnXoaSP.Name = "btnXoaSP";
+            this.btnXoaSP.Size = new System.Drawing.Size(129, 41);
+            this.btnXoaSP.TabIndex = 20;
+            this.btnXoaSP.Text = "Xóa sản phẩm";
+            this.btnXoaSP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoaSP.UseVisualStyleBackColor = true;
+            this.btnXoaSP.MouseEnter += new System.EventHandler(this.btnXoaSP_MouseEnter);
+            this.btnXoaSP.MouseLeave += new System.EventHandler(this.btnXoaSP_MouseLeave);
+            // 
+            // btnSuaSP
+            // 
+            this.btnSuaSP.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuaSP.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.settings;
+            this.btnSuaSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSuaSP.Location = new System.Drawing.Point(498, 118);
+            this.btnSuaSP.Name = "btnSuaSP";
+            this.btnSuaSP.Size = new System.Drawing.Size(129, 41);
+            this.btnSuaSP.TabIndex = 19;
+            this.btnSuaSP.Text = "Sửa sản phẩm";
+            this.btnSuaSP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSuaSP.UseVisualStyleBackColor = true;
+            this.btnSuaSP.Click += new System.EventHandler(this.btnSuaSP_Click);
+            // 
+            // btnNhapHang
+            // 
+            this.btnNhapHang.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapHang.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.package_receipt32px;
+            this.btnNhapHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNhapHang.Location = new System.Drawing.Point(384, 118);
+            this.btnNhapHang.Name = "btnNhapHang";
+            this.btnNhapHang.Size = new System.Drawing.Size(108, 41);
+            this.btnNhapHang.TabIndex = 21;
+            this.btnNhapHang.Text = "Nhập hàng";
+            this.btnNhapHang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNhapHang.UseVisualStyleBackColor = true;
+            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
+            // 
             // dgvHang
             // 
             this.dgvHang.AllowUserToDeleteRows = false;
@@ -451,8 +521,8 @@
             this.Column4,
             this.Column3,
             this.Column5,
-            this.Column6,
             this.Column7,
+            this.Column19,
             this.Column8});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -469,64 +539,6 @@
             this.dgvHang.RowHeadersVisible = false;
             this.dgvHang.Size = new System.Drawing.Size(776, 345);
             this.dgvHang.TabIndex = 11;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã SP";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 70;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên mặt hàng";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 130;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Loại hàng";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 80;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Hãng";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 70;
-            // 
-            // Column5
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column5.HeaderText = "Thông số kĩ thuật";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 220;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Bảo hành";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "SL";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 40;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Giá bán";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 80;
             // 
             // lblTitle
             // 
@@ -548,9 +560,26 @@
             this.tabPage2.Text = "Bán hàng";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnTraGop
+            // 
+            this.btnTraGop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraGop.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.bill24px;
+            this.btnTraGop.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTraGop.Location = new System.Drawing.Point(596, 569);
+            this.btnTraGop.Name = "btnTraGop";
+            this.btnTraGop.Size = new System.Drawing.Size(99, 35);
+            this.btnTraGop.TabIndex = 27;
+            this.btnTraGop.Text = "Trả góp";
+            this.btnTraGop.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTraGop.UseVisualStyleBackColor = true;
+            this.btnTraGop.Click += new System.EventHandler(this.btnTraGop_Click);
+            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox4.Controls.Add(this.btnTaoMaBanHang);
+            this.groupBox4.Controls.Add(this.txtMaBanHang);
+            this.groupBox4.Controls.Add(this.lblMaBanHang);
             this.groupBox4.Controls.Add(this.lblTitleBanHang);
             this.groupBox4.Controls.Add(this.pictureBox8);
             this.groupBox4.Controls.Add(this.pictureBox7);
@@ -573,8 +602,30 @@
             this.lblTitleBanHang.TabIndex = 28;
             this.lblTitleBanHang.Text = "Bán hàng";
             // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.handshake;
+            this.pictureBox8.Location = new System.Drawing.Point(367, 203);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(63, 66);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 27;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.receive;
+            this.pictureBox7.Location = new System.Drawing.Point(127, 388);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(153, 141);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 26;
+            this.pictureBox7.TabStop = false;
+            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.dateTimePicker1);
             this.groupBox3.Controls.Add(this.txtThanhTien_BH);
             this.groupBox3.Controls.Add(this.lblThanhTien_BH);
             this.groupBox3.Controls.Add(this.dgvSPChon_BH);
@@ -589,12 +640,12 @@
             this.groupBox3.Size = new System.Drawing.Size(296, 522);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Sản phẩm mua";
+            this.groupBox3.Text = "Sản phẩm bán";
             // 
             // txtThanhTien_BH
             // 
             this.txtThanhTien_BH.Enabled = false;
-            this.txtThanhTien_BH.Location = new System.Drawing.Point(107, 474);
+            this.txtThanhTien_BH.Location = new System.Drawing.Point(107, 460);
             this.txtThanhTien_BH.Name = "txtThanhTien_BH";
             this.txtThanhTien_BH.ReadOnly = true;
             this.txtThanhTien_BH.Size = new System.Drawing.Size(143, 20);
@@ -603,7 +654,7 @@
             // lblThanhTien_BH
             // 
             this.lblThanhTien_BH.AutoSize = true;
-            this.lblThanhTien_BH.Location = new System.Drawing.Point(30, 477);
+            this.lblThanhTien_BH.Location = new System.Drawing.Point(30, 463);
             this.lblThanhTien_BH.Name = "lblThanhTien_BH";
             this.lblThanhTien_BH.Size = new System.Drawing.Size(58, 13);
             this.lblThanhTien_BH.TabIndex = 22;
@@ -627,7 +678,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvSPChon_BH.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvSPChon_BH.Location = new System.Drawing.Point(33, 290);
+            this.dgvSPChon_BH.Location = new System.Drawing.Point(33, 276);
             this.dgvSPChon_BH.Name = "dgvSPChon_BH";
             this.dgvSPChon_BH.RowHeadersVisible = false;
             this.dgvSPChon_BH.Size = new System.Drawing.Size(232, 169);
@@ -826,6 +877,18 @@
             this.lblTenKH_BH.TabIndex = 0;
             this.lblTenKH_BH.Text = "Tên khách hàng";
             // 
+            // btnThanhToan_BH
+            // 
+            this.btnThanhToan_BH.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.cash24px;
+            this.btnThanhToan_BH.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThanhToan_BH.Location = new System.Drawing.Point(701, 569);
+            this.btnThanhToan_BH.Name = "btnThanhToan_BH";
+            this.btnThanhToan_BH.Size = new System.Drawing.Size(97, 35);
+            this.btnThanhToan_BH.TabIndex = 24;
+            this.btnThanhToan_BH.Text = "Thanh toán";
+            this.btnThanhToan_BH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThanhToan_BH.UseVisualStyleBackColor = true;
+            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -840,6 +903,16 @@
             this.tabPage3.Size = new System.Drawing.Size(829, 620);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Khách hàng";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.buyer64px;
+            this.pictureBox9.Location = new System.Drawing.Point(587, 6);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox9.TabIndex = 12;
+            this.pictureBox9.TabStop = false;
             // 
             // lblTitleKH
             // 
@@ -967,6 +1040,7 @@
             this.btnReset_KH.TabIndex = 8;
             this.btnReset_KH.Text = "Reset";
             this.btnReset_KH.UseVisualStyleBackColor = true;
+            this.btnReset_KH.Click += new System.EventHandler(this.btnReset_KH_Click);
             // 
             // txtDiaChi_KH
             // 
@@ -1174,6 +1248,30 @@
             this.sảnPhẩmToolStripMenuItem.Text = "Sản phẩm";
             this.sảnPhẩmToolStripMenuItem.Click += new System.EventHandler(this.sảnPhẩmToolStripMenuItem_Click);
             // 
+            // quảnLýToolStripMenuItem
+            // 
+            this.quảnLýToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loạiHàngToolStripMenuItem1,
+            this.nhậpHàngToolStripMenuItem,
+            this.xuấtHàngToolStripMenuItem});
+            this.quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
+            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.quảnLýToolStripMenuItem.Text = "Quản lý";
+            // 
+            // loạiHàngToolStripMenuItem1
+            // 
+            this.loạiHàngToolStripMenuItem1.Name = "loạiHàngToolStripMenuItem1";
+            this.loạiHàngToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.loạiHàngToolStripMenuItem1.Text = "Loại hàng";
+            this.loạiHàngToolStripMenuItem1.Click += new System.EventHandler(this.loạiHàngToolStripMenuItem1_Click);
+            // 
+            // nhậpHàngToolStripMenuItem
+            // 
+            this.nhậpHàngToolStripMenuItem.Name = "nhậpHàngToolStripMenuItem";
+            this.nhậpHàngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nhậpHàngToolStripMenuItem.Text = "Nhập hàng";
+            this.nhậpHàngToolStripMenuItem.Click += new System.EventHandler(this.nhậpHàngToolStripMenuItem_Click);
+            // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.line_v2;
@@ -1183,125 +1281,6 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 5;
             this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.truck256;
-            this.pictureBox2.Location = new System.Drawing.Point(6, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(81, 63);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.goods;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 97);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(53, 46);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnXoaSP
-            // 
-            this.btnXoaSP.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaSP.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.recycle_bin;
-            this.btnXoaSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoaSP.Location = new System.Drawing.Point(633, 118);
-            this.btnXoaSP.Name = "btnXoaSP";
-            this.btnXoaSP.Size = new System.Drawing.Size(129, 41);
-            this.btnXoaSP.TabIndex = 20;
-            this.btnXoaSP.Text = "Xóa sản phẩm";
-            this.btnXoaSP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnXoaSP.UseVisualStyleBackColor = true;
-            this.btnXoaSP.MouseEnter += new System.EventHandler(this.btnXoaSP_MouseEnter);
-            this.btnXoaSP.MouseLeave += new System.EventHandler(this.btnXoaSP_MouseLeave);
-            // 
-            // btnSuaSP
-            // 
-            this.btnSuaSP.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuaSP.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.settings;
-            this.btnSuaSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSuaSP.Location = new System.Drawing.Point(498, 118);
-            this.btnSuaSP.Name = "btnSuaSP";
-            this.btnSuaSP.Size = new System.Drawing.Size(129, 41);
-            this.btnSuaSP.TabIndex = 19;
-            this.btnSuaSP.Text = "Sửa sản phẩm";
-            this.btnSuaSP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSuaSP.UseVisualStyleBackColor = true;
-            this.btnSuaSP.Click += new System.EventHandler(this.btnSuaSP_Click);
-            // 
-            // btnNhapHang
-            // 
-            this.btnNhapHang.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapHang.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.package_receipt32px;
-            this.btnNhapHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhapHang.Location = new System.Drawing.Point(384, 118);
-            this.btnNhapHang.Name = "btnNhapHang";
-            this.btnNhapHang.Size = new System.Drawing.Size(108, 41);
-            this.btnNhapHang.TabIndex = 21;
-            this.btnNhapHang.Text = "Nhập hàng";
-            this.btnNhapHang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNhapHang.UseVisualStyleBackColor = true;
-            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
-            // 
-            // btnTraGop
-            // 
-            this.btnTraGop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTraGop.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.bill24px;
-            this.btnTraGop.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTraGop.Location = new System.Drawing.Point(596, 569);
-            this.btnTraGop.Name = "btnTraGop";
-            this.btnTraGop.Size = new System.Drawing.Size(99, 35);
-            this.btnTraGop.TabIndex = 27;
-            this.btnTraGop.Text = "Trả góp";
-            this.btnTraGop.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTraGop.UseVisualStyleBackColor = true;
-            this.btnTraGop.Click += new System.EventHandler(this.btnTraGop_Click);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.handshake;
-            this.pictureBox8.Location = new System.Drawing.Point(367, 203);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(63, 66);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 27;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.receive;
-            this.pictureBox7.Location = new System.Drawing.Point(127, 388);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(153, 141);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 26;
-            this.pictureBox7.TabStop = false;
-            // 
-            // btnThanhToan_BH
-            // 
-            this.btnThanhToan_BH.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.cash24px;
-            this.btnThanhToan_BH.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnThanhToan_BH.Location = new System.Drawing.Point(701, 569);
-            this.btnThanhToan_BH.Name = "btnThanhToan_BH";
-            this.btnThanhToan_BH.Size = new System.Drawing.Size(97, 35);
-            this.btnThanhToan_BH.TabIndex = 24;
-            this.btnThanhToan_BH.Text = "Thanh toán";
-            this.btnThanhToan_BH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThanhToan_BH.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.buyer64px;
-            this.pictureBox9.Location = new System.Drawing.Point(587, 6);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox9.TabIndex = 12;
-            this.pictureBox9.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -1333,6 +1312,55 @@
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(107, 486);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(143, 20);
+            this.dateTimePicker1.TabIndex = 24;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(35, 492);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Ngày bán";
+            // 
+            // lblMaBanHang
+            // 
+            this.lblMaBanHang.AutoSize = true;
+            this.lblMaBanHang.Location = new System.Drawing.Point(58, 79);
+            this.lblMaBanHang.Name = "lblMaBanHang";
+            this.lblMaBanHang.Size = new System.Drawing.Size(70, 13);
+            this.lblMaBanHang.TabIndex = 29;
+            this.lblMaBanHang.Text = "Mã bán hàng";
+            // 
+            // txtMaBanHang
+            // 
+            this.txtMaBanHang.Location = new System.Drawing.Point(134, 76);
+            this.txtMaBanHang.Name = "txtMaBanHang";
+            this.txtMaBanHang.Size = new System.Drawing.Size(129, 20);
+            this.txtMaBanHang.TabIndex = 30;
+            // 
+            // btnTaoMaBanHang
+            // 
+            this.btnTaoMaBanHang.Location = new System.Drawing.Point(273, 74);
+            this.btnTaoMaBanHang.Name = "btnTaoMaBanHang";
+            this.btnTaoMaBanHang.Size = new System.Drawing.Size(78, 23);
+            this.btnTaoMaBanHang.TabIndex = 31;
+            this.btnTaoMaBanHang.Text = "Tạo nhanh";
+            this.btnTaoMaBanHang.UseVisualStyleBackColor = true;
+            // 
+            // xuấtHàngToolStripMenuItem
+            // 
+            this.xuấtHàngToolStripMenuItem.Name = "xuấtHàngToolStripMenuItem";
+            this.xuấtHàngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xuấtHàngToolStripMenuItem.Text = "Xuất hàng";
+            this.xuấtHàngToolStripMenuItem.Click += new System.EventHandler(this.xuấtHàngToolStripMenuItem_Click);
+            // 
             // tbtnThongTinNhanh
             // 
             this.tbtnThongTinNhanh.AutoSize = true;
@@ -1362,20 +1390,63 @@
             this.rjToggleButton1.TabIndex = 9;
             this.rjToggleButton1.UseVisualStyleBackColor = true;
             // 
-            // quảnLýToolStripMenuItem
+            // Column1
             // 
-            this.quảnLýToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loạiHàngToolStripMenuItem1});
-            this.quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.quảnLýToolStripMenuItem.Text = "Quản lý";
+            this.Column1.HeaderText = "Mã SP";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 70;
             // 
-            // loạiHàngToolStripMenuItem1
+            // Column2
             // 
-            this.loạiHàngToolStripMenuItem1.Name = "loạiHàngToolStripMenuItem1";
-            this.loạiHàngToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.loạiHàngToolStripMenuItem1.Text = "Loại hàng";
-            this.loạiHàngToolStripMenuItem1.Click += new System.EventHandler(this.loạiHàngToolStripMenuItem1_Click);
+            this.Column2.HeaderText = "Tên mặt hàng";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 130;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Loại hàng";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 80;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Hãng";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 70;
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column5.HeaderText = "Thông số kĩ thuật";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 210;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "SL";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 50;
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "Giá nhập";
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
+            this.Column19.Width = 80;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Giá bán";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 80;
             // 
             // frmMain
             // 
@@ -1401,15 +1472,19 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groCapNhatGia.ResumeLayout(false);
             this.groCapNhatGia.PerformLayout();
             this.groTimKiem.ResumeLayout(false);
             this.groTimKiem.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHang)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSPChon_BH)).EndInit();
@@ -1418,6 +1493,7 @@
             this.groupBox2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH_KH)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -1428,11 +1504,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -1531,7 +1602,6 @@
         private System.Windows.Forms.RadioButton rdoTenKH_KH;
         private System.Windows.Forms.DataGridView dgvKH_KH;
         private System.Windows.Forms.Button btnReset_KH;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnSuaKH_KH;
         private System.Windows.Forms.Label lblTitleBanHang;
         private System.Windows.Forms.Label lblTitleKH;
@@ -1542,20 +1612,28 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.Label lblTrangThai;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem thêmToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loạiHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sảnPhẩmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loạiHàngToolStripMenuItem1;
+        private System.Windows.Forms.Label lblTrangThai;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ToolStripMenuItem nhậpHàngToolStripMenuItem;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnTaoMaBanHang;
+        private System.Windows.Forms.TextBox txtMaBanHang;
+        private System.Windows.Forms.Label lblMaBanHang;
+        private System.Windows.Forms.ToolStripMenuItem xuấtHàngToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loạiHàngToolStripMenuItem1;
     }
 }

@@ -70,6 +70,18 @@
     <Compile Include="frmQuanLyLoaiHang.Designer.cs">
       <DependentUpon>frmQuanLyLoaiHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQuanLyNhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyNhapHang.Designer.cs">
+      <DependentUpon>frmQuanLyNhapHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyXuatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyXuatHang.Designer.cs">
+      <DependentUpon>frmQuanLyXuatHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSuaLoaiHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +134,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyLoaiHang.resx">
       <DependentUpon>frmQuanLyLoaiHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyNhapHang.resx">
+      <DependentUpon>frmQuanLyNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyXuatHang.resx">
+      <DependentUpon>frmQuanLyXuatHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSuaLoaiHang.resx">
       <DependentUpon>frmSuaLoaiHang.cs</DependentUpon>
@@ -214,6 +232,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\buyer64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-arrow64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shipped64px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
