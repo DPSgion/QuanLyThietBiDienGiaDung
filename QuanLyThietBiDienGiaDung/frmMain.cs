@@ -22,8 +22,8 @@ namespace QuanLyThietBiDienGiaDung
         {
             dgvHang.Rows[0].Cells[0].Value = "ML001";
             dgvHang.Rows[0].Cells[1].Value = "Máy lạnh 2HP";
-            dgvHang.Rows[0].Cells[2].Value = "Toshiba";
-            dgvHang.Rows[0].Cells[3].Value = "NCC008";
+            dgvHang.Rows[0].Cells[2].Value = "Máy lạnh";
+            dgvHang.Rows[0].Cells[3].Value = "Toshiba";
             dgvHang.Rows[0].Cells[4].Value = "- Test thử thôi\n" + "- Đang thành công\n" +
                 "- Làm lạnh với công suất 900W, có thể làm lạnh 1 cây kem với thời gian 10 phút";
             dgvHang.Rows[0].Cells[5].Value = "5 năm";
@@ -120,8 +120,22 @@ namespace QuanLyThietBiDienGiaDung
             btnSuaSP.Enabled = false;
             btnCapNhat.Enabled = false;
             btnXoaSP.Enabled = false;
+            btnNhapHang.Enabled = false;
 
             fixSP.FormClosed += Fix_FormClosed;
+        }
+
+        private void btnNhapHang_Click(object sender, EventArgs e)
+        {
+            frmNhapHang nhapHang = new frmNhapHang();
+            nhapHang.Show();
+
+            btnSuaSP.Enabled = false;
+            btnCapNhat.Enabled = false;
+            btnXoaSP.Enabled = false;
+            btnNhapHang.Enabled = false;
+
+            nhapHang.FormClosed += Fix_FormClosed;
         }
 
         private void Fix_FormClosed(object sender, FormClosedEventArgs e)
@@ -129,6 +143,7 @@ namespace QuanLyThietBiDienGiaDung
             btnSuaSP.Enabled = true;
             btnCapNhat.Enabled = true;
             btnXoaSP.Enabled = true;
+            btnNhapHang.Enabled = true;
 
         }
 
@@ -200,5 +215,22 @@ namespace QuanLyThietBiDienGiaDung
                 
         }
 
+        private void loạiHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmThemLoaiHang themLH = new frmThemLoaiHang();
+            themLH.Show();
+        }
+
+        private void sảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmThemMatHangMoi themMHmoi = new frmThemMatHangMoi();
+            themMHmoi.Show();
+        }
+
+        private void loạiHàngToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmQuanLyLoaiHang frmQLLH = new frmQuanLyLoaiHang();
+            frmQLLH.Show();
+        }
     }
 }

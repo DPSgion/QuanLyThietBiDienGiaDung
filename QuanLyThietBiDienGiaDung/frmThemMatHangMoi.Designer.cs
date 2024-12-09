@@ -44,8 +44,8 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblLoaiHang = new System.Windows.Forms.Label();
             this.cboLoaiHang = new System.Windows.Forms.ComboBox();
+            this.lblLoaiHang = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -173,6 +173,7 @@
             this.btnHuy.TabIndex = 17;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // groupBox1
             // 
@@ -197,6 +198,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sản phẩm mới";
             // 
+            // cboLoaiHang
+            // 
+            this.cboLoaiHang.FormattingEnabled = true;
+            this.cboLoaiHang.Location = new System.Drawing.Point(105, 73);
+            this.cboLoaiHang.Name = "cboLoaiHang";
+            this.cboLoaiHang.Size = new System.Drawing.Size(131, 21);
+            this.cboLoaiHang.TabIndex = 17;
+            // 
             // lblLoaiHang
             // 
             this.lblLoaiHang.AutoSize = true;
@@ -205,14 +214,6 @@
             this.lblLoaiHang.Size = new System.Drawing.Size(54, 13);
             this.lblLoaiHang.TabIndex = 16;
             this.lblLoaiHang.Text = "Loại hàng";
-            // 
-            // cboLoaiHang
-            // 
-            this.cboLoaiHang.FormattingEnabled = true;
-            this.cboLoaiHang.Location = new System.Drawing.Point(105, 73);
-            this.cboLoaiHang.Name = "cboLoaiHang";
-            this.cboLoaiHang.Size = new System.Drawing.Size(131, 21);
-            this.cboLoaiHang.TabIndex = 17;
             // 
             // frmThemMatHangMoi
             // 
@@ -223,7 +224,10 @@
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.lblTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmThemMatHangMoi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm mặt hàng mới";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

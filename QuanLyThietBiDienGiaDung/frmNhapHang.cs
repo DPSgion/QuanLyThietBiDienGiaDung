@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace QuanLyThietBiDienGiaDung
 {
-    public partial class frmKhachHang : Form
+    public partial class frmNhapHang : Form
     {
-        public frmKhachHang()
+        public frmNhapHang()
         {
             InitializeComponent();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
