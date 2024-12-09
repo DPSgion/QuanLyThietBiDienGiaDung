@@ -177,5 +177,10 @@ namespace QuanLyThietBiDienGiaDung
             txtTenLH.AutoCompleteCustomSource = col;
 
         }
+
+        private void frmQuanLyLoaiHang_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TruyCapDuLieu.ghiFile("tst.dat");
+        }
     }
 }

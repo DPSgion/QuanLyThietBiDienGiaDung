@@ -207,6 +207,7 @@
             this.Name = "frmQuanLyLoaiHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý loại hàng";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmQuanLyLoaiHang_FormClosing);
             this.Load += new System.EventHandler(this.frmQuanLyLoaiHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLH)).EndInit();
             this.groupBox1.ResumeLayout(false);
