@@ -15,9 +15,9 @@ namespace QuanLyThietBiDienGiaDung.Script
         private string _loaiHang;
         private string _hangSX;
         private string _tskt;
-        private string _soLuong;
-        private string _giaNhap;
-        private string _giaBan;
+        private int _soLuong;
+        private double _giaNhap;
+        private double _giaBan;
 
         // Properties
         public string MaSP { get => _maSP; set => _maSP = value; }
@@ -25,9 +25,9 @@ namespace QuanLyThietBiDienGiaDung.Script
         public string LoaiHang { get => _loaiHang; set => _loaiHang = value; }
         public string Hang { get => _hangSX; set => _hangSX = value; }
         public string Tskt { get => _tskt; set => _tskt = value; }
-        public string SoLuong { get => _soLuong; set => _soLuong = value; }
-        public string GiaNhap { get => _giaNhap; set => _giaNhap = value; }
-        public string GiaBan { get => _giaBan; set => _giaBan = value; }
+        public int SoLuong { get => _soLuong; set => _soLuong = value; }
+        public double GiaNhap { get => _giaNhap; set => _giaNhap = value; }
+        public double GiaBan { get => _giaBan; set => _giaBan = value; }
 
         // Constructor
         public SanPham()
@@ -37,12 +37,12 @@ namespace QuanLyThietBiDienGiaDung.Script
             _loaiHang = "";
             _hangSX = "";
             _tskt = "";
-            _soLuong = "";
-            _giaNhap = "";
-            _giaBan = "";
+            _soLuong = 0;
+            _giaNhap = 0;
+            _giaBan = 0;
         }
         public SanPham(string ma, string ten, string loaiHang, 
-            string hangsx, string tskt, string soluong, string giaNhap, string giaBan)
+            string hangsx, string tskt, int soluong, double giaNhap, double giaBan)
         {
             _maSP = ma;
             _tenSP = ten;
@@ -53,8 +53,5 @@ namespace QuanLyThietBiDienGiaDung.Script
             _giaNhap = giaNhap;
             _giaBan = giaBan;
         }
-
-
-
     }
 }

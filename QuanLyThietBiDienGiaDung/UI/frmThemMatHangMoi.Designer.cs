@@ -201,6 +201,7 @@
             // 
             // cboLoaiHang
             // 
+            this.cboLoaiHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLoaiHang.FormattingEnabled = true;
             this.cboLoaiHang.Location = new System.Drawing.Point(105, 73);
             this.cboLoaiHang.Name = "cboLoaiHang";

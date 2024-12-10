@@ -45,10 +45,6 @@ namespace QuanLyThietBiDienGiaDung
             this.lblSoLuong = new System.Windows.Forms.Label();
             this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.lblGiaBan = new System.Windows.Forms.Label();
-            this.lblTenNCC = new System.Windows.Forms.Label();
-            this.txtTenNCC = new System.Windows.Forms.TextBox();
-            this.lblMaNCC = new System.Windows.Forms.Label();
-            this.txtMaNCC = new System.Windows.Forms.TextBox();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.txtGiaNhap = new System.Windows.Forms.TextBox();
@@ -85,7 +81,7 @@ namespace QuanLyThietBiDienGiaDung
             // 
             this.txtTenSP.Location = new System.Drawing.Point(111, 92);
             this.txtTenSP.Name = "txtTenSP";
-            this.txtTenSP.Size = new System.Drawing.Size(267, 20);
+            this.txtTenSP.Size = new System.Drawing.Size(152, 20);
             this.txtTenSP.TabIndex = 4;
             // 
             // lblTenSP
@@ -100,7 +96,7 @@ namespace QuanLyThietBiDienGiaDung
             // lblLoaiHang
             // 
             this.lblLoaiHang.AutoSize = true;
-            this.lblLoaiHang.Location = new System.Drawing.Point(12, 194);
+            this.lblLoaiHang.Location = new System.Drawing.Point(12, 126);
             this.lblLoaiHang.Name = "lblLoaiHang";
             this.lblLoaiHang.Size = new System.Drawing.Size(54, 13);
             this.lblLoaiHang.TabIndex = 5;
@@ -108,23 +104,24 @@ namespace QuanLyThietBiDienGiaDung
             // 
             // cboLoaiHang
             // 
+            this.cboLoaiHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLoaiHang.FormattingEnabled = true;
-            this.cboLoaiHang.Location = new System.Drawing.Point(111, 186);
+            this.cboLoaiHang.Location = new System.Drawing.Point(111, 118);
             this.cboLoaiHang.Name = "cboLoaiHang";
-            this.cboLoaiHang.Size = new System.Drawing.Size(267, 21);
+            this.cboLoaiHang.Size = new System.Drawing.Size(101, 21);
             this.cboLoaiHang.TabIndex = 6;
             // 
             // txtHang
             // 
-            this.txtHang.Location = new System.Drawing.Point(111, 118);
+            this.txtHang.Location = new System.Drawing.Point(111, 145);
             this.txtHang.Name = "txtHang";
-            this.txtHang.Size = new System.Drawing.Size(267, 20);
+            this.txtHang.Size = new System.Drawing.Size(101, 20);
             this.txtHang.TabIndex = 8;
             // 
             // lblHang
             // 
             this.lblHang.AutoSize = true;
-            this.lblHang.Location = new System.Drawing.Point(12, 125);
+            this.lblHang.Location = new System.Drawing.Point(12, 152);
             this.lblHang.Name = "lblHang";
             this.lblHang.Size = new System.Drawing.Size(33, 13);
             this.lblHang.TabIndex = 7;
@@ -133,7 +130,7 @@ namespace QuanLyThietBiDienGiaDung
             // lblTSKT
             // 
             this.lblTSKT.AutoSize = true;
-            this.lblTSKT.Location = new System.Drawing.Point(12, 316);
+            this.lblTSKT.Location = new System.Drawing.Point(12, 195);
             this.lblTSKT.Name = "lblTSKT";
             this.lblTSKT.Size = new System.Drawing.Size(93, 13);
             this.lblTSKT.TabIndex = 9;
@@ -141,7 +138,7 @@ namespace QuanLyThietBiDienGiaDung
             // 
             // txtTSKT
             // 
-            this.txtTSKT.Location = new System.Drawing.Point(111, 292);
+            this.txtTSKT.Location = new System.Drawing.Point(111, 171);
             this.txtTSKT.Multiline = true;
             this.txtTSKT.Name = "txtTSKT";
             this.txtTSKT.Size = new System.Drawing.Size(289, 79);
@@ -149,7 +146,7 @@ namespace QuanLyThietBiDienGiaDung
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(111, 213);
+            this.txtSoLuong.Location = new System.Drawing.Point(111, 256);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(74, 20);
             this.txtSoLuong.TabIndex = 12;
@@ -157,7 +154,7 @@ namespace QuanLyThietBiDienGiaDung
             // lblSoLuong
             // 
             this.lblSoLuong.AutoSize = true;
-            this.lblSoLuong.Location = new System.Drawing.Point(12, 220);
+            this.lblSoLuong.Location = new System.Drawing.Point(12, 263);
             this.lblSoLuong.Name = "lblSoLuong";
             this.lblSoLuong.Size = new System.Drawing.Size(49, 13);
             this.lblSoLuong.TabIndex = 11;
@@ -165,7 +162,7 @@ namespace QuanLyThietBiDienGiaDung
             // 
             // txtGiaBan
             // 
-            this.txtGiaBan.Location = new System.Drawing.Point(111, 266);
+            this.txtGiaBan.Location = new System.Drawing.Point(111, 309);
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.Size = new System.Drawing.Size(152, 20);
             this.txtGiaBan.TabIndex = 14;
@@ -173,49 +170,17 @@ namespace QuanLyThietBiDienGiaDung
             // lblGiaBan
             // 
             this.lblGiaBan.AutoSize = true;
-            this.lblGiaBan.Location = new System.Drawing.Point(12, 273);
+            this.lblGiaBan.Location = new System.Drawing.Point(12, 316);
             this.lblGiaBan.Name = "lblGiaBan";
             this.lblGiaBan.Size = new System.Drawing.Size(44, 13);
             this.lblGiaBan.TabIndex = 13;
             this.lblGiaBan.Text = "Giá bán";
             // 
-            // lblTenNCC
-            // 
-            this.lblTenNCC.AutoSize = true;
-            this.lblTenNCC.Location = new System.Drawing.Point(10, 158);
-            this.lblTenNCC.Name = "lblTenNCC";
-            this.lblTenNCC.Size = new System.Drawing.Size(95, 13);
-            this.lblTenNCC.TabIndex = 15;
-            this.lblTenNCC.Text = "Tên nhà cung cấp";
-            // 
-            // txtTenNCC
-            // 
-            this.txtTenNCC.Location = new System.Drawing.Point(111, 151);
-            this.txtTenNCC.Name = "txtTenNCC";
-            this.txtTenNCC.Size = new System.Drawing.Size(164, 20);
-            this.txtTenNCC.TabIndex = 16;
-            // 
-            // lblMaNCC
-            // 
-            this.lblMaNCC.AutoSize = true;
-            this.lblMaNCC.Location = new System.Drawing.Point(286, 158);
-            this.lblMaNCC.Name = "lblMaNCC";
-            this.lblMaNCC.Size = new System.Drawing.Size(47, 13);
-            this.lblMaNCC.TabIndex = 17;
-            this.lblMaNCC.Text = "Mã NCC";
-            // 
-            // txtMaNCC
-            // 
-            this.txtMaNCC.Location = new System.Drawing.Point(339, 151);
-            this.txtMaNCC.Name = "txtMaNCC";
-            this.txtMaNCC.Size = new System.Drawing.Size(76, 20);
-            this.txtMaNCC.TabIndex = 18;
-            // 
             // btnHuy
             // 
             this.btnHuy.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.close;
             this.btnHuy.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnHuy.Location = new System.Drawing.Point(224, 391);
+            this.btnHuy.Location = new System.Drawing.Point(224, 349);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(71, 41);
             this.btnHuy.TabIndex = 20;
@@ -229,17 +194,18 @@ namespace QuanLyThietBiDienGiaDung
             this.btnSua.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.check_mark;
             this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSua.Location = new System.Drawing.Point(133, 391);
+            this.btnSua.Location = new System.Drawing.Point(133, 349);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(71, 41);
             this.btnSua.TabIndex = 19;
             this.btnSua.Text = "Sửa";
             this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // txtGiaNhap
             // 
-            this.txtGiaNhap.Location = new System.Drawing.Point(111, 239);
+            this.txtGiaNhap.Location = new System.Drawing.Point(111, 282);
             this.txtGiaNhap.Name = "txtGiaNhap";
             this.txtGiaNhap.Size = new System.Drawing.Size(152, 20);
             this.txtGiaNhap.TabIndex = 22;
@@ -247,7 +213,7 @@ namespace QuanLyThietBiDienGiaDung
             // lblGiaNhap
             // 
             this.lblGiaNhap.AutoSize = true;
-            this.lblGiaNhap.Location = new System.Drawing.Point(12, 246);
+            this.lblGiaNhap.Location = new System.Drawing.Point(12, 289);
             this.lblGiaNhap.Name = "lblGiaNhap";
             this.lblGiaNhap.Size = new System.Drawing.Size(50, 13);
             this.lblGiaNhap.TabIndex = 21;
@@ -258,15 +224,11 @@ namespace QuanLyThietBiDienGiaDung
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(441, 450);
+            this.ClientSize = new System.Drawing.Size(418, 405);
             this.Controls.Add(this.txtGiaNhap);
             this.Controls.Add(this.lblGiaNhap);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnSua);
-            this.Controls.Add(this.txtMaNCC);
-            this.Controls.Add(this.lblMaNCC);
-            this.Controls.Add(this.txtTenNCC);
-            this.Controls.Add(this.lblTenNCC);
             this.Controls.Add(this.txtGiaBan);
             this.Controls.Add(this.lblGiaBan);
             this.Controls.Add(this.txtSoLuong);
@@ -287,6 +249,7 @@ namespace QuanLyThietBiDienGiaDung
             this.Name = "frmSuaSanPham";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa sản phẩm";
+            this.Load += new System.EventHandler(this.frmSuaSanPham_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,10 +272,6 @@ namespace QuanLyThietBiDienGiaDung
         private System.Windows.Forms.Label lblSoLuong;
         private System.Windows.Forms.TextBox txtGiaBan;
         private System.Windows.Forms.Label lblGiaBan;
-        private Label lblTenNCC;
-        private TextBox txtTenNCC;
-        private Label lblMaNCC;
-        private TextBox txtMaNCC;
         private Button btnSua;
         private Button btnHuy;
         private TextBox txtGiaNhap;

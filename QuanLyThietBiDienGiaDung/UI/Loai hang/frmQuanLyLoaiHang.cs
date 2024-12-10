@@ -156,9 +156,10 @@ namespace QuanLyThietBiDienGiaDung
                         MessageBox.Show("Xóa không được", "Thông báo");
                     }
                 }
+                hienThi();
+                CapNhatGoiY();
             }
-            hienThi();
-            CapNhatGoiY();
+            
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

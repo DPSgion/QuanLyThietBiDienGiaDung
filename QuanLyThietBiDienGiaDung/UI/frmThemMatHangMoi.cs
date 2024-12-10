@@ -20,8 +20,9 @@ namespace QuanLyThietBiDienGiaDung
         public string LoaiHang { get; private set; }
         public string Hang { get; private set; }
         public string TSKT { get; private set; }
-        public string GiaNhap { get; private set; }
-        public string GiaBan { get; private set; }
+
+        public double GiaNhap { get; private set; }
+        public double GiaBan { get; private set; }
 
         public frmThemMatHangMoi()
         {
@@ -30,7 +31,15 @@ namespace QuanLyThietBiDienGiaDung
         private void frmThemMatHangMoi_Load(object sender, EventArgs e)
         {
             CapNhatGoiY();
-            cboLoaiHang.Text = cboLoaiHang.Items[0].ToString();
+            if (cboLoaiHang.Items.Count > 0)
+            {
+                cboLoaiHang.Text = cboLoaiHang.Items[0].ToString();
+            }
+            else
+            {
+                MessageBox.Show("Chưa có loại hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
         }
 
         private void CapNhatGoiY()
@@ -41,29 +50,52 @@ namespace QuanLyThietBiDienGiaDung
             }
         }
 
+        bool isNumber(string input)
+        {
+            if (int.TryParse(input, out int number))
+            {
+                return number > 0; // Trả về true nếu là số dương
+            }
+
+            if (double.TryParse(input, out double doubleNumber))
+            {
+                return doubleNumber > 0; // Trả về true nếu là số dương
+            }
+
+            // Nếu không phải số, trả về false
+            return false;
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtMaSP.Text) || string.IsNullOrEmpty(txtTenSP.Text) ||
                 string.IsNullOrEmpty(txtHang.Text) || string.IsNullOrEmpty(txtTSKT.Text) ||
-                string.IsNullOrEmpty(txtGiaNhap.Text) || string.IsNullOrEmpty(txtGiaBan.Text))
+                string.IsNullOrEmpty(txtGiaNhap.Text) || string.IsNullOrEmpty(txtGiaBan.Text) ||
+                string.IsNullOrEmpty(cboLoaiHang.Text))
             {
                 MessageBox.Show("Chưa điền đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MaSP = txtMaSP.Text;
-                TenSP = txtTenSP.Text;
-                LoaiHang = cboLoaiHang.Text;
-                Hang = txtHang.Text;
-                TSKT = txtTSKT.Text;
-                GiaNhap = txtGiaNhap.Text;
-                GiaBan = txtGiaBan.Text;
+                if (isNumber(txtGiaNhap.Text) && isNumber(txtGiaBan.Text))
+                {
+                    MaSP = txtMaSP.Text;
+                    TenSP = txtTenSP.Text;
+                    LoaiHang = cboLoaiHang.Text;
+                    Hang = txtHang.Text;
+                    TSKT = txtTSKT.Text;
+                    GiaNhap = Convert.ToDouble(txtGiaNhap.Text);
+                    GiaBan = Convert.ToDouble(txtGiaBan.Text);
 
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Giá nhập, giá bán phải là số dương",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-
-            
         }
 
         private void btnHuy_Click(object sender, EventArgs e)

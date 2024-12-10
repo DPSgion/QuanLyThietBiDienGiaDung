@@ -54,5 +54,35 @@ namespace QuanLyThietBiDienGiaDung.Script
             }
             return false;
         }
+
+        public bool suaSanPham(SanPham a, SanPham b)
+        {
+            SanPham temp = tim(a.MaSP);
+            if (temp != null)
+            {
+                temp.MaSP = b.MaSP;
+                temp.TenSP = b.TenSP;
+                temp.LoaiHang = b.LoaiHang;
+                temp.Hang = b.Hang;
+                temp.SoLuong = b.SoLuong;
+                temp.Tskt = b.Tskt;
+                temp.GiaNhap = b.GiaNhap;
+                temp.GiaBan = b.GiaBan;
+
+                return true;
+            }
+            return false;
+        }
+
+        public bool xoaSanPham(string ma)
+        {
+            SanPham temp = tim(ma);
+            if (temp != null)
+            {
+                _dsSanPham.Remove(temp);
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -15,7 +15,17 @@ namespace QuanLyThietBiDienGiaDung
     public partial class frmMain : Form
     {
         QuanLySanPham quanLySP;
-        BindingSource bds = new BindingSource();
+        BindingSource bdKhoHang = new BindingSource();
+
+
+        private string maSP_khoHang = "";
+        private string tenSP_khoHang = "";
+        private string loaiHang_khoHang = "";
+        private string hang_khoHang = "";
+        private string tskt_khoHang = "";
+        private int soLuong_khoHang = 0;
+        private double giaNhap_khoHang = 0;
+        private double giaBan_khoHang = 0;
 
         public frmMain()
         {
@@ -28,15 +38,15 @@ namespace QuanLyThietBiDienGiaDung
         {
             TruyCapDuLieu.docFile("tst.dat");
             quanLySP = new QuanLySanPham();
-            bds.DataSource = quanLySP.getDSSanPham();
-            dgvHang.DataSource = bds;
+            bdKhoHang.DataSource = quanLySP.getDSSanPham();
+            dgvHang.DataSource = bdKhoHang;
 
             hienThi();
 
         }
         private void hienThi()
         {
-            bds.ResetBindings(false);
+            bdKhoHang.ResetBindings(false);
         }
 
         private void thêmSảnPhẩmMớiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,10 +61,10 @@ namespace QuanLyThietBiDienGiaDung
                     string loaihang = SPmoi.LoaiHang;
                     string hang = SPmoi.Hang;
                     string tskt = SPmoi.TSKT;
-                    string gianhap = SPmoi.GiaNhap;
-                    string giaban = SPmoi.GiaBan;
+                    double gianhap = SPmoi.GiaNhap;
+                    double giaban = SPmoi.GiaBan;
 
-                    SanPham temp = new SanPham(masp, tensp, loaihang, hang, tskt, "0", gianhap, giaban);
+                    SanPham temp = new SanPham(masp, tensp, loaihang, hang, tskt, 0, gianhap, giaban);
 
                     if (!quanLySP.themSanPham(temp))
                     {
@@ -66,6 +76,57 @@ namespace QuanLyThietBiDienGiaDung
             }
         }
 
+        private void btnXoaSP_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(maSP_khoHang))
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc là muốn xóa không", "Thông báo",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    if (!quanLySP.xoaSanPham(maSP_khoHang))
+                    {
+                        MessageBox.Show("Xóa không được", "Thông báo");
+                    }
+                }
+                hienThi();
+            }
+        }
+
+        private void btnSuaSP_Click(object sender, EventArgs e)
+        {
+            SanPham a = new SanPham();
+            a.MaSP = maSP_khoHang;
+
+            using (frmSuaSanPham fixSP = new frmSuaSanPham(maSP_khoHang, tenSP_khoHang, loaiHang_khoHang, hang_khoHang,
+                tskt_khoHang, soLuong_khoHang, giaNhap_khoHang, giaBan_khoHang))
+            {
+                if (fixSP.ShowDialog() == DialogResult.OK)
+                {
+
+                    string masp = fixSP.MaSP;
+                    string tensp = fixSP.TenSP;
+                    string loaihang = fixSP.LoaiHang;
+                    string hang = fixSP.Hang;
+                    string tskt = fixSP.TSKT;
+                    int soluong = fixSP.SoLuong;
+                    double gianhap = fixSP.GiaNhap;
+                    double giaban = fixSP.GiaBan;
+
+                    SanPham temp = new SanPham(masp, tensp, loaihang, hang, tskt, soluong,
+                        gianhap, giaban);
+
+                    if (!quanLySP.suaSanPham(a, temp))
+                    {
+                        MessageBox.Show("Ko sửa đc");
+                    }
+
+                    hienThi();
+                }
+            }
+
+        }
 
         private void runTest()
         {
@@ -156,22 +217,7 @@ namespace QuanLyThietBiDienGiaDung
             btnXoaSP.ForeColor = Color.Black;
         }
 
-        private void btnSuaSP_Click(object sender, EventArgs e)
-        {
-            //string temp = dgvHang.Rows[0].Cells[0].Value.ToString();
-            //frmSuaSanPham fixSP = new frmSuaSanPham(temp);
-
-            frmSuaSanPham fixSP = new frmSuaSanPham();
-
-            fixSP.Show();
-
-            btnSuaSP.Enabled = false;
-            btnCapNhat.Enabled = false;
-            btnXoaSP.Enabled = false;
-            btnNhapHang.Enabled = false;
-
-            fixSP.FormClosed += Fix_FormClosed;
-        }
+        
 
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
@@ -310,5 +356,29 @@ namespace QuanLyThietBiDienGiaDung
         {
             TruyCapDuLieu.ghiFile("tst.dat");
         }
+
+        private void dgvHang_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            // Lấy giá trị từ các cột trong dòng được chọn
+            var maCellValue = dgvHang.Rows[e.RowIndex].Cells["colMaSP"].Value;
+            var tenCellValue = dgvHang.Rows[e.RowIndex].Cells["colTenSP"].Value;
+            var loaiCellValue = dgvHang.Rows[e.RowIndex].Cells["colLoaiHang"].Value;
+            var hangCellValue = dgvHang.Rows[e.RowIndex].Cells["colHang"].Value;
+            var tsktCellValue = dgvHang.Rows[e.RowIndex].Cells["colTSKT"].Value;
+            var soLuongCellValue = dgvHang.Rows[e.RowIndex].Cells["colSL"].Value;
+            var giaNhapCellValue = dgvHang.Rows[e.RowIndex].Cells["colGiaNhap"].Value;
+            var giaBanCellValue = dgvHang.Rows[e.RowIndex].Cells["colGiaBan"].Value;
+
+            // Kiểm tra nếu giá trị không phải null trước khi gán
+            maSP_khoHang = maCellValue != null ? maCellValue.ToString() : string.Empty;
+            tenSP_khoHang = tenCellValue != null ? tenCellValue.ToString() : string.Empty;
+            loaiHang_khoHang = loaiCellValue != null ? loaiCellValue.ToString() : string.Empty;
+            hang_khoHang = hangCellValue != null ? hangCellValue.ToString() : string.Empty;
+            tskt_khoHang = tsktCellValue != null ? tsktCellValue.ToString() : string.Empty;
+            soLuong_khoHang = soLuongCellValue != null ? Convert.ToInt32(soLuongCellValue.ToString()) : 0;
+            giaNhap_khoHang = giaNhapCellValue != null ? Convert.ToDouble(giaNhapCellValue.ToString()) : 0;
+            giaBan_khoHang = giaBanCellValue != null ? Convert.ToDouble(giaBanCellValue.ToString()) : 0;
+        }
+
     }
 }
