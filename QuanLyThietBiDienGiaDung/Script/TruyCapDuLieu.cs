@@ -14,12 +14,12 @@ namespace QuanLyThietBiDienGiaDung.Script
     {
         private static TruyCapDuLieu instance = null;
         private List<LoaiHang> dsLoaiHang;
-        //private List<SanPham> dsSanPham;
+        private List<SanPham> dsSanPham;
 
         private TruyCapDuLieu()
         {
             dsLoaiHang = new List<LoaiHang>();
-            //dsSanPham = new List<SanPham>();
+            dsSanPham = new List<SanPham>();
         }
         public static TruyCapDuLieu khoiTao()
         {
@@ -34,10 +34,10 @@ namespace QuanLyThietBiDienGiaDung.Script
         {
             return dsLoaiHang;
         }
-        /*public List<SanPham> getDSSanPham()
+        public List<SanPham> getDSSanPham()
         {
             return dsSanPham;
-        }*/
+        }
 
         public static bool docFile(string tenfile)
         {

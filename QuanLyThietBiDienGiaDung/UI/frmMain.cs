@@ -1,7 +1,9 @@
-﻿using System;
+﻿using QuanLyThietBiDienGiaDung.Script;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,12 +14,59 @@ namespace QuanLyThietBiDienGiaDung
 {
     public partial class frmMain : Form
     {
+        QuanLySanPham quanLySP;
+        BindingSource bds = new BindingSource();
+
         public frmMain()
         {
             InitializeComponent();
 
-            runTest();
+            //runTest();
         }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            TruyCapDuLieu.docFile("tst.dat");
+            quanLySP = new QuanLySanPham();
+            bds.DataSource = quanLySP.getDSSanPham();
+            dgvHang.DataSource = bds;
+
+            hienThi();
+
+        }
+        private void hienThi()
+        {
+            bds.ResetBindings(false);
+        }
+
+        private void thêmSảnPhẩmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+            using (frmThemMatHangMoi SPmoi = new frmThemMatHangMoi())
+            {
+                if (SPmoi.ShowDialog() == DialogResult.OK)
+                {
+                    string masp = SPmoi.MaSP;
+                    string tensp = SPmoi.TenSP;
+                    string loaihang = SPmoi.LoaiHang;
+                    string hang = SPmoi.Hang;
+                    string tskt = SPmoi.TSKT;
+                    string gianhap = SPmoi.GiaNhap;
+                    string giaban = SPmoi.GiaBan;
+
+                    SanPham temp = new SanPham(masp, tensp, loaihang, hang, tskt, "0", gianhap, giaban);
+
+                    if (!quanLySP.themSanPham(temp))
+                    {
+                        MessageBox.Show("Bị trùng mã loại hàng");
+                        return;
+                    }
+                }
+                hienThi();
+            }
+        }
+
+
         private void runTest()
         {
             dgvHang.Rows[0].Cells[0].Value = "ML001";
@@ -40,7 +89,6 @@ namespace QuanLyThietBiDienGiaDung
                 txtTimMaSP.ForeColor = Color.Black;
             }
         }
-
         private void txtTimMaSP_Leave(object sender, EventArgs e)
         {
             if (txtTimMaSP.Text == "")
@@ -258,10 +306,9 @@ namespace QuanLyThietBiDienGiaDung
             txtDiaChi_KH.Enabled = true;
         }
 
-        private void thêmSảnPhẩmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            frmThemMatHangMoi SPmoi = new frmThemMatHangMoi();
-            SPmoi.ShowDialog();
+            TruyCapDuLieu.ghiFile("tst.dat");
         }
     }
 }

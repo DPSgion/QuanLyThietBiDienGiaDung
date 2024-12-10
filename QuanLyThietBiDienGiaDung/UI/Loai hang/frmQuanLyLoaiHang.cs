@@ -104,7 +104,7 @@ namespace QuanLyThietBiDienGiaDung
                         MessageBox.Show("Bị trùng mã loại hàng");
                         return;
                     }
-                    TruyCapDuLieu.ghiFile("tst.dat");
+                    //TruyCapDuLieu.ghiFile("tst.dat");
                 }
                 hienThi();
                 CapNhatGoiY();
@@ -133,7 +133,7 @@ namespace QuanLyThietBiDienGiaDung
                         {
                             return;
                         }
-                        TruyCapDuLieu.ghiFile("tst.dat");
+                        //TruyCapDuLieu.ghiFile("tst.dat");
                     }
                     hienThi();
                     CapNhatGoiY();

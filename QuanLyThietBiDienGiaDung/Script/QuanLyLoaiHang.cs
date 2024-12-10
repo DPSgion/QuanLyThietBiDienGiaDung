@@ -13,23 +13,18 @@ namespace QuanLyThietBiDienGiaDung.Script
         // Attribute
         private List<LoaiHang> _dsLoaiHang;
 
-        // Properties
-        public List<LoaiHang> getDSLoaiHang()
-        {
-            return _dsLoaiHang;
-        }
-
         // Constructor
         public QuanLyLoaiHang()
         {
-            TruyCapDuLieu.docFile("tst.dat");
             TruyCapDuLieu duLieu = TruyCapDuLieu.khoiTao();
             _dsLoaiHang = duLieu.getDSLoaiHang();
         }
 
         // Methods
-
-        
+        public List<LoaiHang> getDSLoaiHang()
+        {
+            return _dsLoaiHang;
+        }
 
         private bool tim(LoaiHang lh)
         {
@@ -59,7 +54,7 @@ namespace QuanLyThietBiDienGiaDung.Script
             if (!tim(a))
             {
                 _dsLoaiHang.Add(a);
-                TruyCapDuLieu.ghiFile("tst.dat");
+                //TruyCapDuLieu.ghiFile("tst.dat");
                 return true;
             }
             return false;

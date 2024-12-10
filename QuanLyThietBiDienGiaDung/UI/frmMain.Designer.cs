@@ -39,7 +39,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.rjToggleButton1 = new CustomControls.RJControls.RJToggleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groCapNhatGia = new System.Windows.Forms.GroupBox();
@@ -144,6 +143,7 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.thêmSảnPhẩmMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loạiHàngToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nhậpHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -153,7 +153,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.tbtnThongTinNhanh = new CustomControls.RJControls.RJToggleButton();
-            this.thêmSảnPhẩmMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rjToggleButton1 = new CustomControls.RJControls.RJToggleButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -231,20 +231,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
-            // 
-            // rjToggleButton1
-            // 
-            this.rjToggleButton1.AutoSize = true;
-            this.rjToggleButton1.Location = new System.Drawing.Point(757, 41);
-            this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
-            this.rjToggleButton1.Name = "rjToggleButton1";
-            this.rjToggleButton1.OffBackColor = System.Drawing.Color.Gray;
-            this.rjToggleButton1.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.rjToggleButton1.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.rjToggleButton1.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.rjToggleButton1.Size = new System.Drawing.Size(45, 22);
-            this.rjToggleButton1.TabIndex = 9;
-            this.rjToggleButton1.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -521,6 +507,7 @@
             // 
             // dgvHang
             // 
+            this.dgvHang.AllowUserToAddRows = false;
             this.dgvHang.AllowUserToDeleteRows = false;
             this.dgvHang.AllowUserToResizeColumns = false;
             this.dgvHang.AllowUserToResizeRows = false;
@@ -554,6 +541,7 @@
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "MaSP";
             this.Column1.HeaderText = "Mã SP";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -561,13 +549,15 @@
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Tên mặt hàng";
+            this.Column2.DataPropertyName = "TenSP";
+            this.Column2.HeaderText = "Tên sản phẩm";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Width = 130;
             // 
             // Column4
             // 
+            this.Column4.DataPropertyName = "LoaiHang";
             this.Column4.HeaderText = "Loại hàng";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -575,6 +565,7 @@
             // 
             // Column3
             // 
+            this.Column3.DataPropertyName = "Hang";
             this.Column3.HeaderText = "Hãng";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -582,6 +573,7 @@
             // 
             // Column5
             // 
+            this.Column5.DataPropertyName = "Tskt";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
             this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column5.HeaderText = "Thông số kĩ thuật";
@@ -591,6 +583,7 @@
             // 
             // Column7
             // 
+            this.Column7.DataPropertyName = "SoLuong";
             this.Column7.HeaderText = "SL";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -598,6 +591,7 @@
             // 
             // Column19
             // 
+            this.Column19.DataPropertyName = "GiaNhap";
             this.Column19.HeaderText = "Giá nhập";
             this.Column19.Name = "Column19";
             this.Column19.ReadOnly = true;
@@ -605,6 +599,7 @@
             // 
             // Column8
             // 
+            this.Column8.DataPropertyName = "GiaBan";
             this.Column8.HeaderText = "Giá bán";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -1337,6 +1332,13 @@
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // thêmSảnPhẩmMớiToolStripMenuItem
+            // 
+            this.thêmSảnPhẩmMớiToolStripMenuItem.Name = "thêmSảnPhẩmMớiToolStripMenuItem";
+            this.thêmSảnPhẩmMớiToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
+            this.thêmSảnPhẩmMớiToolStripMenuItem.Text = "Thêm sản phẩm mới";
+            this.thêmSảnPhẩmMớiToolStripMenuItem.Click += new System.EventHandler(this.thêmSảnPhẩmMớiToolStripMenuItem_Click);
+            // 
             // quảnLýToolStripMenuItem
             // 
             this.quảnLýToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1350,21 +1352,21 @@
             // loạiHàngToolStripMenuItem1
             // 
             this.loạiHàngToolStripMenuItem1.Name = "loạiHàngToolStripMenuItem1";
-            this.loạiHàngToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.loạiHàngToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
             this.loạiHàngToolStripMenuItem1.Text = "Loại hàng";
             this.loạiHàngToolStripMenuItem1.Click += new System.EventHandler(this.loạiHàngToolStripMenuItem1_Click);
             // 
             // nhậpHàngToolStripMenuItem
             // 
             this.nhậpHàngToolStripMenuItem.Name = "nhậpHàngToolStripMenuItem";
-            this.nhậpHàngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nhậpHàngToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.nhậpHàngToolStripMenuItem.Text = "Nhập hàng";
             this.nhậpHàngToolStripMenuItem.Click += new System.EventHandler(this.nhậpHàngToolStripMenuItem_Click);
             // 
             // xuấtHàngToolStripMenuItem
             // 
             this.xuấtHàngToolStripMenuItem.Name = "xuấtHàngToolStripMenuItem";
-            this.xuấtHàngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xuấtHàngToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.xuấtHàngToolStripMenuItem.Text = "Xuất hàng";
             this.xuấtHàngToolStripMenuItem.Click += new System.EventHandler(this.xuấtHàngToolStripMenuItem_Click);
             // 
@@ -1423,12 +1425,19 @@
             this.tbtnThongTinNhanh.UseVisualStyleBackColor = true;
             this.tbtnThongTinNhanh.CheckedChanged += new System.EventHandler(this.tbtnThongTinNhanh_CheckedChanged);
             // 
-            // thêmSảnPhẩmMớiToolStripMenuItem
+            // rjToggleButton1
             // 
-            this.thêmSảnPhẩmMớiToolStripMenuItem.Name = "thêmSảnPhẩmMớiToolStripMenuItem";
-            this.thêmSảnPhẩmMớiToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
-            this.thêmSảnPhẩmMớiToolStripMenuItem.Text = "Thêm sản phẩm mới";
-            this.thêmSảnPhẩmMớiToolStripMenuItem.Click += new System.EventHandler(this.thêmSảnPhẩmMớiToolStripMenuItem_Click);
+            this.rjToggleButton1.AutoSize = true;
+            this.rjToggleButton1.Location = new System.Drawing.Point(757, 41);
+            this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rjToggleButton1.Name = "rjToggleButton1";
+            this.rjToggleButton1.OffBackColor = System.Drawing.Color.Gray;
+            this.rjToggleButton1.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rjToggleButton1.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.rjToggleButton1.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rjToggleButton1.Size = new System.Drawing.Size(45, 22);
+            this.rjToggleButton1.TabIndex = 9;
+            this.rjToggleButton1.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -1451,6 +1460,8 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Màn hình chính";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1606,6 +1617,7 @@
         private System.Windows.Forms.TextBox txtMaBanHang;
         private System.Windows.Forms.Label lblMaBanHang;
         private System.Windows.Forms.ToolStripMenuItem xuấtHàngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thêmSảnPhẩmMớiToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
@@ -1614,6 +1626,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.ToolStripMenuItem thêmSảnPhẩmMớiToolStripMenuItem;
     }
 }

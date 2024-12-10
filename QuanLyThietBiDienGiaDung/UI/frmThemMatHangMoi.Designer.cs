@@ -37,17 +37,15 @@
             this.lblHang = new System.Windows.Forms.Label();
             this.txtTSKT = new System.Windows.Forms.TextBox();
             this.lblTSKT = new System.Windows.Forms.Label();
-            this.txtBaoHanh = new System.Windows.Forms.TextBox();
-            this.lblBaoHanh = new System.Windows.Forms.Label();
             this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.lblGiaBan = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtGiaNhap = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cboLoaiHang = new System.Windows.Forms.ComboBox();
             this.lblLoaiHang = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +53,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(58, 20);
+            this.lblTitle.Location = new System.Drawing.Point(48, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(275, 31);
             this.lblTitle.TabIndex = 3;
@@ -126,25 +124,9 @@
             this.lblTSKT.TabIndex = 10;
             this.lblTSKT.Text = "Thông số kĩ thuật";
             // 
-            // txtBaoHanh
-            // 
-            this.txtBaoHanh.Location = new System.Drawing.Point(105, 210);
-            this.txtBaoHanh.Name = "txtBaoHanh";
-            this.txtBaoHanh.Size = new System.Drawing.Size(100, 20);
-            this.txtBaoHanh.TabIndex = 13;
-            // 
-            // lblBaoHanh
-            // 
-            this.lblBaoHanh.AutoSize = true;
-            this.lblBaoHanh.Location = new System.Drawing.Point(24, 213);
-            this.lblBaoHanh.Name = "lblBaoHanh";
-            this.lblBaoHanh.Size = new System.Drawing.Size(53, 13);
-            this.lblBaoHanh.TabIndex = 12;
-            this.lblBaoHanh.Text = "Bảo hành";
-            // 
             // txtGiaBan
             // 
-            this.txtGiaBan.Location = new System.Drawing.Point(105, 262);
+            this.txtGiaBan.Location = new System.Drawing.Point(105, 225);
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.Size = new System.Drawing.Size(100, 20);
             this.txtGiaBan.TabIndex = 15;
@@ -152,7 +134,7 @@
             // lblGiaBan
             // 
             this.lblGiaBan.AutoSize = true;
-            this.lblGiaBan.Location = new System.Drawing.Point(24, 265);
+            this.lblGiaBan.Location = new System.Drawing.Point(24, 228);
             this.lblGiaBan.Name = "lblGiaBan";
             this.lblGiaBan.Size = new System.Drawing.Size(44, 13);
             this.lblGiaBan.TabIndex = 14;
@@ -160,16 +142,17 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(80, 396);
+            this.btnThem.Location = new System.Drawing.Point(73, 347);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(98, 42);
             this.btnThem.TabIndex = 16;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(209, 396);
+            this.btnHuy.Location = new System.Drawing.Point(202, 347);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(98, 42);
             this.btnHuy.TabIndex = 17;
@@ -179,14 +162,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtGiaNhap);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cboLoaiHang);
             this.groupBox1.Controls.Add(this.lblLoaiHang);
             this.groupBox1.Controls.Add(this.txtGiaBan);
             this.groupBox1.Controls.Add(this.lblGiaBan);
-            this.groupBox1.Controls.Add(this.txtBaoHanh);
-            this.groupBox1.Controls.Add(this.lblBaoHanh);
             this.groupBox1.Controls.Add(this.txtTSKT);
             this.groupBox1.Controls.Add(this.lblTSKT);
             this.groupBox1.Controls.Add(this.txtHang);
@@ -195,12 +176,28 @@
             this.groupBox1.Controls.Add(this.lblTenSanPham);
             this.groupBox1.Controls.Add(this.txtMaSP);
             this.groupBox1.Controls.Add(this.lblMaSP);
-            this.groupBox1.Location = new System.Drawing.Point(37, 77);
+            this.groupBox1.Location = new System.Drawing.Point(37, 60);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(314, 302);
+            this.groupBox1.Size = new System.Drawing.Size(314, 281);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sản phẩm mới";
+            // 
+            // txtGiaNhap
+            // 
+            this.txtGiaNhap.Location = new System.Drawing.Point(105, 199);
+            this.txtGiaNhap.Name = "txtGiaNhap";
+            this.txtGiaNhap.Size = new System.Drawing.Size(100, 20);
+            this.txtGiaNhap.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 202);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Giá nhập";
             // 
             // cboLoaiHang
             // 
@@ -219,27 +216,11 @@
             this.lblLoaiHang.TabIndex = 16;
             this.lblLoaiHang.Text = "Loại hàng";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(105, 236);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 19;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 239);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Giá nhập";
-            // 
             // frmThemMatHangMoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 450);
+            this.ClientSize = new System.Drawing.Size(382, 410);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnThem);
@@ -249,6 +230,7 @@
             this.Name = "frmThemMatHangMoi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm mặt hàng mới";
+            this.Load += new System.EventHandler(this.frmThemMatHangMoi_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -267,8 +249,6 @@
         private System.Windows.Forms.Label lblHang;
         private System.Windows.Forms.TextBox txtTSKT;
         private System.Windows.Forms.Label lblTSKT;
-        private System.Windows.Forms.TextBox txtBaoHanh;
-        private System.Windows.Forms.Label lblBaoHanh;
         private System.Windows.Forms.TextBox txtGiaBan;
         private System.Windows.Forms.Label lblGiaBan;
         private System.Windows.Forms.Button btnThem;
@@ -276,7 +256,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cboLoaiHang;
         private System.Windows.Forms.Label lblLoaiHang;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtGiaNhap;
         private System.Windows.Forms.Label label1;
     }
 }
