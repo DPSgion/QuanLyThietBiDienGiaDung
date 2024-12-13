@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,19 +51,27 @@
             this.lblNhapGiaMoi = new System.Windows.Forms.Label();
             this.lblTenSP = new System.Windows.Forms.Label();
             this.groTimKiem = new System.Windows.Forms.GroupBox();
+            this.btnReset_KhoHang = new System.Windows.Forms.Button();
+            this.btnTim_KhoHang = new System.Windows.Forms.Button();
             this.txtTimMaSP = new System.Windows.Forms.TextBox();
             this.lblLoaiHang = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTheoHang = new System.Windows.Forms.Label();
             this.cboLoaiHang = new System.Windows.Forms.ComboBox();
             this.cboTheoHang = new System.Windows.Forms.ComboBox();
-            this.rdoTimTenSP = new System.Windows.Forms.RadioButton();
             this.cboTimGiaSP = new System.Windows.Forms.ComboBox();
-            this.rdoTimGia = new System.Windows.Forms.RadioButton();
             this.btnXoaSP = new System.Windows.Forms.Button();
             this.btnSuaSP = new System.Windows.Forms.Button();
             this.btnNhapHang = new System.Windows.Forms.Button();
             this.dgvHang = new System.Windows.Forms.DataGridView();
+            this.colMaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLoaiHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTSKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGiaNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTitle = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnTraGop = new System.Windows.Forms.Button();
@@ -146,14 +154,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.tbtnThongTinNhanh = new CustomControls.RJControls.RJToggleButton();
-            this.colMaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLoaiHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTSKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGiaNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTimMaSP = new System.Windows.Forms.Label();
+            this.lblLocTheoGia = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -361,15 +363,17 @@
             // groTimKiem
             // 
             this.groTimKiem.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groTimKiem.Controls.Add(this.lblLocTheoGia);
+            this.groTimKiem.Controls.Add(this.lblTimMaSP);
+            this.groTimKiem.Controls.Add(this.btnReset_KhoHang);
+            this.groTimKiem.Controls.Add(this.btnTim_KhoHang);
             this.groTimKiem.Controls.Add(this.txtTimMaSP);
             this.groTimKiem.Controls.Add(this.lblLoaiHang);
             this.groTimKiem.Controls.Add(this.pictureBox1);
             this.groTimKiem.Controls.Add(this.lblTheoHang);
             this.groTimKiem.Controls.Add(this.cboLoaiHang);
             this.groTimKiem.Controls.Add(this.cboTheoHang);
-            this.groTimKiem.Controls.Add(this.rdoTimTenSP);
             this.groTimKiem.Controls.Add(this.cboTimGiaSP);
-            this.groTimKiem.Controls.Add(this.rdoTimGia);
             this.groTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groTimKiem.Location = new System.Drawing.Point(15, 10);
             this.groTimKiem.Name = "groTimKiem";
@@ -378,13 +382,35 @@
             this.groTimKiem.TabStop = false;
             this.groTimKiem.Text = "🔍 Tìm kiếm";
             // 
+            // btnReset_KhoHang
+            // 
+            this.btnReset_KhoHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset_KhoHang.Location = new System.Drawing.Point(275, 57);
+            this.btnReset_KhoHang.Name = "btnReset_KhoHang";
+            this.btnReset_KhoHang.Size = new System.Drawing.Size(45, 24);
+            this.btnReset_KhoHang.TabIndex = 20;
+            this.btnReset_KhoHang.Text = "Reset";
+            this.btnReset_KhoHang.UseVisualStyleBackColor = true;
+            this.btnReset_KhoHang.Click += new System.EventHandler(this.btnReset_KhoHang_Click);
+            // 
+            // btnTim_KhoHang
+            // 
+            this.btnTim_KhoHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTim_KhoHang.Location = new System.Drawing.Point(275, 23);
+            this.btnTim_KhoHang.Name = "btnTim_KhoHang";
+            this.btnTim_KhoHang.Size = new System.Drawing.Size(45, 22);
+            this.btnTim_KhoHang.TabIndex = 19;
+            this.btnTim_KhoHang.Text = "Tìm";
+            this.btnTim_KhoHang.UseVisualStyleBackColor = true;
+            this.btnTim_KhoHang.Click += new System.EventHandler(this.btnTim_KhoHang_Click);
+            // 
             // txtTimMaSP
             // 
             this.txtTimMaSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimMaSP.ForeColor = System.Drawing.Color.Silver;
             this.txtTimMaSP.Location = new System.Drawing.Point(126, 23);
             this.txtTimMaSP.Name = "txtTimMaSP";
-            this.txtTimMaSP.Size = new System.Drawing.Size(194, 22);
+            this.txtTimMaSP.Size = new System.Drawing.Size(145, 22);
             this.txtTimMaSP.TabIndex = 18;
             this.txtTimMaSP.Text = "Nhập tên sản phẩm";
             this.txtTimMaSP.Enter += new System.EventHandler(this.txtTimMaSP_Enter);
@@ -438,43 +464,25 @@
             this.cboTheoHang.Size = new System.Drawing.Size(150, 24);
             this.cboTheoHang.TabIndex = 13;
             // 
-            // rdoTimTenSP
-            // 
-            this.rdoTimTenSP.AutoSize = true;
-            this.rdoTimTenSP.Checked = true;
-            this.rdoTimTenSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoTimTenSP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.rdoTimTenSP.Location = new System.Drawing.Point(15, 28);
-            this.rdoTimTenSP.Name = "rdoTimTenSP";
-            this.rdoTimTenSP.Size = new System.Drawing.Size(105, 17);
-            this.rdoTimTenSP.TabIndex = 10;
-            this.rdoTimTenSP.TabStop = true;
-            this.rdoTimTenSP.Text = "Tên sản phẩm";
-            this.rdoTimTenSP.UseVisualStyleBackColor = true;
-            this.rdoTimTenSP.CheckedChanged += new System.EventHandler(this.rdoTimTenSP_CheckedChanged);
-            // 
             // cboTimGiaSP
             // 
-            this.cboTimGiaSP.Enabled = false;
+            this.cboTimGiaSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTimGiaSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTimGiaSP.FormattingEnabled = true;
+            this.cboTimGiaSP.Items.AddRange(new object[] {
+            "All",
+            "0k - 500k",
+            "500k - 1tr",
+            "1tr - 5tr",
+            "5tr - 10tr",
+            "10tr - 20tr",
+            "20tr - 50tr",
+            "50tr - 100tr",
+            "> 100tr"});
             this.cboTimGiaSP.Location = new System.Drawing.Point(126, 57);
             this.cboTimGiaSP.Name = "cboTimGiaSP";
-            this.cboTimGiaSP.Size = new System.Drawing.Size(116, 24);
+            this.cboTimGiaSP.Size = new System.Drawing.Size(145, 24);
             this.cboTimGiaSP.TabIndex = 9;
-            // 
-            // rdoTimGia
-            // 
-            this.rdoTimGia.AutoSize = true;
-            this.rdoTimGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoTimGia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(124)))), ((int)(((byte)(16)))));
-            this.rdoTimGia.Location = new System.Drawing.Point(15, 64);
-            this.rdoTimGia.Name = "rdoTimGia";
-            this.rdoTimGia.Size = new System.Drawing.Size(95, 17);
-            this.rdoTimGia.TabIndex = 7;
-            this.rdoTimGia.Text = "Tìm theo giá";
-            this.rdoTimGia.UseVisualStyleBackColor = true;
-            this.rdoTimGia.CheckedChanged += new System.EventHandler(this.rdoTimGia_CheckedChanged);
             // 
             // btnXoaSP
             // 
@@ -548,12 +556,79 @@
             this.dgvHang.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHang.GridColor = System.Drawing.Color.Black;
             this.dgvHang.Location = new System.Drawing.Point(26, 69);
+            this.dgvHang.MultiSelect = false;
             this.dgvHang.Name = "dgvHang";
             this.dgvHang.ReadOnly = true;
             this.dgvHang.RowHeadersVisible = false;
             this.dgvHang.Size = new System.Drawing.Size(776, 345);
             this.dgvHang.TabIndex = 11;
             this.dgvHang.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHang_RowEnter);
+            // 
+            // colMaSP
+            // 
+            this.colMaSP.DataPropertyName = "MaSP";
+            this.colMaSP.HeaderText = "Mã SP";
+            this.colMaSP.Name = "colMaSP";
+            this.colMaSP.ReadOnly = true;
+            this.colMaSP.Width = 70;
+            // 
+            // colTenSP
+            // 
+            this.colTenSP.DataPropertyName = "TenSP";
+            this.colTenSP.HeaderText = "Tên sản phẩm";
+            this.colTenSP.Name = "colTenSP";
+            this.colTenSP.ReadOnly = true;
+            this.colTenSP.Width = 130;
+            // 
+            // colLoaiHang
+            // 
+            this.colLoaiHang.DataPropertyName = "LoaiHang";
+            this.colLoaiHang.HeaderText = "Loại hàng";
+            this.colLoaiHang.Name = "colLoaiHang";
+            this.colLoaiHang.ReadOnly = true;
+            this.colLoaiHang.Width = 80;
+            // 
+            // colHang
+            // 
+            this.colHang.DataPropertyName = "Hang";
+            this.colHang.HeaderText = "Hãng";
+            this.colHang.Name = "colHang";
+            this.colHang.ReadOnly = true;
+            this.colHang.Width = 70;
+            // 
+            // colTSKT
+            // 
+            this.colTSKT.DataPropertyName = "Tskt";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.colTSKT.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colTSKT.HeaderText = "Thông số kĩ thuật";
+            this.colTSKT.Name = "colTSKT";
+            this.colTSKT.ReadOnly = true;
+            this.colTSKT.Width = 210;
+            // 
+            // colSL
+            // 
+            this.colSL.DataPropertyName = "SoLuong";
+            this.colSL.HeaderText = "SL";
+            this.colSL.Name = "colSL";
+            this.colSL.ReadOnly = true;
+            this.colSL.Width = 50;
+            // 
+            // colGiaNhap
+            // 
+            this.colGiaNhap.DataPropertyName = "GiaNhap";
+            this.colGiaNhap.HeaderText = "Giá nhập";
+            this.colGiaNhap.Name = "colGiaNhap";
+            this.colGiaNhap.ReadOnly = true;
+            this.colGiaNhap.Width = 80;
+            // 
+            // colGiaBan
+            // 
+            this.colGiaBan.DataPropertyName = "GiaBan";
+            this.colGiaBan.HeaderText = "Giá bán";
+            this.colGiaBan.Name = "colGiaBan";
+            this.colGiaBan.ReadOnly = true;
+            this.colGiaBan.Width = 80;
             // 
             // lblTitle
             // 
@@ -1375,71 +1450,27 @@
             this.tbtnThongTinNhanh.UseVisualStyleBackColor = true;
             this.tbtnThongTinNhanh.CheckedChanged += new System.EventHandler(this.tbtnThongTinNhanh_CheckedChanged);
             // 
-            // colMaSP
+            // lblTimMaSP
             // 
-            this.colMaSP.DataPropertyName = "MaSP";
-            this.colMaSP.HeaderText = "Mã SP";
-            this.colMaSP.Name = "colMaSP";
-            this.colMaSP.ReadOnly = true;
-            this.colMaSP.Width = 70;
+            this.lblTimMaSP.AutoSize = true;
+            this.lblTimMaSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimMaSP.ForeColor = System.Drawing.Color.Blue;
+            this.lblTimMaSP.Location = new System.Drawing.Point(19, 32);
+            this.lblTimMaSP.Name = "lblTimMaSP";
+            this.lblTimMaSP.Size = new System.Drawing.Size(87, 13);
+            this.lblTimMaSP.TabIndex = 21;
+            this.lblTimMaSP.Text = "Tên sản phẩm";
             // 
-            // colTenSP
+            // lblLocTheoGia
             // 
-            this.colTenSP.DataPropertyName = "TenSP";
-            this.colTenSP.HeaderText = "Tên sản phẩm";
-            this.colTenSP.Name = "colTenSP";
-            this.colTenSP.ReadOnly = true;
-            this.colTenSP.Width = 130;
-            // 
-            // colLoaiHang
-            // 
-            this.colLoaiHang.DataPropertyName = "LoaiHang";
-            this.colLoaiHang.HeaderText = "Loại hàng";
-            this.colLoaiHang.Name = "colLoaiHang";
-            this.colLoaiHang.ReadOnly = true;
-            this.colLoaiHang.Width = 80;
-            // 
-            // colHang
-            // 
-            this.colHang.DataPropertyName = "Hang";
-            this.colHang.HeaderText = "Hãng";
-            this.colHang.Name = "colHang";
-            this.colHang.ReadOnly = true;
-            this.colHang.Width = 70;
-            // 
-            // colTSKT
-            // 
-            this.colTSKT.DataPropertyName = "Tskt";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.colTSKT.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colTSKT.HeaderText = "Thông số kĩ thuật";
-            this.colTSKT.Name = "colTSKT";
-            this.colTSKT.ReadOnly = true;
-            this.colTSKT.Width = 210;
-            // 
-            // colSL
-            // 
-            this.colSL.DataPropertyName = "SoLuong";
-            this.colSL.HeaderText = "SL";
-            this.colSL.Name = "colSL";
-            this.colSL.ReadOnly = true;
-            this.colSL.Width = 50;
-            // 
-            // colGiaNhap
-            // 
-            this.colGiaNhap.DataPropertyName = "GiaNhap";
-            this.colGiaNhap.HeaderText = "Giá nhập";
-            this.colGiaNhap.Name = "colGiaNhap";
-            this.colGiaNhap.ReadOnly = true;
-            this.colGiaNhap.Width = 80;
-            // 
-            // colGiaBan
-            // 
-            this.colGiaBan.DataPropertyName = "GiaBan";
-            this.colGiaBan.HeaderText = "Giá bán";
-            this.colGiaBan.Name = "colGiaBan";
-            this.colGiaBan.ReadOnly = true;
-            this.colGiaBan.Width = 80;
+            this.lblLocTheoGia.AutoSize = true;
+            this.lblLocTheoGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocTheoGia.ForeColor = System.Drawing.Color.Green;
+            this.lblLocTheoGia.Location = new System.Drawing.Point(19, 63);
+            this.lblLocTheoGia.Name = "lblLocTheoGia";
+            this.lblLocTheoGia.Size = new System.Drawing.Size(103, 13);
+            this.lblLocTheoGia.TabIndex = 22;
+            this.lblLocTheoGia.Text = "Lọc theo giá bán";
             // 
             // frmMain
             // 
@@ -1525,12 +1556,8 @@
         private System.Windows.Forms.Label lblTenSP;
         private System.Windows.Forms.GroupBox groTimKiem;
         private System.Windows.Forms.Label lblLoaiHang;
-        private System.Windows.Forms.Label lblTheoHang;
         private System.Windows.Forms.ComboBox cboLoaiHang;
-        private System.Windows.Forms.ComboBox cboTheoHang;
-        private System.Windows.Forms.RadioButton rdoTimTenSP;
         private System.Windows.Forms.ComboBox cboTimGiaSP;
-        private System.Windows.Forms.RadioButton rdoTimGia;
         private System.Windows.Forms.DataGridView dgvHang;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -1628,5 +1655,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colSL;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGiaNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGiaBan;
+        private System.Windows.Forms.Button btnTim_KhoHang;
+        private System.Windows.Forms.Button btnReset_KhoHang;
+        private System.Windows.Forms.Label lblTheoHang;
+        private System.Windows.Forms.ComboBox cboTheoHang;
+        private System.Windows.Forms.Label lblLocTheoGia;
+        private System.Windows.Forms.Label lblTimMaSP;
     }
 }

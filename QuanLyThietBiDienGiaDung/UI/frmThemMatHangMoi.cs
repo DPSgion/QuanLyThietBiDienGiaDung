@@ -30,7 +30,7 @@ namespace QuanLyThietBiDienGiaDung
         }
         private void frmThemMatHangMoi_Load(object sender, EventArgs e)
         {
-            CapNhatGoiY();
+            capNhatLuaChonCbo();
             if (cboLoaiHang.Items.Count > 0)
             {
                 cboLoaiHang.Text = cboLoaiHang.Items[0].ToString();
@@ -42,7 +42,7 @@ namespace QuanLyThietBiDienGiaDung
             }
         }
 
-        private void CapNhatGoiY()
+        private void capNhatLuaChonCbo()
         {
             foreach (LoaiHang n in quanLyLH.getDSLoaiHang())
             {
@@ -77,25 +77,49 @@ namespace QuanLyThietBiDienGiaDung
             }
             else
             {
-                if (isNumber(txtGiaNhap.Text) && isNumber(txtGiaBan.Text))
+                if (!checkTrungMaSP(txtMaSP.Text))
                 {
-                    MaSP = txtMaSP.Text;
-                    TenSP = txtTenSP.Text;
-                    LoaiHang = cboLoaiHang.Text;
-                    Hang = txtHang.Text;
-                    TSKT = txtTSKT.Text;
-                    GiaNhap = Convert.ToDouble(txtGiaNhap.Text);
-                    GiaBan = Convert.ToDouble(txtGiaBan.Text);
+                    if (isNumber(txtGiaNhap.Text) && isNumber(txtGiaBan.Text))
+                    {
 
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                        MaSP = txtMaSP.Text;
+                        TenSP = txtTenSP.Text;
+                        LoaiHang = cboLoaiHang.Text;
+                        Hang = txtHang.Text;
+                        TSKT = txtTSKT.Text;
+                        GiaNhap = Convert.ToDouble(txtGiaNhap.Text);
+                        GiaBan = Convert.ToDouble(txtGiaBan.Text);
+
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Giá nhập, giá bán phải là số dương",
+                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Giá nhập, giá bán phải là số dương",
-                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Mã số sản phẩm bị trùng",
+                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
+            }
+        }
+
+        private QuanLySanPham quanLySP = new QuanLySanPham();
+        private bool checkTrungMaSP(string maSP)
+        {
+            foreach (SanPham i in quanLySP.getDSSanPham())
+            {
+                if (maSP == i.MaSP)
+                {
+                    return true;
                 }
             }
+            return false;
+
         }
 
         private void btnHuy_Click(object sender, EventArgs e)

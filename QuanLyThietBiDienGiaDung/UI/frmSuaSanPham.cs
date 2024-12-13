@@ -74,12 +74,12 @@ namespace QuanLyThietBiDienGiaDung
         {
             if (int.TryParse(input, out int number))
             {
-                return number > 0; // Trả về true nếu là số dương
+                return number >= 0; // Trả về true nếu là số dương
             }
 
             if (double.TryParse(input, out double doubleNumber))
             {
-                return doubleNumber > 0; // Trả về true nếu là số dương
+                return doubleNumber >= 0; // Trả về true nếu là số dương
             }
 
             // Nếu không phải số, trả về false

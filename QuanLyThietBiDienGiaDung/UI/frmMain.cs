@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -38,14 +39,21 @@ namespace QuanLyThietBiDienGiaDung
         {
             TruyCapDuLieu.docFile("tst.dat");
             quanLySP = new QuanLySanPham();
+
             bdKhoHang.DataSource = quanLySP.getDSSanPham();
             dgvHang.DataSource = bdKhoHang;
 
-            hienThi();
+
+            CapNhatGoiY_TxtTimMaSP();
+            cboTimGiaSP.Text = cboTimGiaSP.Items[0].ToString();
+
+            hienThi(quanLySP.getDSSanPham());
 
         }
-        private void hienThi()
+        private void hienThi(List<SanPham> ds)
         {
+            bdKhoHang.DataSource = ds;
+            dgvHang.DataSource = bdKhoHang;
             bdKhoHang.ResetBindings(false);
         }
 
@@ -68,11 +76,11 @@ namespace QuanLyThietBiDienGiaDung
 
                     if (!quanLySP.themSanPham(temp))
                     {
-                        MessageBox.Show("Bị trùng mã loại hàng");
+                        MessageBox.Show("Bị trùng mã sản phẩm");
                         return;
                     }
                 }
-                hienThi();
+                hienThi(quanLySP.getDSSanPham());
             }
         }
 
@@ -90,7 +98,7 @@ namespace QuanLyThietBiDienGiaDung
                         MessageBox.Show("Xóa không được", "Thông báo");
                     }
                 }
-                hienThi();
+                hienThi(quanLySP.getDSSanPham());
             }
         }
 
@@ -122,10 +130,49 @@ namespace QuanLyThietBiDienGiaDung
                         MessageBox.Show("Ko sửa đc");
                     }
 
-                    hienThi();
+                    hienThi(quanLySP.getDSSanPham());
                 }
             }
 
+        }
+
+        private void CapNhatGoiY_TxtTimMaSP()
+        {
+
+            txtTimMaSP.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtTimMaSP.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+
+            foreach (SanPham n in quanLySP.getDSSanPham())
+            {
+                col.Add(n.TenSP);
+            }
+
+            txtTimMaSP.AutoCompleteCustomSource = col;
+
+        }
+
+        private List<SanPham> SearchTheoTen(string searchText)
+        {
+            List<SanPham> temp = quanLySP.getDSSanPham();
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                // Tạo pattern
+                string pattern = Regex.Escape(searchText).Replace("%", ".*");
+                //string pattern = searchText;
+                // Lọc danh sách
+                var filteredItems = temp
+                    .Where(item => Regex.IsMatch(item.TenSP, pattern, RegexOptions.IgnoreCase))
+                    .ToList();
+
+                // Hiển thị kết quả
+                return filteredItems;
+            }
+
+            // Hiển thị toàn bộ danh sách nếu không có tìm kiếm
+            return temp;
+            
         }
 
         private void runTest()
@@ -178,31 +225,6 @@ namespace QuanLyThietBiDienGiaDung
         }
 
 
-        private void rdoTimTenSP_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoTimTenSP.Checked == true)
-            {
-                txtTimMaSP.Enabled = true;
-                cboTimGiaSP.ResetText();
-            }
-            else
-            {
-                txtTimMaSP.Enabled = false;
-            }
-        }
-
-        private void rdoTimGia_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoTimGia.Checked == true)
-            {
-                cboTimGiaSP.Enabled = true;
-                txtTimMaSP.Text = "Nhập tên sản phẩm";
-            }
-            else
-            {
-                cboTimGiaSP.Enabled = false;
-            }
-        }
 
 
         private void btnXoaSP_MouseEnter(object sender, EventArgs e)
@@ -380,5 +402,133 @@ namespace QuanLyThietBiDienGiaDung
             giaBan_khoHang = giaBanCellValue != null ? Convert.ToDouble(giaBanCellValue.ToString()) : 0;
         }
 
+        private void btnTim_KhoHang_Click(object sender, EventArgs e)
+        {
+            List<SanPham> locTheoTenSP = new List<SanPham>();
+            if (string.IsNullOrEmpty(txtTimMaSP.Text)){
+                locTheoTenSP = quanLySP.getDSSanPham();
+            }
+            else
+            {
+                locTheoTenSP = SearchTheoTen(txtTimMaSP.Text);
+            }
+            List<SanPham> theoGia = locTheoGia(locTheoTenSP);
+            hienThi(theoGia);
+
+        }
+        private void btnReset_KhoHang_Click(object sender, EventArgs e)
+        {
+            txtTimMaSP.Text = "Nhập tên sản phẩm";
+            txtTimMaSP.ForeColor = Color.Silver;
+
+            cboTimGiaSP.Text = cboTimGiaSP.Items[0].ToString();
+
+            hienThi(quanLySP.getDSSanPham());
+        }
+
+        private List<SanPham> locTheoGia(List<SanPham> ds)
+        {
+            List<SanPham> temp = new List<SanPham>();
+
+            string khoangGia = cboTimGiaSP.Text;
+
+
+            switch (khoangGia)
+            {
+                case "All":
+                    temp = ds;
+                    break;
+                case "0k - 500k":
+                    foreach (SanPham sp in ds)
+                    {
+                        if (sp.GiaBan >= 0 && sp.GiaBan <= 500000)
+                        {
+                            temp.Add(sp);
+                        }
+                    }
+                    break;
+                case "500k - 1tr":
+                    foreach (SanPham sp in ds)
+                    {
+                        if (sp.GiaBan >= 500000 && sp.GiaBan <= 1000000)
+                        {
+                            temp.Add(sp);
+                        }
+                    }
+                    break;
+                case "1tr - 5tr":
+                    foreach (SanPham sp in ds)
+                    {
+                        if (sp.GiaBan >= 1000000 && sp.GiaBan <= 5000000)
+                        {
+                            temp.Add(sp);
+                        }
+                    }
+                    break;
+                case "5tr - 10tr":
+                    foreach (SanPham sp in ds)
+                    {
+                        if (sp.GiaBan >= 5000000 && sp.GiaBan <= 10000000)
+                        {
+                            temp.Add(sp);
+                        }
+                    }
+                    break;
+                case "10tr - 20tr":
+                    foreach (SanPham sp in ds)
+                    {
+                        if (sp.GiaBan >= 10000000 && sp.GiaBan <= 20000000)
+                        {
+                            temp.Add(sp);
+                        }
+                    }
+                    break;
+                case "20tr - 50tr":
+                    foreach (SanPham sp in ds)
+                    {
+                        if (sp.GiaBan >= 20000000 && sp.GiaBan <= 50000000)
+                        {
+                            temp.Add(sp);
+                        }
+                    }
+                    break;
+                case "50tr - 100tr":
+                    foreach (SanPham sp in ds)
+                    {
+                        if (sp.GiaBan >= 50000000 && sp.GiaBan <= 100000000)
+                        {
+                            temp.Add(sp);
+                        }
+                    }
+                    break;
+                case "> 100tr":
+                    foreach (SanPham sp in ds)
+                    {
+                        if (sp.GiaBan > 100000000)
+                        {
+                            temp.Add(sp);
+                        }
+                    }
+                    break;
+                default:
+                    temp = ds;
+                    break;
+            }
+
+            return temp;
+        }
+
+
+
+        // Loại hàng
+        private void capNhatLuaChonCbo()
+        {
+
+        }
+
+        private void rdoTimGia_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

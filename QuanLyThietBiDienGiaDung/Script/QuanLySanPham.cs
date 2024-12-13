@@ -33,11 +33,11 @@ namespace QuanLyThietBiDienGiaDung.Script
             }
             return false;
         }
-        private SanPham tim(string lh)
+        private SanPham tim(string sp)
         {
             foreach (SanPham i in _dsSanPham)
             {
-                if (lh == i.MaSP)
+                if (sp == i.MaSP)
                 {
                     return i;
                 }
@@ -84,5 +84,7 @@ namespace QuanLyThietBiDienGiaDung.Script
             }
             return false;
         }
+
+         
     }
 }
