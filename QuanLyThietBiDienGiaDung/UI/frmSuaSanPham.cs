@@ -14,6 +14,9 @@ namespace QuanLyThietBiDienGiaDung
 {
     public partial class frmSuaSanPham : Form
     {
+        private string maSPGoc = "";
+
+
         private QuanLyLoaiHang quanLyLH = new QuanLyLoaiHang();
 
         public string MaSP { get; private set; } 
@@ -48,6 +51,7 @@ namespace QuanLyThietBiDienGiaDung
         }
         private void frmSuaSanPham_Load(object sender, EventArgs e)
         {
+            maSPGoc = txtMaSP.Text;
             CapNhatGoiY();
         }
 
@@ -97,28 +101,56 @@ namespace QuanLyThietBiDienGiaDung
             }
             else
             {
-                if (isNumber(txtSoLuong.Text) && isNumber(txtGiaNhap.Text) && isNumber(txtGiaBan.Text))
+                bool flag = false;
+                if (txtMaSP.Text == maSPGoc || !checkTrungMaSP(txtMaSP.Text))
                 {
-                    MaSP = txtMaSP.Text;
-                    TenSP = txtTenSP.Text;
-                    LoaiHang = cboLoaiHang.Text;
-                    Hang = txtHang.Text;
-                    TSKT = txtTSKT.Text;
-                    SoLuong = Convert.ToInt32(txtSoLuong.Text);
-                    GiaNhap = Convert.ToDouble(txtGiaNhap.Text);
-                    GiaBan = Convert.ToDouble(txtGiaBan.Text);
+                    flag = true;
+                }
 
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                if (flag)
+                {
+                    if (isNumber(txtSoLuong.Text) && isNumber(txtGiaNhap.Text) && isNumber(txtGiaBan.Text))
+                    {
+                        MaSP = txtMaSP.Text;
+                        TenSP = txtTenSP.Text;
+                        LoaiHang = cboLoaiHang.Text;
+                        Hang = txtHang.Text;
+                        TSKT = txtTSKT.Text;
+                        SoLuong = Convert.ToInt32(txtSoLuong.Text);
+                        GiaNhap = Convert.ToDouble(txtGiaNhap.Text);
+                        GiaBan = Convert.ToDouble(txtGiaBan.Text);
+
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Số lượng, giá nhập, giá bán phải là số dương",
+                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Số lượng, giá nhập, giá bán phải là số dương", 
-                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    MessageBox.Show("Bị trùng mã sản phẩm",
+                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }
+        }
+
+        private QuanLySanPham quanLySP = new QuanLySanPham();
+        private bool checkTrungMaSP(string maSP)
+        {
+            foreach (SanPham i in quanLySP.getDSSanPham())
+            {
+                if (maSP == i.MaSP)
+                {
+                    return true;
+                }
+            }
+            return false;
+
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
