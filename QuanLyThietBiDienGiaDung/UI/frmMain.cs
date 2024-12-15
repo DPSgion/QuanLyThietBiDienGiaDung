@@ -43,7 +43,6 @@ namespace QuanLyThietBiDienGiaDung
             bdKhoHang.DataSource = quanLySP.getDSSanPham();
             dgvHang.DataSource = bdKhoHang;
 
-
             CapNhatGoiY_TxtTimMaSP();
             cboTimGiaSP.Text = cboTimGiaSP.Items[0].ToString();
 
@@ -54,8 +53,146 @@ namespace QuanLyThietBiDienGiaDung
         {
             bdKhoHang.DataSource = ds;
             dgvHang.DataSource = bdKhoHang;
+
             bdKhoHang.ResetBindings(false);
+
         }
+
+
+        private void dgvHang_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            List<SanPham> dsDaLoc = timKiemKhoHang();
+
+            if (dgvHang.Columns[e.ColumnIndex].Name == "colMaSP")
+            {
+                List<SanPham> temp = sapXepMaSP(dsDaLoc);
+                hienThi(temp);
+            }
+            else if (dgvHang.Columns[e.ColumnIndex].Name == "colTenSP")
+            {
+                List<SanPham> temp = sapXepTenSP(dsDaLoc);
+                hienThi(temp);
+            }
+            else if (dgvHang.Columns[e.ColumnIndex].Name == "colSL")
+            {
+                List<SanPham> temp = sapXepSL(dsDaLoc);
+                hienThi(temp);
+            }
+            else if (dgvHang.Columns[e.ColumnIndex].Name == "colGiaNhap")
+            {
+                List<SanPham> temp = sapXepGiaNhap(dsDaLoc);
+                hienThi(temp);
+            }
+            else if (dgvHang.Columns[e.ColumnIndex].Name == "colGiaBan")
+            {
+                List<SanPham> temp = sapXepGiaBan(dsDaLoc);
+                hienThi(temp);
+            }
+            
+        }
+
+        #region Press Header MaSP
+        private bool statusMaSP = true; // True = tăng dần, False = giảm dần
+        private List<SanPham> sapXepMaSP(List<SanPham> dsSanPham)
+        {
+            if (statusMaSP)
+            {
+                // Sắp xếp theo giá bán tăng dần
+                var sortedList = dsSanPham.OrderBy(sp => sp.MaSP).ToList();
+                statusMaSP = false;
+                return sortedList;
+            }
+            else
+            {
+                // Sắp xếp theo giá bán giảm dần
+                var sortedList = dsSanPham.OrderByDescending(sp => sp.MaSP).ToList();
+                statusMaSP = true;
+                return sortedList;
+            }
+        }
+        #endregion
+        #region Press Header TenSP
+        private bool statusTenSP = true; // True = tăng dần, False = giảm dần
+        private List<SanPham> sapXepTenSP(List<SanPham> dsSanPham)
+        {
+            if (statusTenSP)
+            {
+                // Sắp xếp theo giá bán tăng dần
+                var sortedList = dsSanPham.OrderBy(sp => sp.TenSP).ToList();
+                statusTenSP = false;
+                return sortedList;
+            }
+            else
+            {
+                // Sắp xếp theo giá bán giảm dần
+                var sortedList = dsSanPham.OrderByDescending(sp => sp.TenSP).ToList();
+                statusTenSP = true;
+                return sortedList;
+            }
+        }
+        #endregion
+        #region Press Header SL
+        private bool statusSL = true; // True = tăng dần, False = giảm dần
+        private List<SanPham> sapXepSL(List<SanPham> dsSanPham)
+        {
+            if (statusSL)
+            {
+                // Sắp xếp theo giá bán tăng dần
+                var sortedList = dsSanPham.OrderBy(sp => sp.SoLuong).ToList();
+                statusSL = false;
+                return sortedList;
+            }
+            else
+            {
+                // Sắp xếp theo giá bán giảm dần
+                var sortedList = dsSanPham.OrderByDescending(sp => sp.SoLuong).ToList();
+                statusSL = true;
+                return sortedList;
+            }
+        }
+        #endregion
+
+        #region Press Header Gia Nhap
+        private bool statusGiaNhap = true; // True = tăng dần, False = giảm dần
+        private List<SanPham> sapXepGiaNhap(List<SanPham> dsSanPham)
+        {
+            if (statusGiaNhap)
+            {
+                // Sắp xếp theo giá bán tăng dần
+                var sortedList = dsSanPham.OrderBy(sp => sp.GiaNhap).ToList();
+                statusGiaNhap = false;
+                return sortedList;
+            }
+            else
+            {
+                // Sắp xếp theo giá bán giảm dần
+                var sortedList = dsSanPham.OrderByDescending(sp => sp.GiaNhap).ToList();
+                statusGiaNhap = true;
+                return sortedList;
+            }
+        }
+        #endregion
+        #region Press Header Gia Ban
+        private bool statusGiaBan = true; // True = tăng dần, False = giảm dần
+        private List<SanPham> sapXepGiaBan(List<SanPham> dsSanPham)
+        {
+            if (statusGiaBan)
+            {
+                // Sắp xếp theo giá bán tăng dần
+                var sortedList = dsSanPham.OrderBy(sp => sp.GiaBan).ToList();
+                statusGiaBan = false; 
+                return sortedList;
+            }
+            else
+            {
+                // Sắp xếp theo giá bán giảm dần
+                var sortedList = dsSanPham.OrderByDescending(sp => sp.GiaBan).ToList();
+                statusGiaBan = true; 
+                return sortedList;
+            }
+        }
+        #endregion
+        
 
         private void thêmSảnPhẩmMớiToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -152,42 +289,7 @@ namespace QuanLyThietBiDienGiaDung
 
         }
 
-        private List<SanPham> SearchTheoTen(string searchText)
-        {
-            List<SanPham> temp = quanLySP.getDSSanPham();
-
-            if (!string.IsNullOrEmpty(searchText))
-            {
-                // Tạo pattern
-                string pattern = Regex.Escape(searchText).Replace("%", ".*");
-                //string pattern = searchText;
-                // Lọc danh sách
-                var filteredItems = temp
-                    .Where(item => Regex.IsMatch(item.TenSP, pattern, RegexOptions.IgnoreCase))
-                    .ToList();
-
-                // Hiển thị kết quả
-                return filteredItems;
-            }
-
-            // Hiển thị toàn bộ danh sách nếu không có tìm kiếm
-            return temp;
-            
-        }
-
-        private void runTest()
-        {
-            dgvHang.Rows[0].Cells[0].Value = "ML001";
-            dgvHang.Rows[0].Cells[1].Value = "Máy lạnh 2HP";
-            dgvHang.Rows[0].Cells[2].Value = "Máy lạnh";
-            dgvHang.Rows[0].Cells[3].Value = "Toshiba";
-            dgvHang.Rows[0].Cells[4].Value = "- Test thử thôi\n" + "- Đang thành công\n" +
-                "- Làm lạnh với công suất 900W, có thể làm lạnh 1 cây kem với thời gian 10 phút";
-            dgvHang.Rows[0].Cells[5].Value = "235";
-            dgvHang.Rows[0].Cells[6].Value = "300.000.000";
-            dgvHang.Rows[0].Cells[7].Value = "340.000.000";
-        }
-
+        
 
         private void txtTimMaSP_Enter(object sender, EventArgs e)
         {
@@ -402,30 +504,36 @@ namespace QuanLyThietBiDienGiaDung
             giaBan_khoHang = giaBanCellValue != null ? Convert.ToDouble(giaBanCellValue.ToString()) : 0;
         }
 
+        #region Tìm kiếm kho hàng
         private void btnTim_KhoHang_Click(object sender, EventArgs e)
         {
-            List<SanPham> locTheoTenSP = new List<SanPham>();
-            if (string.IsNullOrEmpty(txtTimMaSP.Text)){
-                locTheoTenSP = quanLySP.getDSSanPham();
-            }
-            else
-            {
-                locTheoTenSP = SearchTheoTen(txtTimMaSP.Text);
-            }
-            List<SanPham> theoGia = locTheoGia(locTheoTenSP);
-            hienThi(theoGia);
+            List<SanPham> temp = timKiemKhoHang();
+
+            hienThi(temp);
 
         }
-        private void btnReset_KhoHang_Click(object sender, EventArgs e)
+        private List<SanPham> SearchTheoTen(string searchText)
         {
-            txtTimMaSP.Text = "Nhập tên sản phẩm";
-            txtTimMaSP.ForeColor = Color.Silver;
+            List<SanPham> temp = quanLySP.getDSSanPham();
 
-            cboTimGiaSP.Text = cboTimGiaSP.Items[0].ToString();
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                // Tạo pattern
+                string pattern = Regex.Escape(searchText).Replace("%", ".*");
+                //string pattern = searchText;
+                // Lọc danh sách
+                var filteredItems = temp
+                    .Where(item => Regex.IsMatch(item.TenSP, pattern, RegexOptions.IgnoreCase))
+                    .ToList();
 
-            hienThi(quanLySP.getDSSanPham());
+                // Hiển thị kết quả
+                return filteredItems;
+            }
+
+            // Hiển thị toàn bộ danh sách nếu không có tìm kiếm
+            return temp;
+
         }
-
         private List<SanPham> locTheoGia(List<SanPham> ds)
         {
             List<SanPham> temp = new List<SanPham>();
@@ -517,18 +625,41 @@ namespace QuanLyThietBiDienGiaDung
 
             return temp;
         }
-
-
-
-        // Loại hàng
-        private void capNhatLuaChonCbo()
+        private List<SanPham> timKiemKhoHang()
         {
+            List<SanPham> locTheoTenSP = new List<SanPham>();
+            if (txtTimMaSP.Text == "Nhập tên sản phẩm")
+            {
+                locTheoTenSP = quanLySP.getDSSanPham();
+            }
+            else
+            {
+                locTheoTenSP = SearchTheoTen(txtTimMaSP.Text);
+            }
+            List<SanPham> theoGia = locTheoGia(locTheoTenSP);
 
+            return theoGia;
+        }
+        #endregion
+
+
+        private void btnReset_KhoHang_Click(object sender, EventArgs e)
+        {
+            txtTimMaSP.Text = "Nhập tên sản phẩm";
+            txtTimMaSP.ForeColor = Color.Silver;
+
+            cboTimGiaSP.Text = cboTimGiaSP.Items[0].ToString();
+
+            hienThi(quanLySP.getDSSanPham());
         }
 
-        private void rdoTimGia_CheckedChanged(object sender, EventArgs e)
+        private void cboTimGiaSP_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            btnTim_KhoHang_Click(sender, e);
         }
+
+
+
+        
     }
 }
