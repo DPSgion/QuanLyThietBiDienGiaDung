@@ -73,6 +73,31 @@ namespace QuanLyThietBiDienGiaDung.Script
             }
             return false;
         }
+        public bool suaGiaSanPham(string maGoc, double giaBanMoi)
+        {
+            SanPham temp = tim(maGoc);
+            if (temp != null)
+            {
+                temp.GiaBan = giaBanMoi;
+                return true;
+            }
+
+            return false;
+        }
+
+
+        private bool checkTrungMaSP(string maSP)
+        {
+            foreach (SanPham i in _dsSanPham)
+            {
+                if (maSP == i.MaSP)
+                {
+                    return true;
+                }
+            }
+            return false;
+
+        }
 
         public bool xoaSanPham(string ma)
         {

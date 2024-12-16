@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QuanLyThietBiDienGiaDung
 {
@@ -46,7 +47,8 @@ namespace QuanLyThietBiDienGiaDung
             bdKhoHang.DataSource = quanLySP.getDSSanPham();
             dgvHang.DataSource = bdKhoHang;
 
-            CapNhatGoiY_TxtTimMaSP();
+            CapNhatGoiY_TxtTimTenSP();
+            capNhatGoiY_TxtGiaMaSP();
             capNhatLuaChonLoaiHangCbo();
 
             cboLoaiHang.Text = cboLoaiHang.Items[0].ToString();
@@ -65,6 +67,7 @@ namespace QuanLyThietBiDienGiaDung
         }
 
 
+        #region Sắp xếp kho hàng
         private void dgvHang_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             List<SanPham> dsDaLoc = timKiemKhoHang();
@@ -94,9 +97,9 @@ namespace QuanLyThietBiDienGiaDung
                 List<SanPham> temp = sapXepGiaBan(dsDaLoc);
                 hienThi(temp);
             }
-            
-        }
 
+        }
+        
         #region Sắp xếp: Press Header MaSP
         private bool statusMaSP = true; // True = tăng dần, False = giảm dần
         private List<SanPham> sapXepMaSP(List<SanPham> dsSanPham)
@@ -197,7 +200,7 @@ namespace QuanLyThietBiDienGiaDung
             }
         }
         #endregion
-        
+        #endregion
 
         private void thêmSảnPhẩmMớiToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -222,7 +225,8 @@ namespace QuanLyThietBiDienGiaDung
                         return;
                     }
                 }
-                CapNhatGoiY_TxtTimMaSP();
+                CapNhatGoiY_TxtTimTenSP();
+                capNhatGoiY_TxtGiaMaSP();
                 hienThi(quanLySP.getDSSanPham());
             }
         }
@@ -241,7 +245,8 @@ namespace QuanLyThietBiDienGiaDung
                         MessageBox.Show("Xóa không được", "Thông báo");
                     }
                 }
-                CapNhatGoiY_TxtTimMaSP();
+                CapNhatGoiY_TxtTimTenSP();
+                capNhatGoiY_TxtGiaMaSP();
                 hienThi(quanLySP.getDSSanPham());
             }
             
@@ -281,9 +286,8 @@ namespace QuanLyThietBiDienGiaDung
 
         }
 
-        private void CapNhatGoiY_TxtTimMaSP()
+        private void CapNhatGoiY_TxtTimTenSP()
         {
-
             txtTimMaSP.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtTimMaSP.AutoCompleteSource = AutoCompleteSource.CustomSource;
             AutoCompleteStringCollection col = new AutoCompleteStringCollection();
@@ -294,7 +298,6 @@ namespace QuanLyThietBiDienGiaDung
             }
 
             txtTimMaSP.AutoCompleteCustomSource = col;
-
         }
 
         
@@ -316,33 +319,12 @@ namespace QuanLyThietBiDienGiaDung
             }
         }
 
-        private void txtGiaTenSP_Enter(object sender, EventArgs e)
-        {
-            if (txtGiaTenSP.Text == "Nhập tên sản phẩm")
-            {
-                txtGiaTenSP.Text = "";
-                txtGiaTenSP.ForeColor = Color.Black;
-            }
-        }
-
-        private void txtGiaTenSP_Leave(object sender, EventArgs e)
-        {
-            if (txtGiaTenSP.Text == "")
-            {
-                txtGiaTenSP.Text = "Nhập tên sản phẩm";
-                txtGiaTenSP.ForeColor = Color.Silver;
-            }
-        }
-
-
-
 
         private void btnXoaSP_MouseEnter(object sender, EventArgs e)
         {
             btnXoaSP.BackColor = Color.Red;
             btnXoaSP.ForeColor = Color.White;
         }
-
         private void btnXoaSP_MouseLeave(object sender, EventArgs e)
         {
             btnXoaSP.BackColor = SystemColors.Control;
@@ -517,6 +499,12 @@ namespace QuanLyThietBiDienGiaDung
             soLuong_khoHang = soLuongCellValue != null ? Convert.ToInt32(soLuongCellValue.ToString()) : 0;
             giaNhap_khoHang = giaNhapCellValue != null ? Convert.ToDouble(giaNhapCellValue.ToString()) : 0;
             giaBan_khoHang = giaBanCellValue != null ? Convert.ToDouble(giaBanCellValue.ToString()) : 0;
+
+
+            txtGiaMaSP.Text = maSP_khoHang;
+            txtGiaTenSP.Text = tenSP_khoHang;
+            txtGiaMoi.Text = giaBan_khoHang.ToString();
+        
         }
 
         #region Tìm kiếm sản phẩm trong kho hàng
@@ -680,6 +668,13 @@ namespace QuanLyThietBiDienGiaDung
             return loc;
         }
 
+        private void txtTimMaSP_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // Kiểm tra nếu phím Enter được nhấn
+            {
+                btnTim_KhoHang_Click(sender, e);
+            }
+        }
         private void cboLoaiHang_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnTim_KhoHang_Click(sender, e);
@@ -689,7 +684,6 @@ namespace QuanLyThietBiDienGiaDung
             btnTim_KhoHang_Click(sender, e);
         }
         #endregion
-
 
 
         private void capNhatLuaChonLoaiHangCbo()
@@ -709,7 +703,98 @@ namespace QuanLyThietBiDienGiaDung
 
             hienThi(quanLySP.getDSSanPham());
         }
-        
+
+
+        #region Cập nhật giá (Kho hàng)
+        private void txtGiaMaSP_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtGiaTenSP.Text = timTenSPQuaMaSP(txtGiaMaSP.Text);
+            }
+        }
+        private string timTenSPQuaMaSP(string maSP)
+        {
+            string temp = "";
+            foreach (SanPham x in quanLySP.getDSSanPham())
+            {
+                if (x.MaSP == maSP.ToUpper())
+                {
+                    temp = x.TenSP;
+                    break;
+                }
+            }
+            return temp;
+        }
+        private void capNhatGoiY_TxtGiaMaSP()
+        {
+            txtGiaMaSP.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtGiaMaSP.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+
+            foreach (SanPham n in quanLySP.getDSSanPham())
+            {
+                col.Add(n.MaSP);
+            }
+
+            txtGiaMaSP.AutoCompleteCustomSource = col;
+        }
+        private bool isNumber(string input)
+        {
+            if (int.TryParse(input, out int number))
+            {
+                return number >= 0; // Trả về true nếu là số dương
+            }
+
+            if (double.TryParse(input, out double doubleNumber))
+            {
+                return doubleNumber >= 0; // Trả về true nếu là số dương
+            }
+
+            // Nếu không phải số, trả về false
+            return false;
+        }
+        private void txtGiaMaSP_Leave(object sender, EventArgs e)
+        {
+            txtGiaMaSP.Text = txtGiaMaSP.Text.ToUpper();
+            txtGiaTenSP.Text = timTenSPQuaMaSP(txtGiaMaSP.Text);
+        }
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtGiaMoi.Text))
+            {
+
+                if (isNumber(txtGiaMoi.Text))
+                {
+                    double giaMoi = Convert.ToDouble(txtGiaMoi.Text);
+                    if (!quanLySP.suaGiaSanPham(txtGiaMaSP.Text.ToUpper(), giaMoi))
+                    {
+                        MessageBox.Show("Không sửa được. Có thể là do sai mã sản phẩm." + '\n'
+                            + "Hãy kiểm tra lại",
+                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    txtGiaMaSP.Text = "";
+                    txtGiaTenSP.Text = "";
+                    txtGiaMoi.Text = "";
+
+
+                    hienThi(quanLySP.getDSSanPham());
+                }
+                else
+                {
+                    MessageBox.Show("Giá bán mới phải là số dương và không được là kí tự",
+                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Giá bán mới không được để trống",
+                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        #endregion
+
+
 
     }
 }
