@@ -15,6 +15,8 @@ namespace QuanLyThietBiDienGiaDung
 {
     public partial class frmMain : Form
     {
+        private QuanLyLoaiHang quanLyLoaiHang;
+
         QuanLySanPham quanLySP;
         BindingSource bdKhoHang = new BindingSource();
 
@@ -38,12 +40,16 @@ namespace QuanLyThietBiDienGiaDung
         private void frmMain_Load(object sender, EventArgs e)
         {
             TruyCapDuLieu.docFile("tst.dat");
+            quanLyLoaiHang = new QuanLyLoaiHang();
             quanLySP = new QuanLySanPham();
 
             bdKhoHang.DataSource = quanLySP.getDSSanPham();
             dgvHang.DataSource = bdKhoHang;
 
             CapNhatGoiY_TxtTimMaSP();
+            capNhatLuaChonLoaiHangCbo();
+
+            cboLoaiHang.Text = cboLoaiHang.Items[0].ToString();
             cboTimGiaSP.Text = cboTimGiaSP.Items[0].ToString();
 
             hienThi(quanLySP.getDSSanPham());
@@ -91,7 +97,7 @@ namespace QuanLyThietBiDienGiaDung
             
         }
 
-        #region Press Header MaSP
+        #region Sắp xếp: Press Header MaSP
         private bool statusMaSP = true; // True = tăng dần, False = giảm dần
         private List<SanPham> sapXepMaSP(List<SanPham> dsSanPham)
         {
@@ -111,7 +117,7 @@ namespace QuanLyThietBiDienGiaDung
             }
         }
         #endregion
-        #region Press Header TenSP
+        #region Sắp xếp: Press Header TenSP
         private bool statusTenSP = true; // True = tăng dần, False = giảm dần
         private List<SanPham> sapXepTenSP(List<SanPham> dsSanPham)
         {
@@ -131,7 +137,7 @@ namespace QuanLyThietBiDienGiaDung
             }
         }
         #endregion
-        #region Press Header SL
+        #region Sắp xếp: Press Header SL
         private bool statusSL = true; // True = tăng dần, False = giảm dần
         private List<SanPham> sapXepSL(List<SanPham> dsSanPham)
         {
@@ -151,8 +157,7 @@ namespace QuanLyThietBiDienGiaDung
             }
         }
         #endregion
-
-        #region Press Header Gia Nhap
+        #region Sắp xếp: Press Header Gia Nhap
         private bool statusGiaNhap = true; // True = tăng dần, False = giảm dần
         private List<SanPham> sapXepGiaNhap(List<SanPham> dsSanPham)
         {
@@ -172,7 +177,7 @@ namespace QuanLyThietBiDienGiaDung
             }
         }
         #endregion
-        #region Press Header Gia Ban
+        #region Sắp xếp: Press Header Gia Ban
         private bool statusGiaBan = true; // True = tăng dần, False = giảm dần
         private List<SanPham> sapXepGiaBan(List<SanPham> dsSanPham)
         {
@@ -217,6 +222,7 @@ namespace QuanLyThietBiDienGiaDung
                         return;
                     }
                 }
+                CapNhatGoiY_TxtTimMaSP();
                 hienThi(quanLySP.getDSSanPham());
             }
         }
@@ -235,8 +241,10 @@ namespace QuanLyThietBiDienGiaDung
                         MessageBox.Show("Xóa không được", "Thông báo");
                     }
                 }
+                CapNhatGoiY_TxtTimMaSP();
                 hienThi(quanLySP.getDSSanPham());
             }
+            
         }
 
         private void btnSuaSP_Click(object sender, EventArgs e)
@@ -445,11 +453,18 @@ namespace QuanLyThietBiDienGiaDung
             themMHmoi.Show();
         }
 
+        #region Loại hàng
         private void loạiHàngToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmQuanLyLoaiHang QLLH = new frmQuanLyLoaiHang();
+            QLLH.FormClosed += frmLH_FormClosed;
             QLLH.Show();
         }
+        private void frmLH_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            capNhatLuaChonLoaiHangCbo();
+        }
+        #endregion
 
         private void nhậpHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -504,7 +519,7 @@ namespace QuanLyThietBiDienGiaDung
             giaBan_khoHang = giaBanCellValue != null ? Convert.ToDouble(giaBanCellValue.ToString()) : 0;
         }
 
-        #region Tìm kiếm kho hàng
+        #region Tìm kiếm sản phẩm trong kho hàng
         private void btnTim_KhoHang_Click(object sender, EventArgs e)
         {
             List<SanPham> temp = timKiemKhoHang();
@@ -625,41 +640,76 @@ namespace QuanLyThietBiDienGiaDung
 
             return temp;
         }
-        private List<SanPham> timKiemKhoHang()
+        private List<SanPham> locTheoLoaiHang(List<SanPham> ds)
         {
-            List<SanPham> locTheoTenSP = new List<SanPham>();
-            if (txtTimMaSP.Text == "Nhập tên sản phẩm")
+            List<SanPham> loc = new List<SanPham>();
+
+            string loaiHang = cboLoaiHang.Text;
+
+            if (loaiHang == "All")
             {
-                locTheoTenSP = quanLySP.getDSSanPham();
+                return ds;
             }
             else
             {
-                locTheoTenSP = SearchTheoTen(txtTimMaSP.Text);
+                foreach (SanPham x in ds)
+                {
+                    if (x.LoaiHang == loaiHang)
+                    {
+                        loc.Add(x);
+                    }
+                }
             }
-            List<SanPham> theoGia = locTheoGia(locTheoTenSP);
+            return loc;
 
-            return theoGia;
+        }
+        private List<SanPham> timKiemKhoHang()
+        {
+            List<SanPham> loc = new List<SanPham>();
+            if (txtTimMaSP.Text == "Nhập tên sản phẩm")
+            {
+                loc = quanLySP.getDSSanPham();
+            }
+            else
+            {
+                loc = SearchTheoTen(txtTimMaSP.Text);
+            }
+            loc = locTheoLoaiHang(loc);
+            loc = locTheoGia(loc);
+
+            return loc;
+        }
+
+        private void cboLoaiHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnTim_KhoHang_Click(sender, e);
+        }
+        private void cboTimGiaSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnTim_KhoHang_Click(sender, e);
         }
         #endregion
 
 
+
+        private void capNhatLuaChonLoaiHangCbo()
+        {
+            foreach (LoaiHang n in quanLyLoaiHang.getDSLoaiHang())
+            {
+                cboLoaiHang.Items.Insert(cboLoaiHang.Items.Count, n.TenLoaiHang);
+            }
+        }
         private void btnReset_KhoHang_Click(object sender, EventArgs e)
         {
             txtTimMaSP.Text = "Nhập tên sản phẩm";
             txtTimMaSP.ForeColor = Color.Silver;
 
             cboTimGiaSP.Text = cboTimGiaSP.Items[0].ToString();
+            cboLoaiHang.Text = cboLoaiHang.Items[0].ToString();
 
             hienThi(quanLySP.getDSSanPham());
         }
-
-        private void cboTimGiaSP_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btnTim_KhoHang_Click(sender, e);
-        }
-
-
-
         
+
     }
 }
