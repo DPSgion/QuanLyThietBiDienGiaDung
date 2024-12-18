@@ -685,7 +685,6 @@ namespace QuanLyThietBiDienGiaDung
         }
         #endregion
 
-
         private void capNhatLuaChonLoaiHangCbo()
         {
             foreach (LoaiHang n in quanLyLoaiHang.getDSLoaiHang())
