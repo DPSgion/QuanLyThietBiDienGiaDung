@@ -353,6 +353,7 @@ namespace QuanLyThietBiDienGiaDung
             btnXoaSP.Enabled = true;
             btnNhapHang.Enabled = true;
 
+            hienThi(quanLySP.getDSSanPham());
         }
 
         private void tbtnThongTinNhanh_CheckedChanged(object sender, EventArgs e)

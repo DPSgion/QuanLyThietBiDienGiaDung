@@ -36,7 +36,6 @@ namespace QuanLyThietBiDienGiaDung
             bdNhapHang = new BindingSource();
 
             capNhatGoiY_MaSP_TenSP();
-            
         }
         private void hienThi()
         {
@@ -83,17 +82,7 @@ namespace QuanLyThietBiDienGiaDung
         }
         #endregion
 
-        private void btnXacNhan_Click(object sender, EventArgs e)
-        {
-            
-           // if (string.IsNullOrEmpty(txtMaNhapHang.Text))
-        }
-
-
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
 
         private void capNhatGoiY_MaSP_TenSP()
         {
@@ -346,6 +335,63 @@ namespace QuanLyThietBiDienGiaDung
                 }
             }
             return false;
+        }
+
+        private bool capNhatHangHoa()
+        {
+            try
+            {
+                foreach (SanPham x in quanLySanPham.getDSSanPham())
+                {
+
+                    foreach (SanPham y in dsSanPhamNhapHang)
+                    {
+
+                        if (x.MaSP == y.MaSP)
+                        {
+                            x.SoLuong += y.SoLuong;
+                        }
+
+                    }
+
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+            
+        }
+
+        private void btnXacNhan_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMaNhapHang.Text) || dgvNhapHang.Rows.Count < 1) // Chưa nhập mã nhập hàng hoặc chưa thêm sản phẩm để nhập
+            {
+                MessageBox.Show("Chưa có mã nhập hàng hoặc bạn chưa thêm sản phẩm nào", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (capNhatHangHoa())
+                {
+                    MessageBox.Show("Đã nhập hàng thành công", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Không nhập hàng được. \nVui lòng kiểm tra và thử lại", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
