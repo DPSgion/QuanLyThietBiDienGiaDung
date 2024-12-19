@@ -110,6 +110,9 @@ namespace QuanLyThietBiDienGiaDung.Script
             return false;
         }
 
-         
+         public void capNhatSoLuongSanPham(List<SanPham> dsNhapHang)
+        {
+
+        }
     }
 }

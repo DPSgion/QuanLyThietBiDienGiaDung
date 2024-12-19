@@ -17,13 +17,14 @@ namespace QuanLyThietBiDienGiaDung.Script
             return _dsPhieuNhapHang;
 
         }
-
         public QuanLyNhapHang()
         {
+            
+            _dsPhieuNhapHang = new List<PhieuNhapHang>();
+            
             //TruyCapDuLieu duLieu = TruyCapDuLieu.khoiTao();
             //_dsPhieuNhapHang = duLieu.getDSNhapHang();
-
-            _dsPhieuNhapHang = new List<PhieuNhapHang>();
+            
         }
 
         private bool tim(PhieuNhapHang phieu)

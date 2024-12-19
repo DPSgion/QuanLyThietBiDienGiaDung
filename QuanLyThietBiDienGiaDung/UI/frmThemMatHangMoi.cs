@@ -50,22 +50,6 @@ namespace QuanLyThietBiDienGiaDung
             }
         }
 
-        bool isNumber(string input)
-        {
-            if (int.TryParse(input, out int number))
-            {
-                return number > 0; // Trả về true nếu là số dương
-            }
-
-            if (double.TryParse(input, out double doubleNumber))
-            {
-                return doubleNumber > 0; // Trả về true nếu là số dương
-            }
-
-            // Nếu không phải số, trả về false
-            return false;
-        }
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtMaSP.Text) || string.IsNullOrEmpty(txtTenSP.Text) ||
@@ -127,6 +111,20 @@ namespace QuanLyThietBiDienGiaDung
             this.Close();
         }
 
-        
+        bool isNumber(string input)
+        {
+            if (int.TryParse(input, out int number))
+            {
+                return number > 0; // Trả về true nếu là số dương
+            }
+
+            if (double.TryParse(input, out double doubleNumber))
+            {
+                return doubleNumber > 0; // Trả về true nếu là số dương
+            }
+
+            // Nếu không phải số, trả về false
+            return false;
+        }
     }
 }

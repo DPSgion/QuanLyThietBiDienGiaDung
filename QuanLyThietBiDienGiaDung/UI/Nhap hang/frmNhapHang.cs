@@ -13,8 +13,13 @@ namespace QuanLyThietBiDienGiaDung
 {
     public partial class frmNhapHang : Form
     {
-        private QuanLySanPham quanLySanPham = new QuanLySanPham();
-        private QuanLyNhapHang quanLyNhapHang = new QuanLyNhapHang();
+        private QuanLySanPham quanLySanPham;
+        private QuanLyNhapHang quanLyNhapHang;
+
+        private List<SanPham> dsSanPhamNhapHang;
+
+        private BindingSource bdNhapHang;
+
 
         public frmNhapHang()
         {
@@ -22,7 +27,23 @@ namespace QuanLyThietBiDienGiaDung
         }
         private void frmNhapHang_Load(object sender, EventArgs e)
         {
+            quanLySanPham = new QuanLySanPham();
+
+            quanLyNhapHang = new QuanLyNhapHang();
+
+            dsSanPhamNhapHang = new List<SanPham>();
+
+            bdNhapHang = new BindingSource();
+
             capNhatGoiY_MaSP_TenSP();
+            
+        }
+        private void hienThi()
+        {
+            bdNhapHang.DataSource = dsSanPhamNhapHang;
+            dgvNhapHang.DataSource = bdNhapHang;
+
+            bdNhapHang.ResetBindings(false);
         }
 
         #region Tạo phiếu nhập mới
@@ -65,6 +86,7 @@ namespace QuanLyThietBiDienGiaDung
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
             
+           // if (string.IsNullOrEmpty(txtMaNhapHang.Text))
         }
 
 
@@ -102,7 +124,7 @@ namespace QuanLyThietBiDienGiaDung
         }
 
 
-        #region Mã sản phẩm
+        #region Textbox Mã sản phẩm
         private bool checkMaSP()
         {
             foreach (SanPham sp in quanLySanPham.getDSSanPham())
@@ -160,7 +182,7 @@ namespace QuanLyThietBiDienGiaDung
         }
         #endregion
 
-        #region Tên sản phẩm
+        #region Textbox Tên sản phẩm
         private bool checkTenSP()
         {
             foreach (SanPham sp in quanLySanPham.getDSSanPham())
@@ -214,9 +236,116 @@ namespace QuanLyThietBiDienGiaDung
             }
             return temp;
         }
+
+
         #endregion
 
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMaSP.Text) && string.IsNullOrEmpty(txtTenSP.Text)
+                && string.IsNullOrEmpty(txtSoLuong.Text)){
+                MessageBox.Show("Mã sản phẩm, tên sản phẩm, số lượng không được để trống", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (isNumber(txtSoLuong.Text)) // Số lượng là số => Bắt đầu chạy
+                {
+                    SanPham temp = timSP(txtMaSP.Text);
 
+                    if (checkTrungMaSP(txtMaSP.Text)) // Trùng mã sản phẩm
+                    {
+                        temp.SoLuong += Convert.ToInt32(txtSoLuong.Text);
+                    }
+                    else // Không trùng mã sản phẩm
+                    {
+                        temp.MaSP = txtMaSP.Text;
+                        temp.TenSP = txtTenSP.Text;
+                        temp.SoLuong = Convert.ToInt32(txtSoLuong.Text);
+                        temp.GiaNhap = layGiaNhap(txtMaSP.Text);
 
+                        dsSanPhamNhapHang.Add(temp);
+                    }
+
+                    hienThi();
+                    txtTongTien.Text = tinhTongTien().ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Số lượng phải là số dương lớn hơn 0", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+        bool isNumber(string input)
+        {
+            if (int.TryParse(input, out int number))
+            {
+                return number > 0; // Trả về true nếu là số dương
+            }
+
+            if (double.TryParse(input, out double doubleNumber))
+            {
+                return doubleNumber > 0; // Trả về true nếu là số dương
+            }
+
+            // Nếu không phải số, trả về false
+            return false;
+        }
+
+        private double tinhTongTien()
+        {
+            double tongTien = 0;
+
+            foreach (SanPham x in dsSanPhamNhapHang)
+            {
+
+                foreach (SanPham y in quanLySanPham.getDSSanPham())
+                {
+                    if (x.MaSP == y.MaSP)
+                    {
+                        tongTien += (y.GiaNhap * x.SoLuong);
+                    }
+                }
+            }
+            return tongTien;
+        }
+
+        private SanPham timSP(string maSP)
+        {
+            foreach (SanPham x in dsSanPhamNhapHang)
+            {
+                if (x.MaSP == maSP)
+                {
+                    return x;
+                }
+            }
+            return new SanPham();
+        }
+
+        private double layGiaNhap(string maSP)
+        {
+            double giaNhap = 0;
+            foreach (SanPham x in quanLySanPham.getDSSanPham())
+            {
+                if (x.MaSP == maSP)
+                {
+                    giaNhap = x.GiaNhap;
+                }
+            }
+            return giaNhap;
+        }
+
+        private bool checkTrungMaSP(string maSP) // True => trùng mã, False => không trùng
+        {
+            foreach (SanPham x in dsSanPhamNhapHang)
+            {
+                if (x.MaSP == maSP)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
