@@ -335,7 +335,7 @@ namespace QuanLyThietBiDienGiaDung
 
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
-            frmNhapHang nhapHang = new frmNhapHang();
+            frmNhapHang nhapHang = new frmNhapHang(maSP_khoHang);
             nhapHang.Show();
 
             btnSuaSP.Enabled = false;

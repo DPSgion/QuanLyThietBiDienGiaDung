@@ -25,6 +25,14 @@ namespace QuanLyThietBiDienGiaDung
         {
             InitializeComponent();
         }
+        public frmNhapHang(string maSP)
+        {
+            InitializeComponent();
+
+            txtMaSP.Text = maSP;
+            
+        }
+
         private void frmNhapHang_Load(object sender, EventArgs e)
         {
             quanLySanPham = new QuanLySanPham();
@@ -36,6 +44,8 @@ namespace QuanLyThietBiDienGiaDung
             bdNhapHang = new BindingSource();
 
             capNhatGoiY_MaSP_TenSP();
+
+            txtTenSP.Text = timTenSPQuaMaSP(txtMaSP.Text);
         }
         private void hienThi()
         {
@@ -378,6 +388,15 @@ namespace QuanLyThietBiDienGiaDung
                 {
                     MessageBox.Show("Đã nhập hàng thành công", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    PhieuNhapHang phieu = new PhieuNhapHang();
+                    phieu.MaNhapHang = txtMaNhapHang.Text;
+                    phieu.DsSanPham = dsSanPhamNhapHang;
+                    phieu.NgayNhapHang = dtpNgayNhap.Value;
+                    phieu.TongTienNhapHang = Convert.ToDouble(txtTongTien.Text);
+
+                    quanLyNhapHang.themPhieuNhap(phieu);
+
                     this.Close();
                 }
                 else

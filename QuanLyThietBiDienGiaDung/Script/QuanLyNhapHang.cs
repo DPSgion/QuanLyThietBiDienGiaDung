@@ -19,12 +19,9 @@ namespace QuanLyThietBiDienGiaDung.Script
         }
         public QuanLyNhapHang()
         {
-            
-            _dsPhieuNhapHang = new List<PhieuNhapHang>();
-            
-            //TruyCapDuLieu duLieu = TruyCapDuLieu.khoiTao();
-            //_dsPhieuNhapHang = duLieu.getDSNhapHang();
-            
+            TruyCapDuLieu duLieu = TruyCapDuLieu.khoiTao();
+            _dsPhieuNhapHang = duLieu.getDSPhieuNhapHang();
+
         }
 
         private bool tim(PhieuNhapHang phieu)
