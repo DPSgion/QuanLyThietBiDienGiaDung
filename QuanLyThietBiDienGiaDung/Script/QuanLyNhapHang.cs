@@ -24,7 +24,7 @@ namespace QuanLyThietBiDienGiaDung.Script
 
         }
 
-        private bool tim(PhieuNhapHang phieu)
+        private bool tim(PhieuNhapHang phieu) // True => tìm thấy, False => ko tìm thấy
         {
             foreach (PhieuNhapHang i in _dsPhieuNhapHang)
             {
@@ -49,7 +49,7 @@ namespace QuanLyThietBiDienGiaDung.Script
 
         public bool themPhieuNhap(PhieuNhapHang phieu)
         {
-            if (tim(phieu))
+            if (!tim(phieu))
             {
                 _dsPhieuNhapHang.Add(phieu);
                 return true;

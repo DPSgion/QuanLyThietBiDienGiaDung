@@ -21,6 +21,11 @@ namespace QuanLyThietBiDienGiaDung
         private BindingSource bdNhapHang;
 
 
+        string cellMaSP = "";
+        string cellTenSP = "";
+        string cellSoLuong = "";
+
+
         public frmNhapHang()
         {
             InitializeComponent();
@@ -50,7 +55,7 @@ namespace QuanLyThietBiDienGiaDung
         private void hienThi()
         {
             bdNhapHang.DataSource = dsSanPhamNhapHang;
-            dgvNhapHang.DataSource = bdNhapHang;
+            dgv.DataSource = bdNhapHang;
 
             bdNhapHang.ResetBindings(false);
         }
@@ -276,6 +281,53 @@ namespace QuanLyThietBiDienGiaDung
                 }
             }
         }
+
+        private void btnSuaSoLuong_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtMaSP.Text)) // Mã sản phẩm không trống
+            {
+                SanPham temp = timSP(txtMaSP.Text);
+                temp.SoLuong = Convert.ToInt32(txtSoLuong.Text);
+
+                hienThi();
+            }
+            else
+            {
+                MessageBox.Show("Hãy thêm mã sản phẩm hoặc tên sản phẩm", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+            if (!string.IsNullOrEmpty(txtMaSP.Text)) // Mã sản phẩm không trống
+            {
+                SanPham temp = timSP(txtMaSP.Text);
+
+                if (temp != null)
+                {
+                    dsSanPhamNhapHang.Remove(temp);
+                    hienThi();
+                }
+
+                hienThi();
+                if (dgv.Rows.Count == 0)
+                {
+                    txtMaSP.Text = "";
+                    txtTenSP.Text = "";
+                    txtSoLuong.Text = "";
+                }
+            }
+            else
+            {
+                MessageBox.Show("Hãy thêm mã sản phẩm hoặc tên sản phẩm", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+
         bool isNumber(string input)
         {
             if (int.TryParse(input, out int number))
@@ -375,35 +427,57 @@ namespace QuanLyThietBiDienGiaDung
             
         }
 
+        private bool checkTrungMaNhapHang(string maNhapHang) // True => trùng, False => ko trùng
+        {
+            foreach (PhieuNhapHang phieu in quanLyNhapHang.getDSPhieuNhapHang())
+            {
+                if (phieu.MaNhapHang == maNhapHang)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMaNhapHang.Text) || dgvNhapHang.Rows.Count < 1) // Chưa nhập mã nhập hàng hoặc chưa thêm sản phẩm để nhập
+            if (string.IsNullOrEmpty(txtMaNhapHang.Text) || dgv.Rows.Count < 1) // Chưa nhập mã nhập hàng hoặc chưa thêm sản phẩm để nhập
             {
                 MessageBox.Show("Chưa có mã nhập hàng hoặc bạn chưa thêm sản phẩm nào", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                if (capNhatHangHoa())
+                if (!checkTrungMaNhapHang(txtMaNhapHang.Text)) // Nếu ko trùng mã nhập hàng
                 {
-                    MessageBox.Show("Đã nhập hàng thành công", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (capNhatHangHoa())
+                    {
+                        MessageBox.Show("Đã nhập hàng thành công", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    PhieuNhapHang phieu = new PhieuNhapHang();
-                    phieu.MaNhapHang = txtMaNhapHang.Text;
-                    phieu.DsSanPham = dsSanPhamNhapHang;
-                    phieu.NgayNhapHang = dtpNgayNhap.Value;
-                    phieu.TongTienNhapHang = Convert.ToDouble(txtTongTien.Text);
+                        PhieuNhapHang phieu = new PhieuNhapHang();
+                        phieu.MaNhapHang = txtMaNhapHang.Text;
+                        phieu.DsSanPham = dsSanPhamNhapHang;
+                        phieu.NgayNhapHang = dtpNgayNhap.Value;
+                        phieu.TongTienNhapHang = Convert.ToDouble(txtTongTien.Text);
 
-                    quanLyNhapHang.themPhieuNhap(phieu);
+                        quanLyNhapHang.themPhieuNhap(phieu);
 
-                    this.Close();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không nhập hàng được. \nVui lòng kiểm tra và thử lại", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Không nhập hàng được. \nVui lòng kiểm tra và thử lại", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Bị trùng mã nhập hàng.\n" +
+                        "Bạn có thể bấm tạo mã nhanh để tự động tạo mã.", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                
             }
         }
 
@@ -412,5 +486,20 @@ namespace QuanLyThietBiDienGiaDung
         {
             this.Close();
         }
+
+        private void dgv_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            cellMaSP = dgv.Rows[e.RowIndex].Cells["Column1"].Value.ToString();
+            cellTenSP = dgv.Rows[e.RowIndex].Cells["Column2"].Value.ToString();
+            cellSoLuong = dgv.Rows[e.RowIndex].Cells["Column3"].Value.ToString();
+
+            txtMaSP.Text = (cellMaSP != null) ? cellMaSP : "";
+            txtTenSP.Text = (cellTenSP != null) ? cellTenSP : "";
+            txtSoLuong.Text = (cellSoLuong != null) ? cellSoLuong : "";
+
+            
+        }
+
+        
     }
 }

@@ -41,6 +41,7 @@ namespace QuanLyThietBiDienGiaDung
         private void frmMain_Load(object sender, EventArgs e)
         {
             TruyCapDuLieu.docFile("tst.dat");
+
             quanLyLoaiHang = new QuanLyLoaiHang();
             quanLySP = new QuanLySanPham();
 
@@ -56,6 +57,7 @@ namespace QuanLyThietBiDienGiaDung
 
             hienThi(quanLySP.getDSSanPham());
 
+            QuanLyNhapHang qlNH = new QuanLyNhapHang();
         }
         private void hienThi(List<SanPham> ds)
         {
