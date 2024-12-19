@@ -19,7 +19,9 @@ namespace QuanLyThietBiDienGiaDung
         private QuanLyLoaiHang quanLyLoaiHang;
 
         QuanLySanPham quanLySP;
+        
         BindingSource bdKhoHang = new BindingSource();
+        BindingSource bdThongTinNhanh = new BindingSource();
 
 
         private string maSP_khoHang = "";
@@ -51,21 +53,34 @@ namespace QuanLyThietBiDienGiaDung
             CapNhatGoiY_TxtTimTenSP();
             capNhatGoiY_TxtGiaMaSP();
             capNhatLuaChonLoaiHangCbo();
+            capNhatGoiY_TxtTenSP_ThongTinNhanh();
 
             cboLoaiHang.Text = cboLoaiHang.Items[0].ToString();
             cboTimGiaSP.Text = cboTimGiaSP.Items[0].ToString();
 
             hienThi(quanLySP.getDSSanPham());
+            hienThiThongTinNhanh(quanLySP.getDSSanPham());
 
             QuanLyNhapHang qlNH = new QuanLyNhapHang();
         }
         private void hienThi(List<SanPham> ds)
         {
             bdKhoHang.DataSource = ds;
+
             dgvHang.DataSource = bdKhoHang;
+
+            hienThiThongTinNhanh(ds);
 
             bdKhoHang.ResetBindings(false);
 
+        }
+        private void hienThiThongTinNhanh(List<SanPham> ds)
+        {
+            bdThongTinNhanh.DataSource = ds;
+
+            dgvThongTinNhanh.DataSource = bdThongTinNhanh;
+
+            bdThongTinNhanh.ResetBindings(false);
         }
 
 
@@ -229,6 +244,7 @@ namespace QuanLyThietBiDienGiaDung
                 }
                 CapNhatGoiY_TxtTimTenSP();
                 capNhatGoiY_TxtGiaMaSP();
+                capNhatGoiY_TxtTenSP_ThongTinNhanh();
                 hienThi(quanLySP.getDSSanPham());
             }
         }
@@ -249,6 +265,7 @@ namespace QuanLyThietBiDienGiaDung
                 }
                 CapNhatGoiY_TxtTimTenSP();
                 capNhatGoiY_TxtGiaMaSP();
+                capNhatGoiY_TxtTenSP_ThongTinNhanh();
                 hienThi(quanLySP.getDSSanPham());
             }
             
@@ -282,6 +299,9 @@ namespace QuanLyThietBiDienGiaDung
                         MessageBox.Show("Ko sửa đc");
                     }
 
+                    CapNhatGoiY_TxtTimTenSP();
+                    capNhatGoiY_TxtGiaMaSP();
+                    capNhatGoiY_TxtTenSP_ThongTinNhanh();
                     hienThi(quanLySP.getDSSanPham());
                 }
             }
@@ -688,25 +708,6 @@ namespace QuanLyThietBiDienGiaDung
         }
         #endregion
 
-        private void capNhatLuaChonLoaiHangCbo()
-        {
-            foreach (LoaiHang n in quanLyLoaiHang.getDSLoaiHang())
-            {
-                cboLoaiHang.Items.Insert(cboLoaiHang.Items.Count, n.TenLoaiHang);
-            }
-        }
-        private void btnReset_KhoHang_Click(object sender, EventArgs e)
-        {
-            txtTimMaSP.Text = "Nhập tên sản phẩm";
-            txtTimMaSP.ForeColor = Color.Silver;
-
-            cboTimGiaSP.Text = cboTimGiaSP.Items[0].ToString();
-            cboLoaiHang.Text = cboLoaiHang.Items[0].ToString();
-
-            hienThi(quanLySP.getDSSanPham());
-        }
-
-
         #region Cập nhật giá (Kho hàng)
         private void txtGiaMaSP_KeyDown(object sender, KeyEventArgs e)
         {
@@ -796,7 +797,40 @@ namespace QuanLyThietBiDienGiaDung
         }
         #endregion
 
+        private void capNhatLuaChonLoaiHangCbo()
+        {
+            foreach (LoaiHang n in quanLyLoaiHang.getDSLoaiHang())
+            {
+                cboLoaiHang.Items.Insert(cboLoaiHang.Items.Count, n.TenLoaiHang);
+            }
+        }
+        private void btnReset_KhoHang_Click(object sender, EventArgs e)
+        {
+            txtTimMaSP.Text = "Nhập tên sản phẩm";
+            txtTimMaSP.ForeColor = Color.Silver;
 
+            cboTimGiaSP.Text = cboTimGiaSP.Items[0].ToString();
+            cboLoaiHang.Text = cboLoaiHang.Items[0].ToString();
 
+            hienThi(quanLySP.getDSSanPham());
+        }
+
+        private void txtTenSP_TTN_TextChanged(object sender, EventArgs e)
+        {
+            hienThiThongTinNhanh(SearchTheoTen(txtTenSP_TTN.Text));
+        }
+        private void capNhatGoiY_TxtTenSP_ThongTinNhanh()
+        {
+            txtTenSP_TTN.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtTenSP_TTN.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+
+            foreach (SanPham n in quanLySP.getDSSanPham())
+            {
+                col.Add(n.TenSP);
+            }
+
+            txtTenSP_TTN.AutoCompleteCustomSource = col;
+        }
     }
 }
