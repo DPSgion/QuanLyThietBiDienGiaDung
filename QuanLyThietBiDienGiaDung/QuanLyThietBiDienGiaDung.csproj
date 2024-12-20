@@ -46,8 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Script\BanHang.cs" />
+    <Compile Include="Script\KhachHang.cs" />
     <Compile Include="Script\LoaiHang.cs" />
     <Compile Include="Script\PhieuNhapHang.cs" />
+    <Compile Include="Script\QuanLyBanHang.cs" />
+    <Compile Include="Script\QuanLyKhachHang.cs" />
     <Compile Include="Script\QuanLyLoaiHang.cs" />
     <Compile Include="Script\QuanLyNhapHang.cs" />
     <Compile Include="Script\QuanLySanPham.cs" />

@@ -401,7 +401,6 @@ namespace QuanLyThietBiDienGiaDung
             txtTenKH_KH.Enabled = false;
             txtSDT_KH.Enabled = false;
             txtMaKH_KH.Enabled = false;
-            txtDiaChi_KH.Enabled = false;
 
             if (selectedRadioButton == rdoTenKH_KH)
                 txtTenKH_KH.Enabled = true;
@@ -409,8 +408,6 @@ namespace QuanLyThietBiDienGiaDung
                 txtSDT_KH.Enabled = true;
             else if (selectedRadioButton == rdoMaKH_KH)
                 txtMaKH_KH.Enabled = true;
-            else if (selectedRadioButton == rdoDiaChi_KH)
-                txtDiaChi_KH.Enabled = true;
         }
 
         private void rdoTenKH_KH_CheckedChanged(object sender, EventArgs e)
@@ -434,14 +431,6 @@ namespace QuanLyThietBiDienGiaDung
             if (rdoMaKH_KH.Checked)
             {
                 SetControlsEnabled(rdoMaKH_KH);
-            }
-                
-        }
-        private void rdoDiaChi_KH_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoDiaChi_KH.Checked)
-            {
-                SetControlsEnabled(rdoDiaChi_KH);
             }
                 
         }
@@ -488,12 +477,10 @@ namespace QuanLyThietBiDienGiaDung
             rdoTenKH_KH.Checked = false;
             rdoMaKH_KH.Checked = false;
             rdoSDT_KH.Checked = false;
-            rdoDiaChi_KH.Checked = false;
 
             txtTenKH_KH.Enabled = true;
             txtMaKH_KH.Enabled = true;
             txtSDT_KH.Enabled = true;
-            txtDiaChi_KH.Enabled = true;
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
