@@ -74,10 +74,6 @@ namespace QuanLyThietBiDienGiaDung
 
             bdKhoHang.ResetBindings(false);
 
-            // Hàm ngoài
-            hienThiThongTinNhanh(ds);
-            hienThiSPBanhang(ds);
-
         }
         private void hienThiThongTinNhanh(List<SanPham> ds)
         {
@@ -265,6 +261,8 @@ namespace QuanLyThietBiDienGiaDung
                 }
                 capNhatGoiYFull();
 
+                hienThiThongTinNhanh(quanLySP.getDSSanPham());
+                hienThiSPBanhang(quanLySP.getDSSanPham());
                 hienThi(quanLySP.getDSSanPham());
             }
         }
@@ -284,6 +282,9 @@ namespace QuanLyThietBiDienGiaDung
                     }
                 }
                 capNhatGoiYFull();
+
+                hienThiThongTinNhanh(quanLySP.getDSSanPham());
+                hienThiSPBanhang(quanLySP.getDSSanPham());
                 hienThi(quanLySP.getDSSanPham());
             }
             
@@ -318,7 +319,6 @@ namespace QuanLyThietBiDienGiaDung
                     }
 
                     capNhatGoiYFull();
-                    hienThi(quanLySP.getDSSanPham());
                 }
             }
 
@@ -391,6 +391,8 @@ namespace QuanLyThietBiDienGiaDung
             btnXoaSP.Enabled = true;
             btnNhapHang.Enabled = true;
 
+            hienThiThongTinNhanh(quanLySP.getDSSanPham());
+            hienThiSPBanhang(quanLySP.getDSSanPham());
             hienThi(quanLySP.getDSSanPham());
         }
 
@@ -784,6 +786,8 @@ namespace QuanLyThietBiDienGiaDung
                     txtGiaMoi.Text = "";
 
 
+                    hienThiThongTinNhanh(quanLySP.getDSSanPham());
+                    hienThiSPBanhang(quanLySP.getDSSanPham());
                     hienThi(quanLySP.getDSSanPham());
                 }
                 else
@@ -1121,12 +1125,18 @@ namespace QuanLyThietBiDienGiaDung
             {
 
             }
+            else
+            {
+                MessageBox.Show("Lỗi\nKiểm tra lại Mã bán hàng, Thông tin khách hàng, Sản phẩm khách mua", 
+                    "Chưa đủ dữ liệu",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
 
-
-
         #endregion
+
+
 
         private double layGiaBanQuaMaSP(string maSP)
         {
