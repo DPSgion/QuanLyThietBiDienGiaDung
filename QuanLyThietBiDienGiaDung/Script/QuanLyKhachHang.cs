@@ -80,5 +80,28 @@ namespace QuanLyThietBiDienGiaDung.Script
             return false;
         }
 
+        public string maKhachHangLonNhat()
+        {
+            List<KhachHang> temp = new List<KhachHang>();
+            foreach (KhachHang x in _dsKhachHang)
+            {
+                if (x.MaKhachHang.Substring(0, 2) == "KH")
+                {
+                    temp.Add(x);
+                }
+            }
+
+            if (temp == null || !temp.Any())
+            {
+                return "";
+            }
+
+            return temp
+                .OrderByDescending(phieu => int.Parse(phieu.MaKhachHang.Substring(2)))
+                .First().MaKhachHang;
+        }
+
+
+        
     }
 }

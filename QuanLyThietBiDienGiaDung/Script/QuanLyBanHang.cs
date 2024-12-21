@@ -56,5 +56,26 @@ namespace QuanLyThietBiDienGiaDung.Script
             }
             return false;
         }
+
+        public string maBanHangLonNhat()
+        {
+            List<BanHang> temp = new List<BanHang>();
+            foreach (BanHang x in _dsBanHang)
+            {
+                if (x.MaBanHang.Substring(0, 2) == "BH")
+                {
+                    temp.Add(x);
+                }
+            }
+
+            if (temp == null || !temp.Any())
+            {
+                return "";
+            }
+
+            return temp
+                .OrderByDescending(phieu => int.Parse(phieu.MaBanHang.Substring(2)))
+                .First().MaBanHang;
+        }
     }
 }

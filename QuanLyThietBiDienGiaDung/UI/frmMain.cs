@@ -17,11 +17,14 @@ namespace QuanLyThietBiDienGiaDung
     public partial class frmMain : Form
     {
         private QuanLyLoaiHang quanLyLoaiHang;
-
-        QuanLySanPham quanLySP;
+        private QuanLySanPham quanLySP;
+        private QuanLyBanHang quanLyBanHang;
+        private QuanLyKhachHang quanLyKhachHang;
         
         BindingSource bdKhoHang = new BindingSource();
         BindingSource bdThongTinNhanh = new BindingSource();
+        BindingSource bdLuaSP_BanHang = new BindingSource();
+        BindingSource bdSPDaChon_BanHang = new BindingSource();
 
 
         private string maSP_khoHang = "";
@@ -46,6 +49,8 @@ namespace QuanLyThietBiDienGiaDung
 
             quanLyLoaiHang = new QuanLyLoaiHang();
             quanLySP = new QuanLySanPham();
+            quanLyBanHang = new QuanLyBanHang();
+            quanLyKhachHang = new QuanLyKhachHang();
 
             bdKhoHang.DataSource = quanLySP.getDSSanPham();
             dgvHang.DataSource = bdKhoHang;
@@ -57,6 +62,7 @@ namespace QuanLyThietBiDienGiaDung
 
             hienThi(quanLySP.getDSSanPham());
             hienThiThongTinNhanh(quanLySP.getDSSanPham());
+            hienThiSPBanhang(quanLySP.getDSSanPham());
 
             QuanLyNhapHang qlNH = new QuanLyNhapHang();
         }
@@ -66,9 +72,11 @@ namespace QuanLyThietBiDienGiaDung
 
             dgvHang.DataSource = bdKhoHang;
 
-            hienThiThongTinNhanh(ds);
-
             bdKhoHang.ResetBindings(false);
+
+            // Hàm ngoài
+            hienThiThongTinNhanh(ds);
+            hienThiSPBanhang(ds);
 
         }
         private void hienThiThongTinNhanh(List<SanPham> ds)
@@ -78,6 +86,22 @@ namespace QuanLyThietBiDienGiaDung
             dgvThongTinNhanh.DataSource = bdThongTinNhanh;
 
             bdThongTinNhanh.ResetBindings(false);
+        }
+        private void hienThiSPBanhang(List<SanPham> ds)
+        {
+            bdLuaSP_BanHang.DataSource = ds;
+
+            dgvChonMuaSP_BH.DataSource = bdLuaSP_BanHang;
+
+            bdLuaSP_BanHang.ResetBindings(false);
+        }
+        private void hienThiSPDaChon_BanHang(List<SanPham> ds)
+        {
+            bdSPDaChon_BanHang.DataSource = ds;
+
+            dgvSPChon_BH.DataSource = bdSPDaChon_BanHang;
+
+            bdSPDaChon_BanHang.ResetBindings(false);
         }
 
 
@@ -721,7 +745,7 @@ namespace QuanLyThietBiDienGiaDung
 
             txtGiaMaSP.AutoCompleteCustomSource = col;
         }
-        private bool isNumber(string input)
+        private bool isNumber(string input) // True => số dương > 0, False => ko phải số
         {
             if (int.TryParse(input, out int number))
             {
@@ -820,5 +844,315 @@ namespace QuanLyThietBiDienGiaDung
             capNhatGoiY_TxtTenSP(txtTenSP_TTN);
             capNhatGoiY_TxtTenSP(txtTenSP_BH);
         }
+
+        #region Bán hàng
+
+        private string maSP_BH = "";
+        private string tenSPDaChon = "";
+        private List<SanPham> spDaChon_BanHang = new List<SanPham>();
+
+        #region Tạo mã bán hàng
+        private void btnTaoMaBanHang_Click(object sender, EventArgs e)
+        {
+            if (quanLyBanHang.maBanHangLonNhat() == "")
+            {
+                txtMaBanHang.Text = "BH00001";
+            }
+            else
+            {
+                txtMaBanHang.Text = taoMaBanHangMoi(quanLyBanHang.maBanHangLonNhat());
+            }
+        }
+        private string taoMaBanHangMoi(string maBanTruoc)
+        {
+            string so0 = "";
+
+            int maBanHangMoi = Convert.ToInt32(maBanTruoc.Substring(2)) + 1;
+
+            for (int i = demSo(maBanHangMoi); i < 5; i++)
+            {
+                so0 += "0";
+            }
+
+            return ("BH" + so0 + maBanHangMoi.ToString());
+        }
+
+        private bool checkTrungMaBanHang(string maBH) // True => trùng, False => ko trùng
+        {
+            foreach (BanHang bh in quanLyBanHang.getDSBanHang())
+            {
+                if (bh.MaBanHang == maBH)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool checkMaBanHang = false;
+        private void txtMaBanHang_Leave(object sender, EventArgs e)
+        {
+            if (checkTrungMaBanHang(txtMaBanHang.Text)){
+                MessageBox.Show("Đã tồn tại mã bán hàng " + txtMaBanHang.Text + '\n' +
+                    "Bạn có thể bấm tạo nhanh để tạo tự động", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                checkMaBanHang = true;
+            }
+        }
+        #endregion
+
+        #region Tạo mã khách hàng
+
+        private void btnTaoMoi_Click(object sender, EventArgs e)
+        {
+            if (quanLyKhachHang.maKhachHangLonNhat() == "")
+            {
+                txtMaKH_BH.Text = "KH00001";
+            }
+            else
+            {
+                txtMaKH_BH.Text = taoMaKhachHangMoi(quanLyKhachHang.maKhachHangLonNhat());
+            }
+        }
+        private string taoMaKhachHangMoi(string maKhachHangTruoc)
+        {
+            string so0 = "";
+
+            int maKhachHangMoi = Convert.ToInt32(maKhachHangTruoc.Substring(2)) + 1;
+
+            for (int i = demSo(maKhachHangMoi); i < 5; i++)
+            {
+                so0 += "0";
+            }
+
+            return ("KH" + so0 + maKhachHangMoi.ToString());
+        }
+
+        private bool checkTrungMaKhachHang(string maKhachHang) // True => trùng, False => ko trùng
+        {
+            foreach (KhachHang bh in quanLyKhachHang.getDSKhachHang())
+            {
+                if (bh.MaKhachHang == maKhachHang)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool checkMaKhachHang = false;
+        private void txtMaKH_BH_Leave(object sender, EventArgs e)
+        {
+            if (checkTrungMaBanHang(txtMaKH_BH.Text))
+            {
+                MessageBox.Show("Đã tồn tại mã khách hàng " + txtMaKH_BH.Text + '\n' +
+                    "Bạn có thể bấm tạo mới để tạo tự động", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                checkMaKhachHang = true;
+            }
+        }
+        #endregion
+
+
+        private int demSo(int x)
+        {
+            int ans = 0;
+            while (x > 0)
+            {
+                x /= 10;
+                ans += 1;
+            }
+            return ans;
+        }
+
+        private void txtTenSP_BH_TextChanged(object sender, EventArgs e)
+        {
+            hienThiSPBanhang(SearchTheoTen(txtTenSP_BH.Text));
+        }
+
+        private void dgvChonMuaSP_BH_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            // Lấy giá trị từ các cột trong dòng được chọn
+            var maCellValue = dgvChonMuaSP_BH.Rows[e.RowIndex].Cells["colMaSP_BanHang"].Value;
+            
+
+            // Kiểm tra nếu giá trị không phải null trước khi gán
+            maSP_BH = maCellValue != null ? maCellValue.ToString() : string.Empty;
+        }
+        private void dgvSPChon_BH_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            // Lấy giá trị từ các cột trong dòng được chọn
+            var tenCellValue = dgvSPChon_BH.Rows[e.RowIndex].Cells["Column1"].Value;
+
+
+            // Kiểm tra nếu giá trị không phải null trước khi gán
+            tenSPDaChon = tenCellValue != null ? tenCellValue.ToString() : string.Empty;
+        }
+
+
+        private void btnThem_BH_Click(object sender, EventArgs e)
+        {
+            if (maSP_BH != "" && !string.IsNullOrEmpty(txtSoLuong_BH.Text) 
+                && isNumber(txtSoLuong_BH.Text))
+            {
+                int soLuongThem = Convert.ToInt32(txtSoLuong_BH.Text);
+                if (!kiemTraVuotSLKho(maSP_BH, soLuongThem)) // chưa vượt số lượng trong kho
+                {
+                    SanPham temp = timSPquaMaSP(maSP_BH, quanLySP.getDSSanPham());
+                    
+                    if (temp != null)
+                    {
+                        if (checkTrungMaSP_BanHang(maSP_BH)) // trùng mã sản phẩm đã thêm trước đó
+                        {
+                            SanPham spDaThem = timSPquaMaSP(maSP_BH, spDaChon_BanHang);
+                            int tempSoLuong = spDaThem.SoLuong + soLuongThem;
+
+                            if (kiemTraVuotSLKho(maSP_BH, tempSoLuong)){// Nếu vượt số lượng
+                                MessageBox.Show("Số lượng mua không thể vượt số lượng trong kho.", "Thông báo",
+                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                spDaThem.SoLuong = tempSoLuong;
+                                hienThiSPDaChon_BanHang(spDaChon_BanHang);
+                            }
+                        }
+                        else // Ko trùng
+                        {
+                            SanPham x = new SanPham();
+                            x.MaSP = temp.MaSP;
+                            x.TenSP = timTenSPQuaMaSP(x.MaSP);
+                            x.GiaBan = layGiaBanQuaMaSP(x.MaSP);
+                            x.SoLuong = soLuongThem;
+
+                            spDaChon_BanHang.Add(x);
+                            hienThiSPDaChon_BanHang(spDaChon_BanHang);
+                        }
+                        txtThanhTien_BH.Text = tongTienBanHang().ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thêm được", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else // Vượt số lượng trong kho
+                {
+                    MessageBox.Show("Số lượng mua không thể vượt số lượng trong kho.", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn sản phẩm.\n" +
+                                "HOẶC" + '\n' +
+                                "Chưa nhập số lượng và chỉ được nhập số.", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        
+        private bool checkTrungMaSP_BanHang(string maSP) // True => trùng mã sp, False => ko trùng
+        {
+            foreach (SanPham sp in spDaChon_BanHang)
+            {
+                if (sp.MaSP == maSP)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool kiemTraVuotSLKho(string maSP, int soLuong) // True => vượt số lượng trong kho, Fale => ko vượt
+        {
+            SanPham temp = timSPquaMaSP(maSP, quanLySP.getDSSanPham());
+
+            if (soLuong > temp.SoLuong)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private SanPham timSPquaMaSP(string maSP, List<SanPham> dsSanPham)
+        {
+            foreach (SanPham i in dsSanPham)
+            {
+                if (maSP == i.MaSP)
+                {
+                    return i;
+                }
+            }
+            return null;
+        }
+
+        private void btnXoaSPDaChon_BH_Click(object sender, EventArgs e)
+        {
+            SanPham timSP = timSPquaTenSP(tenSPDaChon, spDaChon_BanHang);
+            if (timSP != null)
+            {
+                spDaChon_BanHang.Remove(timSP);
+                txtThanhTien_BH.Text = tongTienBanHang().ToString();
+
+            }
+            hienThiSPDaChon_BanHang(spDaChon_BanHang);
+        }
+
+        private double tongTienBanHang()
+        {
+            double tongTien = 0;
+
+            foreach (SanPham x in spDaChon_BanHang)
+            {
+
+                tongTien += (x.SoLuong * x.GiaBan);
+
+            }
+            return tongTien;
+        }
+
+        private void btnThanhToan_BH_Click(object sender, EventArgs e)
+        {
+            if (checkMaBanHang && checkMaKhachHang && spDaChon_BanHang != null)
+            {
+
+            }
+        }
+
+
+
+
+        #endregion
+
+        private double layGiaBanQuaMaSP(string maSP)
+        {
+            double giaban = 0;
+            foreach (SanPham x in quanLySP.getDSSanPham())
+            {
+                if (x.MaSP == maSP)
+                {
+                    giaban = x.GiaBan;
+                    break;
+                }
+            }
+            return giaban;
+        }
+        private SanPham timSPquaTenSP(string tenSP, List<SanPham> ds)
+        {
+            foreach (SanPham sp in ds)
+            {
+                if (sp.TenSP == tenSP)
+                {
+                    return sp;
+                }
+            }
+            return null;
+        }
+
+        
     }
 }
