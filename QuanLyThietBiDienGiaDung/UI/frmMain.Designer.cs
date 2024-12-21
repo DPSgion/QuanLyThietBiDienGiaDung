@@ -1157,7 +1157,7 @@
             // 
             // txtMaKH_KH
             // 
-            this.txtMaKH_KH.Location = new System.Drawing.Point(171, 53);
+            this.txtMaKH_KH.Location = new System.Drawing.Point(171, 28);
             this.txtMaKH_KH.Name = "txtMaKH_KH";
             this.txtMaKH_KH.Size = new System.Drawing.Size(145, 20);
             this.txtMaKH_KH.TabIndex = 5;
@@ -1165,7 +1165,7 @@
             // rdoMaKH_KH
             // 
             this.rdoMaKH_KH.AutoSize = true;
-            this.rdoMaKH_KH.Location = new System.Drawing.Point(61, 54);
+            this.rdoMaKH_KH.Location = new System.Drawing.Point(61, 29);
             this.rdoMaKH_KH.Name = "rdoMaKH_KH";
             this.rdoMaKH_KH.Size = new System.Drawing.Size(100, 17);
             this.rdoMaKH_KH.TabIndex = 4;
@@ -1195,7 +1195,7 @@
             // 
             // txtTenKH_KH
             // 
-            this.txtTenKH_KH.Location = new System.Drawing.Point(171, 27);
+            this.txtTenKH_KH.Location = new System.Drawing.Point(171, 54);
             this.txtTenKH_KH.Name = "txtTenKH_KH";
             this.txtTenKH_KH.Size = new System.Drawing.Size(145, 20);
             this.txtTenKH_KH.TabIndex = 1;
@@ -1203,7 +1203,7 @@
             // rdoTenKH_KH
             // 
             this.rdoTenKH_KH.AutoSize = true;
-            this.rdoTenKH_KH.Location = new System.Drawing.Point(61, 28);
+            this.rdoTenKH_KH.Location = new System.Drawing.Point(61, 55);
             this.rdoTenKH_KH.Name = "rdoTenKH_KH";
             this.rdoTenKH_KH.Size = new System.Drawing.Size(104, 17);
             this.rdoTenKH_KH.TabIndex = 0;
@@ -1257,7 +1257,6 @@
             // 
             // dgvThongTinNhanh
             // 
-            this.dgvThongTinNhanh.AutoGenerateColumns = false;
             this.dgvThongTinNhanh.AllowUserToAddRows = false;
             this.dgvThongTinNhanh.AllowUserToDeleteRows = false;
             this.dgvThongTinNhanh.AllowUserToResizeColumns = false;

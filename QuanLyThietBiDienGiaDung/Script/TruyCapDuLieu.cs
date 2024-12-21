@@ -17,6 +17,8 @@ namespace QuanLyThietBiDienGiaDung.Script
         private List<LoaiHang> dsLoaiHang;
         private List<SanPham> dsSanPham;
         private List<PhieuNhapHang> dsPhieuNhapHang;
+        private List<KhachHang> dsKhachHang;
+        private List<BanHang> dsBanHang;
 
         private TruyCapDuLieu()
         {
@@ -45,6 +47,15 @@ namespace QuanLyThietBiDienGiaDung.Script
         {
             return dsPhieuNhapHang;
         }
+        public List<KhachHang> getDSKhachHang()
+        {
+            return dsKhachHang;
+        }
+        public List<BanHang> getDSBanHang()
+        {
+            return dsBanHang;
+        }
+
 
         public static bool docFile(string tenfile)
         {

@@ -50,10 +50,7 @@ namespace QuanLyThietBiDienGiaDung
             bdKhoHang.DataSource = quanLySP.getDSSanPham();
             dgvHang.DataSource = bdKhoHang;
 
-            CapNhatGoiY_TxtTimTenSP();
-            capNhatGoiY_TxtGiaMaSP();
-            capNhatLuaChonLoaiHangCbo();
-            capNhatGoiY_TxtTenSP_ThongTinNhanh();
+            capNhatGoiYFull();
 
             cboLoaiHang.Text = cboLoaiHang.Items[0].ToString();
             cboTimGiaSP.Text = cboTimGiaSP.Items[0].ToString();
@@ -242,9 +239,8 @@ namespace QuanLyThietBiDienGiaDung
                         return;
                     }
                 }
-                CapNhatGoiY_TxtTimTenSP();
-                capNhatGoiY_TxtGiaMaSP();
-                capNhatGoiY_TxtTenSP_ThongTinNhanh();
+                capNhatGoiYFull();
+
                 hienThi(quanLySP.getDSSanPham());
             }
         }
@@ -263,9 +259,7 @@ namespace QuanLyThietBiDienGiaDung
                         MessageBox.Show("Xóa không được", "Thông báo");
                     }
                 }
-                CapNhatGoiY_TxtTimTenSP();
-                capNhatGoiY_TxtGiaMaSP();
-                capNhatGoiY_TxtTenSP_ThongTinNhanh();
+                capNhatGoiYFull();
                 hienThi(quanLySP.getDSSanPham());
             }
             
@@ -299,9 +293,7 @@ namespace QuanLyThietBiDienGiaDung
                         MessageBox.Show("Ko sửa đc");
                     }
 
-                    CapNhatGoiY_TxtTimTenSP();
-                    capNhatGoiY_TxtGiaMaSP();
-                    capNhatGoiY_TxtTenSP_ThongTinNhanh();
+                    capNhatGoiYFull();
                     hienThi(quanLySP.getDSSanPham());
                 }
             }
@@ -806,10 +798,10 @@ namespace QuanLyThietBiDienGiaDung
         {
             hienThiThongTinNhanh(SearchTheoTen(txtTenSP_TTN.Text));
         }
-        private void capNhatGoiY_TxtTenSP_ThongTinNhanh()
+        private void capNhatGoiY_TxtTenSP(System.Windows.Forms.TextBox txt)
         {
-            txtTenSP_TTN.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txtTenSP_TTN.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txt.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txt.AutoCompleteSource = AutoCompleteSource.CustomSource;
             AutoCompleteStringCollection col = new AutoCompleteStringCollection();
 
             foreach (SanPham n in quanLySP.getDSSanPham())
@@ -817,7 +809,16 @@ namespace QuanLyThietBiDienGiaDung
                 col.Add(n.TenSP);
             }
 
-            txtTenSP_TTN.AutoCompleteCustomSource = col;
+            txt.AutoCompleteCustomSource = col;
+        }
+
+        private void capNhatGoiYFull()
+        {
+            CapNhatGoiY_TxtTimTenSP();
+            capNhatGoiY_TxtGiaMaSP();
+            capNhatLuaChonLoaiHangCbo();
+            capNhatGoiY_TxtTenSP(txtTenSP_TTN);
+            capNhatGoiY_TxtTenSP(txtTenSP_BH);
         }
     }
 }
