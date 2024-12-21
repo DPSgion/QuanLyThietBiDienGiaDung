@@ -425,44 +425,6 @@ namespace QuanLyThietBiDienGiaDung
             traGop.ShowDialog();
         }
 
-        private void SetControlsEnabled(RadioButton selectedRadioButton)
-        {
-            txtTenKH_KH.Enabled = false;
-            txtSDT_KH.Enabled = false;
-            txtMaKH_KH.Enabled = false;
-
-            if (selectedRadioButton == rdoTenKH_KH)
-                txtTenKH_KH.Enabled = true;
-            else if (selectedRadioButton == rdoSDT_KH)
-                txtSDT_KH.Enabled = true;
-            else if (selectedRadioButton == rdoMaKH_KH)
-                txtMaKH_KH.Enabled = true;
-        }
-
-        private void rdoTenKH_KH_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoTenKH_KH.Checked)
-            {
-                SetControlsEnabled(rdoTenKH_KH);
-            }
-                
-        }
-        private void rdoSDT_KH_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoSDT_KH.Checked)
-            {
-                SetControlsEnabled(rdoSDT_KH);
-            }
-                
-        }
-        private void rdoMaKH_KH_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoMaKH_KH.Checked)
-            {
-                SetControlsEnabled(rdoMaKH_KH);
-            }
-                
-        }
 
         private void loạiHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -503,13 +465,9 @@ namespace QuanLyThietBiDienGiaDung
 
         private void btnReset_KH_Click(object sender, EventArgs e)
         {
-            rdoTenKH_KH.Checked = false;
-            rdoMaKH_KH.Checked = false;
-            rdoSDT_KH.Checked = false;
-
-            txtTenKH_KH.Enabled = true;
-            txtMaKH_KH.Enabled = true;
-            txtSDT_KH.Enabled = true;
+            txtTenKH_KH.Text = "";
+            txtMaKH_KH.Text = "";
+            txtSDT_KH.Text = "";
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -547,12 +505,15 @@ namespace QuanLyThietBiDienGiaDung
         }
 
         #region Tìm kiếm sản phẩm trong kho hàng
-        private void btnTim_KhoHang_Click(object sender, EventArgs e)
+        private void txtTimMaSP_TextChanged(object sender, EventArgs e)
+        {
+            timKiem();
+        }
+        private void timKiem()
         {
             List<SanPham> temp = timKiemKhoHang();
 
             hienThi(temp);
-
         }
         private List<SanPham> SearchTheoTen(string searchText)
         {
@@ -711,16 +672,16 @@ namespace QuanLyThietBiDienGiaDung
         {
             if (e.KeyCode == Keys.Enter) // Kiểm tra nếu phím Enter được nhấn
             {
-                btnTim_KhoHang_Click(sender, e);
+                timKiem();
             }
         }
         private void cboLoaiHang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnTim_KhoHang_Click(sender, e);
+            timKiem();
         }
         private void cboTimGiaSP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnTim_KhoHang_Click(sender, e);
+            timKiem();
         }
         #endregion
 
@@ -980,20 +941,20 @@ namespace QuanLyThietBiDienGiaDung
         private void dgvChonMuaSP_BH_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             // Lấy giá trị từ các cột trong dòng được chọn
-            var maCellValue = dgvChonMuaSP_BH.Rows[e.RowIndex].Cells["colMaSP_BanHang"].Value;
+            var maSPCell = dgvChonMuaSP_BH.Rows[e.RowIndex].Cells["colMaSP_BanHang"].Value;
             
 
             // Kiểm tra nếu giá trị không phải null trước khi gán
-            maSP_BH = maCellValue != null ? maCellValue.ToString() : string.Empty;
+            maSP_BH = maSPCell != null ? maSPCell.ToString() : string.Empty;
         }
         private void dgvSPChon_BH_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             // Lấy giá trị từ các cột trong dòng được chọn
-            var tenCellValue = dgvSPChon_BH.Rows[e.RowIndex].Cells["Column1"].Value;
+            var tenSP = dgvSPChon_BH.Rows[e.RowIndex].Cells["Column1"].Value;
 
 
             // Kiểm tra nếu giá trị không phải null trước khi gán
-            tenSPDaChon = tenCellValue != null ? tenCellValue.ToString() : string.Empty;
+            tenSPDaChon = tenSP != null ? tenSP.ToString() : string.Empty;
         }
 
 
@@ -1144,7 +1105,7 @@ namespace QuanLyThietBiDienGiaDung
 
                         quanLyKhachHang.themKhachHang(khachMua);
 
-                        BanHang donHang = new BanHang(maSP_BH, dtpNgayBanHang.Value, khachMua, spDaChon_BanHang);
+                        BanHang donHang = new BanHang(txtMaBanHang.Text, dtpNgayBanHang.Value, khachMua, spDaChon_BanHang);
 
                         quanLyBanHang.themBanHang(donHang);
 
@@ -1295,6 +1256,7 @@ namespace QuanLyThietBiDienGiaDung
             }
             return null;
         }
+
 
 
         #region Khách hàng

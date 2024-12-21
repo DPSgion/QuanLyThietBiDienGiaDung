@@ -73,14 +73,14 @@
             this.txtMaSP.Location = new System.Drawing.Point(105, 21);
             this.txtMaSP.Name = "txtMaSP";
             this.txtMaSP.Size = new System.Drawing.Size(100, 20);
-            this.txtMaSP.TabIndex = 5;
+            this.txtMaSP.TabIndex = 1;
             // 
             // txtTenSP
             // 
             this.txtTenSP.Location = new System.Drawing.Point(105, 47);
             this.txtTenSP.Name = "txtTenSP";
             this.txtTenSP.Size = new System.Drawing.Size(131, 20);
-            this.txtTenSP.TabIndex = 7;
+            this.txtTenSP.TabIndex = 2;
             // 
             // lblTenSanPham
             // 
@@ -96,7 +96,7 @@
             this.txtHang.Location = new System.Drawing.Point(105, 99);
             this.txtHang.Name = "txtHang";
             this.txtHang.Size = new System.Drawing.Size(100, 20);
-            this.txtHang.TabIndex = 9;
+            this.txtHang.TabIndex = 4;
             // 
             // lblHang
             // 
@@ -113,7 +113,7 @@
             this.txtTSKT.Multiline = true;
             this.txtTSKT.Name = "txtTSKT";
             this.txtTSKT.Size = new System.Drawing.Size(177, 68);
-            this.txtTSKT.TabIndex = 11;
+            this.txtTSKT.TabIndex = 5;
             // 
             // lblTSKT
             // 
@@ -129,7 +129,7 @@
             this.txtGiaBan.Location = new System.Drawing.Point(105, 225);
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.Size = new System.Drawing.Size(100, 20);
-            this.txtGiaBan.TabIndex = 15;
+            this.txtGiaBan.TabIndex = 7;
             // 
             // lblGiaBan
             // 
@@ -145,7 +145,7 @@
             this.btnThem.Location = new System.Drawing.Point(73, 347);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(98, 42);
-            this.btnThem.TabIndex = 16;
+            this.btnThem.TabIndex = 8;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -155,7 +155,7 @@
             this.btnHuy.Location = new System.Drawing.Point(202, 347);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(98, 42);
-            this.btnHuy.TabIndex = 17;
+            this.btnHuy.TabIndex = 9;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -179,7 +179,7 @@
             this.groupBox1.Location = new System.Drawing.Point(37, 60);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(314, 281);
-            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sản phẩm mới";
             // 
@@ -188,7 +188,7 @@
             this.txtGiaNhap.Location = new System.Drawing.Point(105, 199);
             this.txtGiaNhap.Name = "txtGiaNhap";
             this.txtGiaNhap.Size = new System.Drawing.Size(100, 20);
-            this.txtGiaNhap.TabIndex = 19;
+            this.txtGiaNhap.TabIndex = 6;
             // 
             // label1
             // 
@@ -206,7 +206,7 @@
             this.cboLoaiHang.Location = new System.Drawing.Point(105, 73);
             this.cboLoaiHang.Name = "cboLoaiHang";
             this.cboLoaiHang.Size = new System.Drawing.Size(131, 21);
-            this.cboLoaiHang.TabIndex = 17;
+            this.cboLoaiHang.TabIndex = 3;
             // 
             // lblLoaiHang
             // 
