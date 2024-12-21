@@ -25,6 +25,7 @@ namespace QuanLyThietBiDienGiaDung
         BindingSource bdThongTinNhanh = new BindingSource();
         BindingSource bdLuaSP_BanHang = new BindingSource();
         BindingSource bdSPDaChon_BanHang = new BindingSource();
+        BindingSource bdKhachHang = new BindingSource();
 
 
         private string maSP_khoHang = "";
@@ -42,7 +43,6 @@ namespace QuanLyThietBiDienGiaDung
 
             //runTest();
         }
-
         private void frmMain_Load(object sender, EventArgs e)
         {
             TruyCapDuLieu.docFile("tst.dat");
@@ -63,9 +63,12 @@ namespace QuanLyThietBiDienGiaDung
             hienThi(quanLySP.getDSSanPham());
             hienThiThongTinNhanh(quanLySP.getDSSanPham());
             hienThiSPBanhang(quanLySP.getDSSanPham());
+            hienThiKhachHang(quanLyKhachHang.getDSKhachHang());
 
             QuanLyNhapHang qlNH = new QuanLyNhapHang();
         }
+        #region Hiển thị
+
         private void hienThi(List<SanPham> ds)
         {
             bdKhoHang.DataSource = ds;
@@ -99,7 +102,15 @@ namespace QuanLyThietBiDienGiaDung
 
             bdSPDaChon_BanHang.ResetBindings(false);
         }
+        private void hienThiKhachHang(List<KhachHang> ds)
+        {
+            bdKhachHang.DataSource = ds;
 
+            dgvKhachHang.DataSource = bdKhachHang;
+
+            bdKhachHang.ResetBindings(false);
+        }
+        #endregion
 
         #region Sắp xếp kho hàng
         private void dgvHang_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -1204,6 +1215,40 @@ namespace QuanLyThietBiDienGiaDung
             txtSDT_BH.AutoCompleteCustomSource = col;
         }
 
+        private void txtMaKH_BH_TextChanged(object sender, EventArgs e)
+        {
+            if (checkTrungMaKhachHang(txtMaKH_BH.Text.ToUpper()))
+            {
+                foreach (KhachHang kh in quanLyKhachHang.getDSKhachHang())
+                {
+                    if (kh.MaKhachHang == txtMaKH_BH.Text.ToUpper())
+                    {
+                        txtTenKH_BH.Text = kh.TenKhachHang;
+                        txtSDT_BH.Text = kh.SdtKhachHang;
+                        txtDiaChi_BH.Text = kh.DiaChiKhachHang;
+                    }
+                }
+            }
+        }
+        private void txtSDT_BH_TextChanged(object sender, EventArgs e)
+        {
+            foreach (KhachHang kh in quanLyKhachHang.getDSKhachHang())
+            {
+                if (kh.SdtKhachHang == txtSDT_BH.Text)
+                {
+                    txtMaKH_BH.Text = kh.MaKhachHang;
+                    txtTenKH_BH.Text = kh.TenKhachHang;
+                    txtDiaChi_BH.Text = kh.DiaChiKhachHang;
+                }
+                else
+                {
+                    txtMaKH_BH.Text = "";
+                    txtTenKH_BH.Text = "";
+                    txtDiaChi_BH.Text = "";
+                }
+            }
+        }
+
         private void clearBanHang()
         {
             txtMaBanHang.Text = "";
@@ -1213,6 +1258,7 @@ namespace QuanLyThietBiDienGiaDung
             txtSDT_BH.Text = "";
             txtDiaChi_BH.Text = "";
             txtThanhTien_BH.Text = "";
+            txtSoLuong_BH.Text = "";
             spDaChon_BanHang.Clear();
 
             hienThiSPDaChon_BanHang(spDaChon_BanHang);
@@ -1221,8 +1267,8 @@ namespace QuanLyThietBiDienGiaDung
             hienThi(quanLySP.getDSSanPham());
         }
 
+        
         #endregion
-
 
 
         private double layGiaBanQuaMaSP(string maSP)
@@ -1250,39 +1296,11 @@ namespace QuanLyThietBiDienGiaDung
             return null;
         }
 
-        private void txtMaKH_BH_TextChanged(object sender, EventArgs e)
-        {
-            if (checkTrungMaKhachHang(txtMaKH_BH.Text.ToUpper()))
-            {
-                foreach (KhachHang kh in quanLyKhachHang.getDSKhachHang())
-                {
-                    if (kh.MaKhachHang == txtMaKH_BH.Text.ToUpper())
-                    {
-                        txtTenKH_BH.Text = kh.TenKhachHang;
-                        txtSDT_BH.Text = kh.SdtKhachHang;
-                        txtDiaChi_BH.Text = kh.DiaChiKhachHang;
-                    }
-                }
-            }
-        }
 
-        private void txtSDT_BH_TextChanged(object sender, EventArgs e)
-        {
-            foreach (KhachHang kh in quanLyKhachHang.getDSKhachHang())
-            {
-                if (kh.SdtKhachHang == txtSDT_BH.Text)
-                {
-                    txtMaKH_BH.Text = kh.MaKhachHang;
-                    txtTenKH_BH.Text = kh.TenKhachHang;
-                    txtDiaChi_BH.Text = kh.DiaChiKhachHang;
-                }
-                else
-                {
-                    txtMaKH_BH.Text = "";
-                    txtTenKH_BH.Text = "";
-                    txtDiaChi_BH.Text = "";
-                }
-            }
-        }
+        #region Khách hàng
+
+
+
+        #endregion
     }
 }

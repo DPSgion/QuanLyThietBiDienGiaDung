@@ -25,6 +25,8 @@ namespace QuanLyThietBiDienGiaDung.Script
             dsLoaiHang = new List<LoaiHang>();
             dsSanPham = new List<SanPham>();
             dsPhieuNhapHang = new List<PhieuNhapHang>();
+            dsKhachHang = new List<KhachHang>();
+            dsBanHang = new List<BanHang>();
         }
         public static TruyCapDuLieu khoiTao()
         {

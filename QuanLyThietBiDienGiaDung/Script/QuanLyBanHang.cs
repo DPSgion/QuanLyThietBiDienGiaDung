@@ -18,10 +18,9 @@ namespace QuanLyThietBiDienGiaDung.Script
 
         public QuanLyBanHang()
         {
-            //TruyCapDuLieu duLieu = TruyCapDuLieu.khoiTao();
-            //_dsBanHang = duLieu.getDSBanHang();
+            TruyCapDuLieu duLieu = TruyCapDuLieu.khoiTao();
+            _dsBanHang = duLieu.getDSBanHang();
 
-            _dsBanHang = new List<BanHang>();
         }
 
         private bool tim(BanHang bh) // True => tìm thấy, False => ko tìm thấy

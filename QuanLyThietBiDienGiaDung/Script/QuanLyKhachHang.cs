@@ -18,10 +18,9 @@ namespace QuanLyThietBiDienGiaDung.Script
         }
         public QuanLyKhachHang()
         {
-            //TruyCapDuLieu duLieu = TruyCapDuLieu.khoiTao();
-            //_dsKhachHang = duLieu.getDSKhachHang();
+            TruyCapDuLieu duLieu = TruyCapDuLieu.khoiTao();
+            _dsKhachHang = duLieu.getDSKhachHang();
 
-            _dsKhachHang = new List<KhachHang>();
         }
 
         private bool tim(KhachHang kh) // True => tìm thấy, False => ko tìm thấy
