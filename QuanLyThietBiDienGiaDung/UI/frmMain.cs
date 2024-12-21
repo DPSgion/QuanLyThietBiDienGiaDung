@@ -861,6 +861,7 @@ namespace QuanLyThietBiDienGiaDung
             if (quanLyBanHang.maBanHangLonNhat() == "")
             {
                 txtMaBanHang.Text = "BH00001";
+                txtMaBanHang_Leave(sender, e);
             }
             else
             {
@@ -945,20 +946,7 @@ namespace QuanLyThietBiDienGiaDung
             }
             return false;
         }
-        private bool checkMaKhachHang = false;
-        private void txtMaKH_BH_Leave(object sender, EventArgs e)
-        {
-            if (checkTrungMaBanHang(txtMaKH_BH.Text))
-            {
-                MessageBox.Show("Đã tồn tại mã khách hàng " + txtMaKH_BH.Text + '\n' +
-                    "Bạn có thể bấm tạo mới để tạo tự động", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                checkMaKhachHang = true;
-            }
-        }
+
         #endregion
 
 
@@ -1121,9 +1109,47 @@ namespace QuanLyThietBiDienGiaDung
 
         private void btnThanhToan_BH_Click(object sender, EventArgs e)
         {
-            if (checkMaBanHang && checkMaKhachHang && spDaChon_BanHang != null)
+            if (checkMaBanHang && spDaChon_BanHang != null)
             {
+                if (string.IsNullOrEmpty(txtMaKH_BH.Text) || string.IsNullOrEmpty(txtTenKH_BH.Text) || string.IsNullOrEmpty(txtSDT_BH.Text))
+                {
+                    MessageBox.Show("Thông tin khách hàng chưa nhập đủ", "Chưa đủ dữ liệu",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    if (checkTrungMaBanHang(maSP_BH)) // Nếu trùng mã bán hàng
+                    {
+                        MessageBox.Show("Bị trùng mã bán hàng. Kiểm tra lại mã bán hàng", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        KhachHang khachMua = new KhachHang();
+                        khachMua.MaKhachHang = txtMaKH_BH.Text;
+                        khachMua.TenKhachHang = txtTenKH_BH.Text;
+                        khachMua.SdtKhachHang = txtSDT_BH.Text;
+                        khachMua.DiaChiKhachHang = txtDiaChi_BH.Text;
 
+                        quanLyKhachHang.themKhachHang(khachMua);
+
+                        BanHang donHang = new BanHang(maSP_BH, dtpNgayBanHang.Value, khachMua, spDaChon_BanHang);
+
+                        quanLyBanHang.themBanHang(donHang);
+
+                        capNhatKhoHangSauKhiThanhToan();
+                        MessageBox.Show("Đã thanh toán", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                        CapNhatGoiY_TxtMaKHBanHang();
+                        CapNhatGoiY_txtSDTKhachHang();
+                        capNhatGoiYFull();
+                        clearBanHang();
+                    }
+                    
+
+                }
             }
             else
             {
@@ -1133,6 +1159,67 @@ namespace QuanLyThietBiDienGiaDung
             }
         }
 
+        private void capNhatKhoHangSauKhiThanhToan()
+        {
+            foreach (SanPham x in spDaChon_BanHang)
+            {
+
+                foreach (SanPham y in quanLySP.getDSSanPham())
+                {
+
+                    if (x.MaSP == y.MaSP)
+                    {
+                        y.SoLuong -= x.SoLuong;
+                    }
+
+                }
+
+            }
+        }
+
+        private void CapNhatGoiY_TxtMaKHBanHang()
+        {
+            txtMaKH_BH.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtMaKH_BH.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+
+            foreach (KhachHang n in quanLyKhachHang.getDSKhachHang())
+            {
+                col.Add(n.MaKhachHang);
+            }
+
+            txtMaKH_BH.AutoCompleteCustomSource = col;
+        }
+        private void CapNhatGoiY_txtSDTKhachHang()
+        {
+            txtSDT_BH.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtSDT_BH.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+
+            foreach (KhachHang n in quanLyKhachHang.getDSKhachHang())
+            {
+                col.Add(n.MaKhachHang);
+            }
+
+            txtSDT_BH.AutoCompleteCustomSource = col;
+        }
+
+        private void clearBanHang()
+        {
+            txtMaBanHang.Text = "";
+            dtpNgayBanHang.Value = DateTime.Now;
+            txtMaKH_BH.Text = "";
+            txtTenKH_BH.Text = "";
+            txtSDT_BH.Text = "";
+            txtDiaChi_BH.Text = "";
+            txtThanhTien_BH.Text = "";
+            spDaChon_BanHang.Clear();
+
+            hienThiSPDaChon_BanHang(spDaChon_BanHang);
+            hienThiThongTinNhanh(quanLySP.getDSSanPham());
+            hienThiSPBanhang(quanLySP.getDSSanPham());
+            hienThi(quanLySP.getDSSanPham());
+        }
 
         #endregion
 
@@ -1163,6 +1250,39 @@ namespace QuanLyThietBiDienGiaDung
             return null;
         }
 
-        
+        private void txtMaKH_BH_TextChanged(object sender, EventArgs e)
+        {
+            if (checkTrungMaKhachHang(txtMaKH_BH.Text.ToUpper()))
+            {
+                foreach (KhachHang kh in quanLyKhachHang.getDSKhachHang())
+                {
+                    if (kh.MaKhachHang == txtMaKH_BH.Text.ToUpper())
+                    {
+                        txtTenKH_BH.Text = kh.TenKhachHang;
+                        txtSDT_BH.Text = kh.SdtKhachHang;
+                        txtDiaChi_BH.Text = kh.DiaChiKhachHang;
+                    }
+                }
+            }
+        }
+
+        private void txtSDT_BH_TextChanged(object sender, EventArgs e)
+        {
+            foreach (KhachHang kh in quanLyKhachHang.getDSKhachHang())
+            {
+                if (kh.SdtKhachHang == txtSDT_BH.Text)
+                {
+                    txtMaKH_BH.Text = kh.MaKhachHang;
+                    txtTenKH_BH.Text = kh.TenKhachHang;
+                    txtDiaChi_BH.Text = kh.DiaChiKhachHang;
+                }
+                else
+                {
+                    txtMaKH_BH.Text = "";
+                    txtTenKH_BH.Text = "";
+                    txtDiaChi_BH.Text = "";
+                }
+            }
+        }
     }
 }

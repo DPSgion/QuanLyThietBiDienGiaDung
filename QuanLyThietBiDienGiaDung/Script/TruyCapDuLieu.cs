@@ -68,9 +68,8 @@ namespace QuanLyThietBiDienGiaDung.Script
                 fs.Close();
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Lỗi ghi file: " + ex.Message);
                 return false;
             }
         }
