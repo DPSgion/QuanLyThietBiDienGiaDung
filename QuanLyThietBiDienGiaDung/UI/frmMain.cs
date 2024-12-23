@@ -51,11 +51,13 @@ namespace QuanLyThietBiDienGiaDung
             quanLySP = new QuanLySanPham();
             quanLyBanHang = new QuanLyBanHang();
             quanLyKhachHang = new QuanLyKhachHang();
+            QuanLyNhapHang qlNH = new QuanLyNhapHang();
 
             bdKhoHang.DataSource = quanLySP.getDSSanPham();
             dgvHang.DataSource = bdKhoHang;
 
             capNhatGoiYFull();
+            CapNhatGoiY_TxtMaKHBanHang();
 
             cboLoaiHang.Text = cboLoaiHang.Items[0].ToString();
             cboTimGiaSP.Text = cboTimGiaSP.Items[0].ToString();
@@ -65,7 +67,9 @@ namespace QuanLyThietBiDienGiaDung
             hienThiSPBanhang(quanLySP.getDSSanPham());
             hienThiKhachHang(quanLyKhachHang.getDSKhachHang());
 
-            QuanLyNhapHang qlNH = new QuanLyNhapHang();
+            capNhatMaximumNmdSoLuong(maSP_BH);
+
+            
         }
         #region Hiển thị
 
@@ -839,6 +843,7 @@ namespace QuanLyThietBiDienGiaDung
             {
                 txtMaBanHang.Text = taoMaBanHangMoi(quanLyBanHang.maBanHangLonNhat());
             }
+            checkMaBanHang = true;
         }
         private string taoMaBanHangMoi(string maBanTruoc)
         {
@@ -946,6 +951,9 @@ namespace QuanLyThietBiDienGiaDung
 
             // Kiểm tra nếu giá trị không phải null trước khi gán
             maSP_BH = maSPCell != null ? maSPCell.ToString() : string.Empty;
+
+            capNhatMaximumNmdSoLuong(maSP_BH);
+
         }
         private void dgvSPChon_BH_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -960,50 +968,56 @@ namespace QuanLyThietBiDienGiaDung
 
         private void btnThem_BH_Click(object sender, EventArgs e)
         {
-            if (maSP_BH != "" && !string.IsNullOrEmpty(txtSoLuong_BH.Text) 
-                && isNumber(txtSoLuong_BH.Text))
+            
+            if (maSP_BH != "")
             {
-                int soLuongThem = Convert.ToInt32(txtSoLuong_BH.Text);
-                if (!kiemTraVuotSLKho(maSP_BH, soLuongThem)) // chưa vượt số lượng trong kho
+                if (nmdSoLuong.Value > 0)
                 {
-                    SanPham temp = timSPquaMaSP(maSP_BH, quanLySP.getDSSanPham());
-                    
-                    if (temp != null)
+                    int soLuongThem = Convert.ToInt32(nmdSoLuong.Value);
+                    if (!kiemTraVuotSLKho(maSP_BH, soLuongThem)) // chưa vượt số lượng trong kho
                     {
-                        if (checkTrungMaSP_BanHang(maSP_BH)) // trùng mã sản phẩm đã thêm trước đó
-                        {
-                            SanPham spDaThem = timSPquaMaSP(maSP_BH, spDaChon_BanHang);
-                            int tempSoLuong = spDaThem.SoLuong + soLuongThem;
+                        SanPham temp = timSPquaMaSP(maSP_BH, quanLySP.getDSSanPham());
 
-                            if (kiemTraVuotSLKho(maSP_BH, tempSoLuong)){// Nếu vượt số lượng
-                                MessageBox.Show("Số lượng mua không thể vượt số lượng trong kho.", "Thông báo",
-                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
+                        if (temp != null)
+                        {
+                            if (checkTrungMaSP_BanHang(maSP_BH)) // trùng mã sản phẩm đã thêm trước đó
                             {
-                                spDaThem.SoLuong = tempSoLuong;
-                                hienThiSPDaChon_BanHang(spDaChon_BanHang);
-                            }
-                        }
-                        else // Ko trùng
-                        {
-                            SanPham x = new SanPham();
-                            x.MaSP = temp.MaSP;
-                            x.TenSP = timTenSPQuaMaSP(x.MaSP);
-                            x.GiaBan = layGiaBanQuaMaSP(x.MaSP);
-                            x.SoLuong = soLuongThem;
+                                SanPham spDaThem = timSPquaMaSP(maSP_BH, spDaChon_BanHang);
+                                int tempSoLuong = spDaThem.SoLuong + soLuongThem;
 
-                            spDaChon_BanHang.Add(x);
-                            hienThiSPDaChon_BanHang(spDaChon_BanHang);
+                                if (kiemTraVuotSLKho(maSP_BH, tempSoLuong))
+                                {// Nếu vượt số lượng
+                                    MessageBox.Show("Số lượng mua không thể vượt số lượng trong kho.", "Thông báo",
+                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    spDaThem.SoLuong = tempSoLuong;
+                                    hienThiSPDaChon_BanHang(spDaChon_BanHang);
+                                }
+                            }
+                            else // Ko trùng
+                            {
+                                SanPham x = new SanPham();
+                                x.MaSP = temp.MaSP;
+                                x.TenSP = timTenSPQuaMaSP(x.MaSP);
+                                x.GiaBan = layGiaBanQuaMaSP(x.MaSP);
+                                x.SoLuong = soLuongThem;
+
+                                spDaChon_BanHang.Add(x);
+                                hienThiSPDaChon_BanHang(spDaChon_BanHang);
+                                capNhatMaximumNmdSoLuong(maSP_BH);
+                            }
+                            txtThanhTien_BH.Text = tongTienBanHang().ToString();
                         }
-                        txtThanhTien_BH.Text = tongTienBanHang().ToString();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không thêm được", "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                        {
+                            MessageBox.Show("Không thêm được", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
+                
                 else // Vượt số lượng trong kho
                 {
                     MessageBox.Show("Số lượng mua không thể vượt số lượng trong kho.", "Thông báo",
@@ -1090,7 +1104,7 @@ namespace QuanLyThietBiDienGiaDung
                 }
                 else
                 {
-                    if (checkTrungMaBanHang(maSP_BH)) // Nếu trùng mã bán hàng
+                    if (checkTrungMaBanHang(txtMaBanHang.Text)) // Nếu trùng mã bán hàng
                     {
                         MessageBox.Show("Bị trùng mã bán hàng. Kiểm tra lại mã bán hàng", "Thông báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1219,7 +1233,7 @@ namespace QuanLyThietBiDienGiaDung
             txtSDT_BH.Text = "";
             txtDiaChi_BH.Text = "";
             txtThanhTien_BH.Text = "";
-            txtSoLuong_BH.Text = "";
+            nmdSoLuong.Value = nmdSoLuong.Minimum;
             spDaChon_BanHang.Clear();
 
             hienThiSPDaChon_BanHang(spDaChon_BanHang);
@@ -1227,7 +1241,36 @@ namespace QuanLyThietBiDienGiaDung
             hienThiSPBanhang(quanLySP.getDSSanPham());
             hienThi(quanLySP.getDSSanPham());
         }
+        private void capNhatMaximumNmdSoLuong(string maSP)
+        {
+            if (maSP != "")
+            {
+                SanPham slSPCanTimTrongKhoTong = timSPquaMaSP(maSP, quanLySP.getDSSanPham());
+                SanPham slSPCanTimDaChonMua = timSPquaMaSP(maSP, spDaChon_BanHang);
 
+                if (slSPCanTimDaChonMua == null) // Chưa chọn mua trước đó
+                {
+                    nmdSoLuong.Maximum = slSPCanTimTrongKhoTong.SoLuong;
+                }
+                else // Đã chọn mua trước đó => Max của số lương = Số lượng tổng - Số lượng đã chọn 
+                {
+                    nmdSoLuong.Maximum = slSPCanTimTrongKhoTong.SoLuong - slSPCanTimDaChonMua.SoLuong;
+                }
+
+                if (nmdSoLuong.Maximum == 0)
+                {
+                    nmdSoLuong.Minimum = 0;
+                    nmdSoLuong.Value = 0;
+                }
+                else
+                {
+                    nmdSoLuong.Minimum = 1;
+                    nmdSoLuong.Value = 1;
+                }
+            }
+
+            
+        }
         
         #endregion
 

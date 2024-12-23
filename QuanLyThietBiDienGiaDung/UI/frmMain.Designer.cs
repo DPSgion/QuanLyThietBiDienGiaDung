@@ -40,6 +40,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.rjToggleButton1 = new CustomControls.RJControls.RJToggleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groCapNhatGia = new System.Windows.Forms.GroupBox();
@@ -95,7 +96,6 @@
             this.colMaSP_BanHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnTenBH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnSoLuongBH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSoLuong_BH = new System.Windows.Forms.TextBox();
             this.lblSoLuong_BH = new System.Windows.Forms.Label();
             this.txtTenSP_BH = new System.Windows.Forms.TextBox();
             this.lblTenSP_BH = new System.Windows.Forms.Label();
@@ -120,6 +120,9 @@
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnReset_KH = new System.Windows.Forms.Button();
             this.txtMaKH_KH = new System.Windows.Forms.TextBox();
             this.txtSDT_KH = new System.Windows.Forms.TextBox();
@@ -144,10 +147,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.tbtnThongTinNhanh = new CustomControls.RJControls.RJToggleButton();
-            this.rjToggleButton1 = new CustomControls.RJControls.RJToggleButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.nmdSoLuong = new System.Windows.Forms.NumericUpDown();
+            this.btnTru_BH = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -176,6 +177,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmdSoLuong)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -225,6 +227,20 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
+            // 
+            // rjToggleButton1
+            // 
+            this.rjToggleButton1.AutoSize = true;
+            this.rjToggleButton1.Location = new System.Drawing.Point(757, 41);
+            this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rjToggleButton1.Name = "rjToggleButton1";
+            this.rjToggleButton1.OffBackColor = System.Drawing.Color.Gray;
+            this.rjToggleButton1.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rjToggleButton1.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.rjToggleButton1.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rjToggleButton1.Size = new System.Drawing.Size(45, 22);
+            this.rjToggleButton1.TabIndex = 9;
+            this.rjToggleButton1.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -723,13 +739,14 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnTru_BH);
+            this.groupBox3.Controls.Add(this.nmdSoLuong);
             this.groupBox3.Controls.Add(this.btnXoaSPDaChon_BH);
             this.groupBox3.Controls.Add(this.txtThanhTien_BH);
             this.groupBox3.Controls.Add(this.lblThanhTien_BH);
             this.groupBox3.Controls.Add(this.dgvSPChon_BH);
             this.groupBox3.Controls.Add(this.btnThem_BH);
             this.groupBox3.Controls.Add(this.dgvChonMuaSP_BH);
-            this.groupBox3.Controls.Add(this.txtSoLuong_BH);
             this.groupBox3.Controls.Add(this.lblSoLuong_BH);
             this.groupBox3.Controls.Add(this.txtTenSP_BH);
             this.groupBox3.Controls.Add(this.lblTenSP_BH);
@@ -828,11 +845,12 @@
             // 
             // btnThem_BH
             // 
+            this.btnThem_BH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem_BH.Location = new System.Drawing.Point(151, 235);
             this.btnThem_BH.Name = "btnThem_BH";
-            this.btnThem_BH.Size = new System.Drawing.Size(60, 23);
+            this.btnThem_BH.Size = new System.Drawing.Size(24, 23);
             this.btnThem_BH.TabIndex = 3;
-            this.btnThem_BH.Text = "Thêm";
+            this.btnThem_BH.Text = "+";
             this.btnThem_BH.UseVisualStyleBackColor = true;
             this.btnThem_BH.Click += new System.EventHandler(this.btnThem_BH_Click);
             // 
@@ -888,13 +906,6 @@
             this.columnSoLuongBH.Name = "columnSoLuongBH";
             this.columnSoLuongBH.ReadOnly = true;
             this.columnSoLuongBH.Width = 65;
-            // 
-            // txtSoLuong_BH
-            // 
-            this.txtSoLuong_BH.Location = new System.Drawing.Point(85, 237);
-            this.txtSoLuong_BH.Name = "txtSoLuong_BH";
-            this.txtSoLuong_BH.Size = new System.Drawing.Size(60, 20);
-            this.txtSoLuong_BH.TabIndex = 2;
             // 
             // lblSoLuong_BH
             // 
@@ -1159,6 +1170,33 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Tìm kiếm khách hàng";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(66, 83);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(70, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Số điện thoại";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(66, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Tên khách hàng";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(66, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Mã khách hàng";
+            // 
             // btnReset_KH
             // 
             this.btnReset_KH.Location = new System.Drawing.Point(241, 103);
@@ -1400,46 +1438,27 @@
             this.tbtnThongTinNhanh.UseVisualStyleBackColor = true;
             this.tbtnThongTinNhanh.CheckedChanged += new System.EventHandler(this.tbtnThongTinNhanh_CheckedChanged);
             // 
-            // rjToggleButton1
+            // nmdSoLuong
             // 
-            this.rjToggleButton1.AutoSize = true;
-            this.rjToggleButton1.Location = new System.Drawing.Point(757, 41);
-            this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
-            this.rjToggleButton1.Name = "rjToggleButton1";
-            this.rjToggleButton1.OffBackColor = System.Drawing.Color.Gray;
-            this.rjToggleButton1.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.rjToggleButton1.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.rjToggleButton1.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.rjToggleButton1.Size = new System.Drawing.Size(45, 22);
-            this.rjToggleButton1.TabIndex = 9;
-            this.rjToggleButton1.UseVisualStyleBackColor = true;
+            this.nmdSoLuong.Location = new System.Drawing.Point(83, 237);
+            this.nmdSoLuong.Name = "nmdSoLuong";
+            this.nmdSoLuong.Size = new System.Drawing.Size(62, 20);
+            this.nmdSoLuong.TabIndex = 25;
+            this.nmdSoLuong.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // label5
+            // btnTru_BH
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(66, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Mã khách hàng";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(66, 57);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Tên khách hàng";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(66, 83);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Số điện thoại";
+            this.btnTru_BH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTru_BH.Location = new System.Drawing.Point(174, 235);
+            this.btnTru_BH.Name = "btnTru_BH";
+            this.btnTru_BH.Size = new System.Drawing.Size(24, 23);
+            this.btnTru_BH.TabIndex = 26;
+            this.btnTru_BH.Text = "-";
+            this.btnTru_BH.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -1502,6 +1521,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmdSoLuong)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1542,7 +1562,6 @@
         private System.Windows.Forms.GroupBox groThongTinNhanh_TimKiem;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label lblTenKH_BH;
-        private System.Windows.Forms.TextBox txtSoLuong_BH;
         private System.Windows.Forms.Label lblSoLuong_BH;
         private System.Windows.Forms.TextBox txtTenSP_BH;
         private System.Windows.Forms.Label lblTenSP_BH;
@@ -1626,5 +1645,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown nmdSoLuong;
+        private System.Windows.Forms.Button btnTru_BH;
     }
 }
