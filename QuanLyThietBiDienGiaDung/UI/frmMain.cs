@@ -69,7 +69,10 @@ namespace QuanLyThietBiDienGiaDung
 
             capNhatMaximumNmdSoLuong(maSP_BH);
 
-            
+            // TabPanel Khách hàng
+            capNhatGoiY_MaKhachHang(txtMaKH_KH);
+
+
         }
         #region Hiển thị
 
@@ -114,6 +117,7 @@ namespace QuanLyThietBiDienGiaDung
 
             bdKhachHang.ResetBindings(false);
         }
+
         #endregion
 
         #region Sắp xếp kho hàng
@@ -251,6 +255,18 @@ namespace QuanLyThietBiDienGiaDung
         #endregion
         #endregion
 
+        private void capNhatGoiYFull()
+        {
+            capNhatGoiY_TxtGiaMaSP();
+            capNhatLuaChonLoaiHangCbo();
+            capNhatGoiY_TxtTenSP(txtTimMaSP);
+            capNhatGoiY_TxtTenSP(txtTenSP_TTN);
+            capNhatGoiY_TxtTenSP(txtTenSP_BH);
+
+            capNhatGoiY_MaKhachHang(txtMaKH_KH);
+            capNhatGoiY_TenKhachHang(txtTenKH_KH);
+        }
+
         private void thêmSảnPhẩmMớiToolStripMenuItem_Click(object sender, EventArgs e)
         {
            
@@ -337,20 +353,6 @@ namespace QuanLyThietBiDienGiaDung
                 }
             }
 
-        }
-
-        private void CapNhatGoiY_TxtTimTenSP()
-        {
-            txtTimMaSP.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txtTimMaSP.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
-
-            foreach (SanPham n in quanLySP.getDSSanPham())
-            {
-                col.Add(n.TenSP);
-            }
-
-            txtTimMaSP.AutoCompleteCustomSource = col;
         }
 
         
@@ -816,14 +818,7 @@ namespace QuanLyThietBiDienGiaDung
             txt.AutoCompleteCustomSource = col;
         }
 
-        private void capNhatGoiYFull()
-        {
-            CapNhatGoiY_TxtTimTenSP();
-            capNhatGoiY_TxtGiaMaSP();
-            capNhatLuaChonLoaiHangCbo();
-            capNhatGoiY_TxtTenSP(txtTenSP_TTN);
-            capNhatGoiY_TxtTenSP(txtTenSP_BH);
-        }
+        
 
         #region Bán hàng
 
@@ -1130,6 +1125,7 @@ namespace QuanLyThietBiDienGiaDung
 
                         CapNhatGoiY_TxtMaKHBanHang();
                         CapNhatGoiY_txtSDTKhachHang();
+                        hienThiKhachHang(quanLyKhachHang.getDSKhachHang());
                         capNhatGoiYFull();
                         clearBanHang();
                     }
@@ -1207,6 +1203,7 @@ namespace QuanLyThietBiDienGiaDung
         }
         private void txtSDT_BH_TextChanged(object sender, EventArgs e)
         {
+            
             foreach (KhachHang kh in quanLyKhachHang.getDSKhachHang())
             {
                 if (kh.SdtKhachHang == txtSDT_BH.Text)
@@ -1217,7 +1214,6 @@ namespace QuanLyThietBiDienGiaDung
                 }
                 else
                 {
-                    txtMaKH_BH.Text = "";
                     txtTenKH_BH.Text = "";
                     txtDiaChi_BH.Text = "";
                 }
@@ -1304,8 +1300,126 @@ namespace QuanLyThietBiDienGiaDung
 
         #region Khách hàng
 
+        #region Mã khách hàng
+        private void capNhatGoiY_MaKhachHang(System.Windows.Forms.TextBox txt)
+        {
+            txt.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+
+            foreach (KhachHang kh in quanLyKhachHang.getDSKhachHang())
+            {
+                col.Add(kh.MaKhachHang);
+            }
+
+            txt.AutoCompleteCustomSource = col;
+        }
+        private void txtMaKH_KH_TextChanged(object sender, EventArgs e)
+        {
+            List<KhachHang> timKiemKhachHang = timKiemMaKhachHang();
+
+            hienThiKhachHang(timKiemKhachHang);
+        }
+        private List<KhachHang> timKiemMaKhachHang()
+        {
+            List<KhachHang> loc = new List<KhachHang>();
+            if (txtMaKH_KH.Text == "")
+            {
+                loc = quanLyKhachHang.getDSKhachHang();
+            }
+            else
+            {
+                loc = locKhachHang(quanLyKhachHang.getDSKhachHang(), txtMaKH_KH.Text, "", "");
+            }
+            loc = locKhachHang(loc, "", txtTenKH_KH.Text, "");
+
+            return loc;
+        }
+
+        #endregion
+
+        #region Tên khách hàng
+        private void capNhatGoiY_TenKhachHang(System.Windows.Forms.TextBox txt)
+        {
+            txt.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+
+            foreach (KhachHang kh in quanLyKhachHang.getDSKhachHang())
+            {
+                col.Add(kh.TenKhachHang);
+            }
+
+            txt.AutoCompleteCustomSource = col;
+        }
+        private void txtTenKH_KH_TextChanged(object sender, EventArgs e)
+        {
+            List<KhachHang> timKiemKhachHang = timKiemTenKhachHang();
+
+            hienThiKhachHang(timKiemKhachHang);
+        }
+        private List<KhachHang> timKiemTenKhachHang()
+        {
+            List<KhachHang> loc = new List<KhachHang>();
+            if (txtTenKH_KH.Text == "")
+            {
+                loc = quanLyKhachHang.getDSKhachHang();
+            }
+            else
+            {
+                loc = locKhachHang(quanLyKhachHang.getDSKhachHang(), "", txtTenKH_KH.Text, "");
+            }
+            loc = locKhachHang(loc, txtMaKH_KH.Text, "", "");
+
+            return loc;
+        }
+        #endregion
+
+
+        private List<KhachHang> locKhachHang(List<KhachHang> dsKH,string maKhachHang, string tenKhachHang, string sdtKhachHang)
+        {
+            List<KhachHang> temp = dsKH;
+
+            if (!string.IsNullOrEmpty(maKhachHang))
+            {
+                string pattern = Regex.Escape(maKhachHang).Replace("%", ".*");
+
+                var filteredItems = temp
+                    .Where(item => Regex.IsMatch(item.MaKhachHang, pattern, RegexOptions.IgnoreCase))
+                    .ToList();
+
+                return filteredItems;
+            }
+            else if (!string.IsNullOrEmpty(tenKhachHang))
+            {
+                string pattern = Regex.Escape(tenKhachHang).Replace("%", ".*");
+
+                var filteredItems = temp
+                    .Where(item => Regex.IsMatch(item.TenKhachHang, pattern, RegexOptions.IgnoreCase))
+                    .ToList();
+
+                return filteredItems;
+            }
+            else if (!string.IsNullOrEmpty(sdtKhachHang))
+            {
+                string pattern = Regex.Escape(sdtKhachHang).Replace("%", ".*");
+
+                var filteredItems = temp
+                    .Where(item => Regex.IsMatch(item.SdtKhachHang, pattern, RegexOptions.IgnoreCase))
+                    .ToList();
+
+                return filteredItems;
+            }
+
+            // Hiển thị toàn bộ danh sách nếu không tìm kiếm
+            return temp;
+
+        }
+
 
 
         #endregion
+
+        
     }
 }
