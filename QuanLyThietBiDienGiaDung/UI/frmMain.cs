@@ -1211,6 +1211,7 @@ namespace QuanLyThietBiDienGiaDung
                     txtMaKH_BH.Text = kh.MaKhachHang;
                     txtTenKH_BH.Text = kh.TenKhachHang;
                     txtDiaChi_BH.Text = kh.DiaChiKhachHang;
+                    break;
                 }
                 else
                 {
@@ -1329,9 +1330,10 @@ namespace QuanLyThietBiDienGiaDung
             }
             else
             {
-                loc = locKhachHang(quanLyKhachHang.getDSKhachHang(), txtMaKH_KH.Text, "", "");
+                loc = locKhachHang(quanLyKhachHang.getDSKhachHang(), txtMaKH_KH.Text, "", ""); // Lọc qua mã khách hàng
             }
-            loc = locKhachHang(loc, "", txtTenKH_KH.Text, "");
+            loc = locKhachHang(loc, "", txtTenKH_KH.Text, ""); // Lọc qua tên khách hàng
+            loc = locKhachHang(loc, "", "", txtSDT_KH.Text); // Lọc qua sđt khách hàng
 
             return loc;
         }
@@ -1367,14 +1369,55 @@ namespace QuanLyThietBiDienGiaDung
             }
             else
             {
-                loc = locKhachHang(quanLyKhachHang.getDSKhachHang(), "", txtTenKH_KH.Text, "");
+                loc = locKhachHang(quanLyKhachHang.getDSKhachHang(), "", txtTenKH_KH.Text, ""); // Lọc qua tên khách hàng
             }
-            loc = locKhachHang(loc, txtMaKH_KH.Text, "", "");
+            loc = locKhachHang(loc, txtMaKH_KH.Text, "", ""); // Lọc qua mã khách hàng
+            loc = locKhachHang(loc, "", "", txtSDT_KH.Text); // Lọc qua sđt khách hàng
 
             return loc;
         }
         #endregion
 
+        #region Số điện thoại khách hàng
+
+        private void capNhatGoiY_SDTKhachHang(System.Windows.Forms.TextBox txt)
+        {
+            txt.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+
+            foreach (KhachHang kh in quanLyKhachHang.getDSKhachHang())
+            {
+                col.Add(kh.SdtKhachHang);
+            }
+
+            txt.AutoCompleteCustomSource = col;
+        }
+        private void txtSDT_KH_TextChanged(object sender, EventArgs e)
+        {
+            List<KhachHang> timKiemKhachHang = timKiemSDTKhachHang();
+
+            hienThiKhachHang(timKiemKhachHang);
+        }
+        private List<KhachHang> timKiemSDTKhachHang()
+        {
+            List<KhachHang> loc = new List<KhachHang>();
+            if (txtTenKH_KH.Text == "")
+            {
+                loc = quanLyKhachHang.getDSKhachHang();
+            }
+            else
+            {
+                loc = locKhachHang(quanLyKhachHang.getDSKhachHang(), "", "", txtSDT_KH.Text); // Lọc qua sđt khách hàng
+            }
+            
+            loc = locKhachHang(loc, txtMaKH_KH.Text, "", ""); // Lọc qua mã khách hàng
+            loc = locKhachHang(loc, "", txtTenKH_KH.Text, ""); // Lọc qua tên khách hàng
+
+            return loc;
+        }
+
+        #endregion
 
         private List<KhachHang> locKhachHang(List<KhachHang> dsKH,string maKhachHang, string tenKhachHang, string sdtKhachHang)
         {
@@ -1418,8 +1461,13 @@ namespace QuanLyThietBiDienGiaDung
 
 
 
+
+
         #endregion
 
-        
+        private void btnSuaKH_KH_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
