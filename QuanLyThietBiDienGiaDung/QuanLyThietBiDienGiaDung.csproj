@@ -69,6 +69,12 @@
     <Compile Include="UI\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmSuaKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmSuaKhachHang.Designer.cs">
+      <DependentUpon>frmSuaKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Nhap hang\frmNhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,12 +111,6 @@
     <Compile Include="UI\frmSuaSanPham.Designer.cs">
       <DependentUpon>frmSuaSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmSuaTTKH.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\frmSuaTTKH.Designer.cs">
-      <DependentUpon>frmSuaTTKH.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Loai hang\frmThemLoaiHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +140,9 @@
     <EmbeddedResource Include="UI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmSuaKhachHang.resx">
+      <DependentUpon>frmSuaKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Nhap hang\frmNhapHang.resx">
       <DependentUpon>frmNhapHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,9 +160,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmSuaSanPham.resx">
       <DependentUpon>frmSuaSanPham.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmSuaTTKH.resx">
-      <DependentUpon>frmSuaTTKH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Loai hang\frmThemLoaiHang.resx">
       <DependentUpon>frmThemLoaiHang.cs</DependentUpon>

@@ -39,7 +39,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groCapNhatGia = new System.Windows.Forms.GroupBox();
@@ -56,12 +55,8 @@
             this.btnReset_KhoHang = new System.Windows.Forms.Button();
             this.txtTimMaSP = new System.Windows.Forms.TextBox();
             this.lblLoaiHang = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cboLoaiHang = new System.Windows.Forms.ComboBox();
             this.cboTimGiaSP = new System.Windows.Forms.ComboBox();
-            this.btnXoaSP = new System.Windows.Forms.Button();
-            this.btnSuaSP = new System.Windows.Forms.Button();
-            this.btnNhapHang = new System.Windows.Forms.Button();
             this.dgvHang = new System.Windows.Forms.DataGridView();
             this.colMaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,8 +75,6 @@
             this.txtMaBanHang = new System.Windows.Forms.TextBox();
             this.lblMaBanHang = new System.Windows.Forms.Label();
             this.lblTitleBanHang = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnTru_BH = new System.Windows.Forms.Button();
             this.nmdSoLuong = new System.Windows.Forms.NumericUpDown();
@@ -110,9 +103,7 @@
             this.lblSDT_BH = new System.Windows.Forms.Label();
             this.txtTenKH_BH = new System.Windows.Forms.TextBox();
             this.lblTenKH_BH = new System.Windows.Forms.Label();
-            this.btnThanhToan_BH = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblTitleKH = new System.Windows.Forms.Label();
             this.btnSuaKH_KH = new System.Windows.Forms.Button();
             this.dgvKhachHang = new System.Windows.Forms.DataGridView();
@@ -143,31 +134,35 @@
             this.loạiHàngToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nhậpHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tbtnThongTinNhanh = new CustomControls.RJControls.RJToggleButton();
+            this.rjToggleButton1 = new CustomControls.RJControls.RJToggleButton();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnXoaSP = new System.Windows.Forms.Button();
+            this.btnSuaSP = new System.Windows.Forms.Button();
+            this.btnNhapHang = new System.Windows.Forms.Button();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.btnThanhToan_BH = new System.Windows.Forms.Button();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.tbtnThongTinNhanh = new CustomControls.RJControls.RJToggleButton();
-            this.rjToggleButton1 = new CustomControls.RJControls.RJToggleButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.groCapNhatGia.SuspendLayout();
             this.groTimKiem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHang)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmdSoLuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSPChon_BH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChonMuaSP_BH)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groThongTinNhanh.SuspendLayout();
@@ -175,6 +170,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongTinNhanh)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -217,16 +217,6 @@
             this.label3.Size = new System.Drawing.Size(64, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Số lượng ít";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.truck256;
-            this.pictureBox2.Location = new System.Drawing.Point(6, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(81, 63);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
             // 
             // label1
             // 
@@ -417,16 +407,6 @@
             this.lblLoaiHang.TabIndex = 22;
             this.lblLoaiHang.Text = "Loại hàng";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.goods;
-            this.pictureBox1.Location = new System.Drawing.Point(254, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(73, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
-            // 
             // cboLoaiHang
             // 
             this.cboLoaiHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -460,50 +440,6 @@
             this.cboTimGiaSP.Size = new System.Drawing.Size(122, 24);
             this.cboTimGiaSP.TabIndex = 1;
             this.cboTimGiaSP.SelectedIndexChanged += new System.EventHandler(this.cboTimGiaSP_SelectedIndexChanged);
-            // 
-            // btnXoaSP
-            // 
-            this.btnXoaSP.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaSP.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.recycle_bin;
-            this.btnXoaSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoaSP.Location = new System.Drawing.Point(633, 118);
-            this.btnXoaSP.Name = "btnXoaSP";
-            this.btnXoaSP.Size = new System.Drawing.Size(129, 41);
-            this.btnXoaSP.TabIndex = 2;
-            this.btnXoaSP.Text = "Xóa sản phẩm";
-            this.btnXoaSP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnXoaSP.UseVisualStyleBackColor = true;
-            this.btnXoaSP.Click += new System.EventHandler(this.btnXoaSP_Click);
-            this.btnXoaSP.MouseEnter += new System.EventHandler(this.btnXoaSP_MouseEnter);
-            this.btnXoaSP.MouseLeave += new System.EventHandler(this.btnXoaSP_MouseLeave);
-            // 
-            // btnSuaSP
-            // 
-            this.btnSuaSP.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuaSP.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.settings;
-            this.btnSuaSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSuaSP.Location = new System.Drawing.Point(498, 118);
-            this.btnSuaSP.Name = "btnSuaSP";
-            this.btnSuaSP.Size = new System.Drawing.Size(129, 41);
-            this.btnSuaSP.TabIndex = 3;
-            this.btnSuaSP.Text = "Sửa sản phẩm";
-            this.btnSuaSP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSuaSP.UseVisualStyleBackColor = true;
-            this.btnSuaSP.Click += new System.EventHandler(this.btnSuaSP_Click);
-            // 
-            // btnNhapHang
-            // 
-            this.btnNhapHang.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapHang.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.package_receipt32px;
-            this.btnNhapHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhapHang.Location = new System.Drawing.Point(384, 118);
-            this.btnNhapHang.Name = "btnNhapHang";
-            this.btnNhapHang.Size = new System.Drawing.Size(108, 41);
-            this.btnNhapHang.TabIndex = 4;
-            this.btnNhapHang.Text = "Nhập hàng";
-            this.btnNhapHang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNhapHang.UseVisualStyleBackColor = true;
-            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
             // 
             // dgvHang
             // 
@@ -702,26 +638,6 @@
             this.lblTitleBanHang.Size = new System.Drawing.Size(198, 46);
             this.lblTitleBanHang.TabIndex = 28;
             this.lblTitleBanHang.Text = "Bán hàng";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.handshake;
-            this.pictureBox8.Location = new System.Drawing.Point(367, 203);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(63, 66);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 27;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.receive;
-            this.pictureBox7.Location = new System.Drawing.Point(127, 388);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(153, 141);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 26;
-            this.pictureBox7.TabStop = false;
             // 
             // groupBox3
             // 
@@ -1045,19 +961,6 @@
             this.lblTenKH_BH.TabIndex = 0;
             this.lblTenKH_BH.Text = "Tên khách hàng";
             // 
-            // btnThanhToan_BH
-            // 
-            this.btnThanhToan_BH.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.cash24px;
-            this.btnThanhToan_BH.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnThanhToan_BH.Location = new System.Drawing.Point(701, 569);
-            this.btnThanhToan_BH.Name = "btnThanhToan_BH";
-            this.btnThanhToan_BH.Size = new System.Drawing.Size(97, 35);
-            this.btnThanhToan_BH.TabIndex = 35;
-            this.btnThanhToan_BH.Text = "Thanh toán";
-            this.btnThanhToan_BH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThanhToan_BH.UseVisualStyleBackColor = true;
-            this.btnThanhToan_BH.Click += new System.EventHandler(this.btnThanhToan_BH_Click);
-            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -1072,16 +975,6 @@
             this.tabPage3.Size = new System.Drawing.Size(829, 620);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Khách hàng";
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.buyer64px;
-            this.pictureBox9.Location = new System.Drawing.Point(587, 6);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox9.TabIndex = 12;
-            this.pictureBox9.TabStop = false;
             // 
             // lblTitleKH
             // 
@@ -1131,6 +1024,7 @@
             this.dgvKhachHang.RowHeadersVisible = false;
             this.dgvKhachHang.Size = new System.Drawing.Size(385, 351);
             this.dgvKhachHang.TabIndex = 9;
+            this.dgvKhachHang.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_RowEnter);
             // 
             // Column13
             // 
@@ -1393,46 +1287,6 @@
             this.xuấtHàngToolStripMenuItem.Text = "Xuất hàng";
             this.xuấtHàngToolStripMenuItem.Click += new System.EventHandler(this.xuấtHàngToolStripMenuItem_Click);
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.line_v2;
-            this.pictureBox6.Location = new System.Drawing.Point(904, 543);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(47, 23);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 5;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(855, 254);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(231, 254);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.line_v2;
-            this.pictureBox4.Location = new System.Drawing.Point(890, 490);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(141, 37);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.line_v2;
-            this.pictureBox5.Location = new System.Drawing.Point(928, 513);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(92, 46);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 4;
-            this.pictureBox5.TabStop = false;
-            // 
             // tbtnThongTinNhanh
             // 
             this.tbtnThongTinNhanh.AutoSize = true;
@@ -1464,6 +1318,153 @@
             this.rjToggleButton1.TabIndex = 9;
             this.rjToggleButton1.UseVisualStyleBackColor = true;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.line_v2;
+            this.pictureBox6.Location = new System.Drawing.Point(904, 543);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(47, 23);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 5;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.truck256;
+            this.pictureBox2.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(81, 63);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.goods;
+            this.pictureBox1.Location = new System.Drawing.Point(254, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(73, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnXoaSP
+            // 
+            this.btnXoaSP.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaSP.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.recycle_bin;
+            this.btnXoaSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoaSP.Location = new System.Drawing.Point(633, 118);
+            this.btnXoaSP.Name = "btnXoaSP";
+            this.btnXoaSP.Size = new System.Drawing.Size(129, 41);
+            this.btnXoaSP.TabIndex = 2;
+            this.btnXoaSP.Text = "Xóa sản phẩm";
+            this.btnXoaSP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoaSP.UseVisualStyleBackColor = true;
+            this.btnXoaSP.Click += new System.EventHandler(this.btnXoaSP_Click);
+            this.btnXoaSP.MouseEnter += new System.EventHandler(this.btnXoaSP_MouseEnter);
+            this.btnXoaSP.MouseLeave += new System.EventHandler(this.btnXoaSP_MouseLeave);
+            // 
+            // btnSuaSP
+            // 
+            this.btnSuaSP.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuaSP.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.settings;
+            this.btnSuaSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSuaSP.Location = new System.Drawing.Point(498, 118);
+            this.btnSuaSP.Name = "btnSuaSP";
+            this.btnSuaSP.Size = new System.Drawing.Size(129, 41);
+            this.btnSuaSP.TabIndex = 3;
+            this.btnSuaSP.Text = "Sửa sản phẩm";
+            this.btnSuaSP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSuaSP.UseVisualStyleBackColor = true;
+            this.btnSuaSP.Click += new System.EventHandler(this.btnSuaSP_Click);
+            // 
+            // btnNhapHang
+            // 
+            this.btnNhapHang.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapHang.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.package_receipt32px;
+            this.btnNhapHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNhapHang.Location = new System.Drawing.Point(384, 118);
+            this.btnNhapHang.Name = "btnNhapHang";
+            this.btnNhapHang.Size = new System.Drawing.Size(108, 41);
+            this.btnNhapHang.TabIndex = 4;
+            this.btnNhapHang.Text = "Nhập hàng";
+            this.btnNhapHang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNhapHang.UseVisualStyleBackColor = true;
+            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.handshake;
+            this.pictureBox8.Location = new System.Drawing.Point(367, 203);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(63, 66);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 27;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.receive;
+            this.pictureBox7.Location = new System.Drawing.Point(127, 388);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(153, 141);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 26;
+            this.pictureBox7.TabStop = false;
+            // 
+            // btnThanhToan_BH
+            // 
+            this.btnThanhToan_BH.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.cash24px;
+            this.btnThanhToan_BH.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThanhToan_BH.Location = new System.Drawing.Point(701, 569);
+            this.btnThanhToan_BH.Name = "btnThanhToan_BH";
+            this.btnThanhToan_BH.Size = new System.Drawing.Size(97, 35);
+            this.btnThanhToan_BH.TabIndex = 35;
+            this.btnThanhToan_BH.Text = "Thanh toán";
+            this.btnThanhToan_BH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThanhToan_BH.UseVisualStyleBackColor = true;
+            this.btnThanhToan_BH.Click += new System.EventHandler(this.btnThanhToan_BH_Click);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.buyer64px;
+            this.pictureBox9.Location = new System.Drawing.Point(587, 6);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox9.TabIndex = 12;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(855, 254);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(231, 254);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.line_v2;
+            this.pictureBox4.Location = new System.Drawing.Point(890, 490);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(141, 37);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::QuanLyThietBiDienGiaDung.Properties.Resources.line_v2;
+            this.pictureBox5.Location = new System.Drawing.Point(928, 513);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(92, 46);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 4;
+            this.pictureBox5.TabStop = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1490,19 +1491,15 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groCapNhatGia.ResumeLayout(false);
             this.groCapNhatGia.PerformLayout();
             this.groTimKiem.ResumeLayout(false);
             this.groTimKiem.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHang)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmdSoLuong)).EndInit();
@@ -1512,7 +1509,6 @@
             this.groupBox2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -1523,6 +1519,11 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();

@@ -1,4 +1,5 @@
 ﻿using QuanLyThietBiDienGiaDung.Script;
+using QuanLyThietBiDienGiaDung.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -257,14 +258,24 @@ namespace QuanLyThietBiDienGiaDung
 
         private void capNhatGoiYFull()
         {
+            // Kho hàng (Tab kho hàng)
             capNhatGoiY_TxtGiaMaSP();
             capNhatLuaChonLoaiHangCbo();
             capNhatGoiY_TxtTenSP(txtTimMaSP);
-            capNhatGoiY_TxtTenSP(txtTenSP_TTN);
+            
+            // Bán hàng (Tab bán hàng)
             capNhatGoiY_TxtTenSP(txtTenSP_BH);
+            CapNhatGoiY_txtSDTKhachHang();
+            CapNhatGoiY_TxtMaKHBanHang();
 
-            capNhatGoiY_MaKhachHang(txtMaKH_KH);
+            // Thông tin nhanh
+            capNhatGoiY_TxtTenSP(txtTenSP_TTN);
+
+
+            // Khách hàng (Tab khách hàng)
+            capNhatGoiY_MaKhachHang(txtMaKH_KH); 
             capNhatGoiY_TenKhachHang(txtTenKH_KH);
+            capNhatGoiY_SDTKhachHang(txtSDT_KH);
         }
 
         private void thêmSảnPhẩmMớiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -467,13 +478,6 @@ namespace QuanLyThietBiDienGiaDung
         {
             frmQuanLyXuatHang QLXH = new frmQuanLyXuatHang();
             QLXH.Show();
-        }
-
-        private void btnReset_KH_Click(object sender, EventArgs e)
-        {
-            txtTenKH_KH.Text = "";
-            txtMaKH_KH.Text = "";
-            txtSDT_KH.Text = "";
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -1180,7 +1184,7 @@ namespace QuanLyThietBiDienGiaDung
 
             foreach (KhachHang n in quanLyKhachHang.getDSKhachHang())
             {
-                col.Add(n.MaKhachHang);
+                col.Add(n.SdtKhachHang);
             }
 
             txtSDT_BH.AutoCompleteCustomSource = col;
@@ -1300,6 +1304,7 @@ namespace QuanLyThietBiDienGiaDung
 
 
         #region Khách hàng
+        private string makhachhang = "";
 
         #region Mã khách hàng
         private void capNhatGoiY_MaKhachHang(System.Windows.Forms.TextBox txt)
@@ -1402,7 +1407,7 @@ namespace QuanLyThietBiDienGiaDung
         private List<KhachHang> timKiemSDTKhachHang()
         {
             List<KhachHang> loc = new List<KhachHang>();
-            if (txtTenKH_KH.Text == "")
+            if (txtSDT_KH.Text == "")
             {
                 loc = quanLyKhachHang.getDSKhachHang();
             }
@@ -1459,15 +1464,31 @@ namespace QuanLyThietBiDienGiaDung
 
         }
 
+        private void dgvKhachHang_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            var makhachhangCell = dgvKhachHang.Rows[e.RowIndex].Cells[0].Value.ToString();
 
+            makhachhang = (makhachhangCell != null) ? makhachhangCell : "";
+        }
 
+        private void btnSuaKH_KH_Click(object sender, EventArgs e)
+        {
+            frmSuaKhachHang suaKhachHang = new frmSuaKhachHang(makhachhang);
+            suaKhachHang.ShowDialog();
+
+            capNhatGoiYFull();
+            hienThiKhachHang(quanLyKhachHang.getDSKhachHang());
+
+        }
+        private void btnReset_KH_Click(object sender, EventArgs e)
+        {
+            txtTenKH_KH.Text = "";
+            txtMaKH_KH.Text = "";
+            txtSDT_KH.Text = "";
+        }
 
 
         #endregion
 
-        private void btnSuaKH_KH_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
