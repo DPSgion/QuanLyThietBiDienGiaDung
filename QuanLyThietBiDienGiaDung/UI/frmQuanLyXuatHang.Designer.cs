@@ -51,6 +51,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnReset = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSPXuatHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,6 +81,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnReset);
             this.groupBox1.Controls.Add(this.txtSDTNguoiMua);
             this.groupBox1.Controls.Add(this.lblSDTNguoiMua);
             this.groupBox1.Controls.Add(this.txtTenNguoiMua);
@@ -101,6 +103,7 @@
             this.txtSDTNguoiMua.Name = "txtSDTNguoiMua";
             this.txtSDTNguoiMua.Size = new System.Drawing.Size(174, 20);
             this.txtSDTNguoiMua.TabIndex = 9;
+            this.txtSDTNguoiMua.TextChanged += new System.EventHandler(this.txtSDTNguoiMua_TextChanged);
             // 
             // lblSDTNguoiMua
             // 
@@ -117,6 +120,7 @@
             this.txtTenNguoiMua.Name = "txtTenNguoiMua";
             this.txtTenNguoiMua.Size = new System.Drawing.Size(174, 20);
             this.txtTenNguoiMua.TabIndex = 7;
+            this.txtTenNguoiMua.TextChanged += new System.EventHandler(this.txtTenNguoiMua_TextChanged);
             // 
             // lblNguoiMua
             // 
@@ -133,6 +137,7 @@
             this.txtMaXuatHang.Name = "txtMaXuatHang";
             this.txtMaXuatHang.Size = new System.Drawing.Size(174, 20);
             this.txtMaXuatHang.TabIndex = 5;
+            this.txtMaXuatHang.TextChanged += new System.EventHandler(this.txtMaXuatHang_TextChanged);
             // 
             // lblMaNhapHang
             // 
@@ -281,6 +286,16 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(334, 96);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(72, 29);
+            this.btnReset.TabIndex = 19;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // frmQuanLyXuatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,5 +348,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.Button btnReset;
     }
 }

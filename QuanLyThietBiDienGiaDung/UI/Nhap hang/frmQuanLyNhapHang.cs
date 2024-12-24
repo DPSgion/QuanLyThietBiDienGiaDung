@@ -136,6 +136,7 @@ namespace QuanLyThietBiDienGiaDung
             return temp;
         }
 
+
         private void dgvNhapHang_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             var maNhapHangCell = dgvNhapHang.Rows[e.RowIndex].Cells[0].Value;
