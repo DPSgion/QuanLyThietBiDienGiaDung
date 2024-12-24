@@ -16,8 +16,10 @@ namespace QuanLyThietBiDienGiaDung.Script
         private double _tongTien;
 
         public string MaBanHang { get => _maBanHang; set => _maBanHang = value; }
-        public DateTime NgayBanHang { get => _ngayBanHang; set => _ngayBanHang = value; }
+        public DateTime NgayBanHang { get => _ngayBanHang.Date; set => _ngayBanHang = value; }
         public KhachHang KhachMua { get => _khachMua; set => _khachMua = value; }
+        public string NguoiMua { get => _khachMua.TenKhachHang; }
+        public string SDT { get => _khachMua.SdtKhachHang; }
         public List<SanPham> SanPhamBan { get => _sanPhamBan; set => _sanPhamBan = value; }
         public double TongTien { get => _tongTien; set => _tongTien = value; }
 

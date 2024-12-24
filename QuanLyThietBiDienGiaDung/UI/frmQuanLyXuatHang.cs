@@ -37,7 +37,7 @@ namespace QuanLyThietBiDienGiaDung
         private void hienThi(List<BanHang> dsBH)
         {
             bdBanHang.DataSource = dsBH;
-            dgvXuatHang.DataSource = bdBanHang;
+            dgvBanHang.DataSource = bdBanHang;
             bdBanHang.ResetBindings(false);
         }
     }
