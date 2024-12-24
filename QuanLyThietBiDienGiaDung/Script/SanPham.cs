@@ -29,6 +29,13 @@ namespace QuanLyThietBiDienGiaDung.Script
         public double GiaNhap { get => _giaNhap; set => _giaNhap = value; }
         public double GiaBan { get => _giaBan; set => _giaBan = value; }
 
+
+        public double TongTienSP
+        {
+            get => (SoLuong * GiaBan);
+        }
+
+
         // Constructor
         public SanPham()
         {

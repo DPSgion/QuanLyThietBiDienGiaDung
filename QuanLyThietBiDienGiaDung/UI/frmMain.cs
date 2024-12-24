@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -1118,9 +1119,19 @@ namespace QuanLyThietBiDienGiaDung
 
                         quanLyKhachHang.themKhachHang(khachMua);
 
-                        double tien = Convert.ToDouble(txtThanhTien_BH.Text);
+                        BanHang donHang = new BanHang();
+                        donHang.MaBanHang = txtMaBanHang.Text;
+                        donHang.NgayBanHang = dtpNgayBanHang.Value;
+                        donHang.KhachMua = khachMua;
 
-                        BanHang donHang = new BanHang(txtMaBanHang.Text, dtpNgayBanHang.Value, khachMua, spDaChon_BanHang, tien);
+                        List<SanPham> temp = new List<SanPham>();
+                        foreach (SanPham y in spDaChon_BanHang)
+                        {
+                            temp.Add(y);
+                        }
+
+                        donHang.SanPhamBan = temp;
+                        donHang.TongTien = Convert.ToDouble(txtThanhTien_BH.Text);
 
                         quanLyBanHang.themBanHang(donHang);
 
@@ -1139,12 +1150,14 @@ namespace QuanLyThietBiDienGiaDung
 
                 }
             }
+            
             else
             {
                 MessageBox.Show("Lỗi\nKiểm tra lại Mã bán hàng, Thông tin khách hàng, Sản phẩm khách mua", 
                     "Chưa đủ dữ liệu",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            
         }
 
         private void capNhatKhoHangSauKhiThanhToan()
