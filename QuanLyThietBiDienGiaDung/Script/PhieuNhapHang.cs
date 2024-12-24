@@ -19,7 +19,7 @@ namespace QuanLyThietBiDienGiaDung.Script
         public string MaNhapHang { get => _maNhapHang; set => _maNhapHang = value; }
         public DateTime NgayNhapHang { get => _ngayNhapHang; set => _ngayNhapHang = value; }
         public double TongTienNhapHang { get => _tongTienNhapHang; set => _tongTienNhapHang = value; }
-        internal List<SanPham> DsSanPham { get => _dsSanPham; set => _dsSanPham = value; }
+        public List<SanPham> DsSanPham { get => _dsSanPham; set => _dsSanPham = value; }
     
         // Constructor
         public PhieuNhapHang()

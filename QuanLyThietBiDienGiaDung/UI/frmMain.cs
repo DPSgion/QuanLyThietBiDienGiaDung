@@ -1118,7 +1118,9 @@ namespace QuanLyThietBiDienGiaDung
 
                         quanLyKhachHang.themKhachHang(khachMua);
 
-                        BanHang donHang = new BanHang(txtMaBanHang.Text, dtpNgayBanHang.Value, khachMua, spDaChon_BanHang);
+                        double tien = Convert.ToDouble(txtThanhTien_BH.Text);
+
+                        BanHang donHang = new BanHang(txtMaBanHang.Text, dtpNgayBanHang.Value, khachMua, spDaChon_BanHang, tien);
 
                         quanLyBanHang.themBanHang(donHang);
 
@@ -1274,34 +1276,6 @@ namespace QuanLyThietBiDienGiaDung
         }
         
         #endregion
-
-
-        private double layGiaBanQuaMaSP(string maSP)
-        {
-            double giaban = 0;
-            foreach (SanPham x in quanLySP.getDSSanPham())
-            {
-                if (x.MaSP == maSP)
-                {
-                    giaban = x.GiaBan;
-                    break;
-                }
-            }
-            return giaban;
-        }
-        private SanPham timSPquaTenSP(string tenSP, List<SanPham> ds)
-        {
-            foreach (SanPham sp in ds)
-            {
-                if (sp.TenSP == tenSP)
-                {
-                    return sp;
-                }
-            }
-            return null;
-        }
-
-
 
         #region Khách hàng
         private string makhachhang = "";
@@ -1489,6 +1463,33 @@ namespace QuanLyThietBiDienGiaDung
 
 
         #endregion
+
+
+        private double layGiaBanQuaMaSP(string maSP)
+        {
+            double giaban = 0;
+            foreach (SanPham x in quanLySP.getDSSanPham())
+            {
+                if (x.MaSP == maSP)
+                {
+                    giaban = x.GiaBan;
+                    break;
+                }
+            }
+            return giaban;
+        }
+        private SanPham timSPquaTenSP(string tenSP, List<SanPham> ds)
+        {
+            foreach (SanPham sp in ds)
+            {
+                if (sp.TenSP == tenSP)
+                {
+                    return sp;
+                }
+            }
+            return null;
+        }
+
 
     }
 }
